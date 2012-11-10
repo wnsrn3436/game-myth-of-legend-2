@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="obj_map_set_width" type="RESOURCE"/>
+  <resource name="obj_map_set_height" type="RESOURCE"/>
+  <resource name="obj_map_ok" type="RESOURCE"/>
+</resources>

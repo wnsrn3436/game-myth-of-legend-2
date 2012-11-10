@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sex_draw_text" type="RESOURCE"/>
+  <resource name="sex_set_font" type="RESOURCE"/>
+</resources>

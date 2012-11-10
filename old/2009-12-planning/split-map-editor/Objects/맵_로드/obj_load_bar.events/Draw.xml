@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if load_number_progress&gt;=0
+{
+draw_set_color(c_orange)
+sk_draw_gauge_bar(x-50, y-15, 100, 3, y+15, load_number_progress, load_max_number)
+draw_set_color(c_black)
+}
+//게이지바
+
+draw_set_color(c_red)
+sk_draw_gauge_bar2(x-50, y-15, 100, 3, y+15, load_max_number)
+draw_set_color(c_black)
+//게이지바 테두리
+
+sk_draw_midd_text(x, y-7, '로드중...', c_black)
+//로드중 글 드로우
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

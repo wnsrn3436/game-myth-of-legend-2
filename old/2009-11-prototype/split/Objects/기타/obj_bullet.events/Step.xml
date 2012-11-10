@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if instance_number(iiid)&gt;0
+{
+if place_meeting(x, y,iiid) and speed!=0
+{
+iiid.hp-=Attack_point; iiid.exp_un=iid
+//체 달게하고 킬 전송시키고
+if Attack_p!=0{for(i=0; i!=Attack_spt+1; i+=1){if iiid.c_hoo=Attack_p[i]{iiid.hp-=Attack_e[i]; i=Attack_spt}}}
+//+데미지
+
+if Att_spl_team=0{with(obj_unit){if distance_to_object(other)&lt;other.Att_spl_light and other.iid!=id{hp-=other.Att_spl_apoint}}}
+if Att_spl_team=1{with(obj_unit){if distance_to_object(other)&lt;other.Att_spl_light and other.iid!=id and team!=other.team{hp-=other.Att_spl_apoint}}}
+if Att_spl_team=2{with(obj_unit){if distance_to_object(other)&lt;other.Att_spl_light and other.iid!=id and team=other.team{hp-=other.Att_spl_apoint}}}
+//스플레쉬
+with(obj_unit){if team!=other.team and distance_to_object(other)&lt;80 and Attack_choose=1{Attack_waits=1; _inst=other.iid; Attack_choose=2}}
+//범위내 적에게 알려줌
+sprite_index=bullet_sprite2
+image_alpha=bullet_image_alpha2
+speed=0
+//마지막 스프라이트로 변경
+}
+}
+
+if speed=0 and image_index=image_number-1{instance_destroy()}
+// 마지막 스프라이트가 끝나면 죽음
+
+if point_distance(x,y,xx,yy)&lt;5{instance_destroy()}
+//그 위치가면 죽어도싸.
+
+if speed!=0
+{obj_place = instance_place(x, y,obj_unit)
+if obj_place != noone
+{
+if instance_number(obj_place)&gt;0
+{
+if bullet_go_attpt=0{obj_place.hp-=bullet_go_attp}
+if bullet_go_attpt=1{if team!=obj_place.team{obj_place.hp-=bullet_go_attp}}
+if bullet_go_attpt=2{if team=obj_place.team and iid!=obj_place.id{obj_place.hp-=bullet_go_attp}}
+}}}
+//가는중 유닛때리기</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_ome_start" type="RESOURCE"/>
+  <resource name="sk_me_obj_save" type="RESOURCE"/>
+  <resource name="sk_me_obj_read" type="RESOURCE"/>
+  <resource name="sk_get_ome_send" type="RESOURCE"/>
+  <resource name="sk_get_ome_read" type="RESOURCE"/>
+  <resource name="sk_get_ome_name" type="RESOURCE"/>
+  <resource name="sk_obj_me_check" type="RESOURCE"/>
+  <resource name="sk_get_ome_max" type="RESOURCE"/>
+  <resource name="sk_ome_clear" type="RESOURCE"/>
+</resources>

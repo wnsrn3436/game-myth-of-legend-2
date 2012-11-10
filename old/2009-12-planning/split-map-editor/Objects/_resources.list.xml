@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="맵_로드" type="GROUP"/>
+  <resource name="맵_옵션" type="GROUP"/>
+  <resource name="맵_에디터" type="GROUP"/>
+</resources>

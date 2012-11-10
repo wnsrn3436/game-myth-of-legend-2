@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="obj_draw_sy0" type="RESOURCE"/>
+  <resource name="obj_all_apply_sy0" type="RESOURCE"/>
+  <resource name="obj_hill_set_sy0" type="RESOURCE"/>
+  <resource name="obj_hill_sec_sy0" type="RESOURCE"/>
+  <resource name="obj_choose_tri_sy0" type="RESOURCE"/>
+  <resource name="obj_draw_wind_sy0" type="RESOURCE"/>
+  <resource name="사용자 지형" type="GROUP"/>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="4">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">chooses=show_menu("지형|사용자 지형", chooses)
+
+if chooses=0{text="지형"; global._unit1=obj_draw_sy0}
+if chooses=1{text="사용자 지형"; global._unit1=obj_draw_yo0}
+
+if chooses&gt;-1
+{
+sk_menu_create(chooses)
+}
+
+
+sys_map_minimap.min_fri_time=0
+//미니맵 업데이트
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="61">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_choose_bar.chooses=0
+{
+if alarm[1]=-1
+{
+
+if global.tri_sys_max_number&gt;global._unit1.key_max and global.tri_sys_max_number&gt;global._unit1.key_start_key+global._unit1.key_max
+{
+global._unit1.key_start_key+=1
+
+alarm[1]=global.time
+}
+//맨위에서 시작하는키값 을 + 함
+
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">츄스0</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

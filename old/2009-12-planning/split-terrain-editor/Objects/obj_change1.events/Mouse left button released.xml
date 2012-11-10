@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if obj_draw.click_number&gt;-1 and obj_draw.click_number!=0
+{
+file_rename(global.fodre+string(obj_draw.click_number-1)+".dlrc", global.fodre+"tmp.dlrc")
+file_rename(global.fodre+string(obj_draw.click_number)+".dlrc", global.fodre+string(obj_draw.click_number-1)+".dlrc")
+file_rename(global.fodre+"tmp.dlrc", global.fodre+string(obj_draw.click_number)+".dlrc")
+
+sk_res()
+//지형불르기
+
+obj_draw.click_number-=1
+
+if obj_draw.click_number&lt;obj_draw.key_start_key{obj_draw.key_start_key-=1}
+//칸 옮기기
+
+}
+//순서 바꾸기
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

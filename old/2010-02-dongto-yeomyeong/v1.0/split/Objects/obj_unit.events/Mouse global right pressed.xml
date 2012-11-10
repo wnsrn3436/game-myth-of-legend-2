@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="54">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if global.player_control=player and click_check=1 and !place_meeting(mouse_x, mouse_y, sys_inter)
+{
+
+if moni_go=0{moni_go_waits=0}
+else if moni_go_waits&gt;0
+{
+if instance_number(moni_go_waits_id) and moni_go_waits_id!=noone{if moni_go_waits_id.mouse_check=0{moni_go_waits=0}}
+else{moni_go_waits=0}
+}
+
+attack_waits=0
+go_check=1
+go_x=mouse_x
+go_y=mouse_y
+
+image_index=round(point_direction(x, y, go_x, go_y)/90)
+
+sk_message_save(sk_get_o_space(), -1, 0, x, y, hp, go_check, go_x, go_y, attack_waits, attack_unit, moni_go_waits, moni_go_waits_id, image_index)
+
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

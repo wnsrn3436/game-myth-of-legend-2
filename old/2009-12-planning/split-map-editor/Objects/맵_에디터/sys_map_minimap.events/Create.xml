@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">미니맵</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sprite_index=spr_minimap
+//스프라이트 변경
+
+x_loc = 0
+y_loc = 0
+//화면 상 미니맵 가로,세로 위치
+
+x_loc2 = 7
+y_loc2 = 14
+//화면 상 미니맵 가로,세로 위치 (좌표 지정가능)
+
+width = 97
+height = 88
+//미니맵 가로,세로 크기
+
+xscale = width/room_width
+yscale = height/room_height
+//룸과 미니맵의 가로,세로 비율
+mscale = 5*(xscale + yscale)/2
+//평균 스케일 치, 5는 보정을 위해 곱함
+
+part_x1 = 0
+part_y1 = 0
+//현재 화면에 보이는 부분의 X,y축 위치(*1)
+part_x2 = 0
+part_y2 = 0
+//현재 화면 끝에 보이는 부분의 X,y축 위치(*2)
+
+ok=0
+//미니맵 클릭 허용관련
+
+ok2=0
+//마우스가 닿았나 유무
+
+min_back_fog=spr_minimap_f_back
+//지형그림을 복사
+
+min_fri_time=0
+//지형 알람을 초기화
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

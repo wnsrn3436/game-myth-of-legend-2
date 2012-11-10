@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="53">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_minimap.mouse_check=0 and sys_minimap.mouse_coll_check=0
+{
+global.drag_x=mouse_x
+global.drag_y=mouse_y
+click=1
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">드래그관련</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mouse_sie=1
+{
+
+with(obj_unit)
+{
+if global.player_control=player and click_check=1 and !place_meeting(mouse_x, mouse_y, sys_inter)
+{
+attack_waits=1
+go_check=1
+go_x=mouse_x
+go_y=mouse_y
+
+image_index=round(point_direction(x, y, go_x, go_y)/90)
+
+if !place_meeting(mouse_x, mouse_y, sys_inter){sys_mouse.mouse_sie=0}
+}
+}
+
+instance_create(mouse_x, mouse_y, obj_etc)
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛어택다운</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if bil_ok=1
+{
+sprite_index=global.unit_id_spr[bil_id, 0]
+
+if !place_meeting(mouse_x, mouse_y, sys_inter) and !place_meeting(mouse_x, mouse_y, obj_moni) and !place_meeting(mouse_x, mouse_y, obj_unit) and !place_meeting(mouse_x, mouse_y, obj_bil) and !sk_in_fog(sys_fog, mouse_x, mouse_y, 1)
+{
+sk_message_save(2, -2, mouse_x, mouse_y, bil_id, global.player_control)
+sk_message_send()
+bil_ok=0
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">건물건설</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

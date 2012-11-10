@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="관리" type="GROUP"/>
+  <resource name="유닛" type="GROUP"/>
+  <resource name="기타" type="GROUP"/>
+  <resource name="시작포인트" type="GROUP"/>
+</resources>

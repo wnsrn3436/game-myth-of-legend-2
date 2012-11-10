@@ -1,0 +1,13 @@
+This folder holds the background music of the game
+
+
+bgm_*.dlrc   =  contains background music
+(after decrypting, a zip extension file that is really an mp3 comes out)
+
+
+
+
+
+*
+---contents---
+*

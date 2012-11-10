@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if move_start=1 and Attack_choose&lt;2 and picking_state=0
+{
+mp_potential_step(move_x,move_y,move_speed,0)
+sp_8d(m_spr1,m_spr2,m_spr3,m_spr4,m_spr5,m_spr6,m_spr7,m_spr8)
+}
+//명령전송 받으면 이동, 모습변경
+if x=move_x and y=move_y and move_start=1
+{
+move_start=0
+Attack_choose=1
+sp_8d(o_spr1,o_spr2,o_spr3,o_spr4,o_spr5,o_spr6,o_spr7,o_spr8)
+}
+//지정위치 가면 명령지움
+if move_start=1 and distinction!=3
+{
+ obj_place = instance_place(x, y,obj_unit)
+ if obj_place != noone
+ {if obj_place.move_start=0 and move_x=obj_place.move_x and move_y=obj_place.move_y
+ {move_x=x+choose(-5,+5);move_y=y+choose(-5,+5);move_start=1}}
+}
+//가는도중 어떤 나랑 같은 위치인 놈이 쉬고잇으면 퍼짐
+if move_start=0 and distinction!=3
+{
+obj_place = instance_place(x, y,obj_unit)
+ if obj_place != noone
+ {
+ x+=lengthdir_x(1,point_direction(x,y,obj_place.x,obj_place.y)+180)
+ y+=lengthdir_y(1,point_direction(x,y,obj_place.x,obj_place.y)+180)
+ }
+}
+//쉬는도중 어떤놈이랑박으면 퍼짐
+
+if alarm[1]&gt;-1 and  move_start=1 and distinction!=3
+{
+obj_place = instance_place(x, y,obj_unit)
+ if obj_place != noone
+ {
+ x+=lengthdir_x(1,point_direction(x,y,obj_place.x,obj_place.y)+180)
+ y+=lengthdir_y(1,point_direction(x,y,obj_place.x,obj_place.y)+180)
+ }
+}
+//공격중 퍼짐
+
+if distinction!=3
+{
+obj_place = instance_place(x, y,obj_reso)
+ if obj_place != noone
+ {
+ x+=lengthdir_x(1,point_direction(x,y,obj_place.x,obj_place.y)+180)
+ y+=lengthdir_y(1,point_direction(x,y,obj_place.x,obj_place.y)+180)
+ }
+}
+//자원이랑박으면 퍼짐</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">이동관련</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if alarm[0]&gt;-1{alarm[0]-=1}
+//드래그 알람
+if alarm[0]=-1 and drag_wait=1
+{drag_wait=0 ;click=1;with(obj_unit){if global.player_control!=player_id{click=0}}}
+//드래그 알람될시 드래그대기=1 이라면 드래그됨
+
+if alarm[1]&gt;-1{alarm[1]-=1}
+//어택타임 알람</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">알람관련</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if Attack_choose&gt;0 and bil_cl=0
+{
+picking_state=0
+
+if Attack_choose=1 and Attack_waits=0{_inst=instance_range_random(obj_unit,light)}
+//유닛 검색
+
+if instance_number(_inst)&gt;0 and _inst&gt;0
+{
+if _inst.team!=team and Attack_choose=1{Attack_choose=2}
+
+if Attack_choose=2 and alarm[1]!=-1 and Attack_waits=0 and distinction!=3{sp_8d(o_spr1,o_spr2,o_spr3,o_spr4,o_spr5,o_spr6,o_spr7,o_spr8)}
+
+if Attack_choose&gt;1 and distance_to_object(_inst)&gt;light and Attack_waits=0{Attack_choose=1; if distinction!=3{sp_8d(o_spr1,o_spr2,o_spr3,o_spr4,o_spr5,o_spr6,o_spr7,o_spr8)}}
+
+if Attack_waits=1 and distance_to_object(_inst)&lt;light{Attack_waits=0}
+
+/* 검색된 유닛이 팀이 아니고 Attack_choose=1 일경우 Attack_choose=2 로
+     공격안하고 잇으면 쉬는걸로
+        위치 벗어날시 공격 초기화
+    장거리에 맞고 그놈이 시야안에 있으면 Attack_waits=0*/
+
+if distinction=1{Attack_1()}  //단거리
+if distinction=2 or distinction=3{Attack_2()}   //장거리
+
+}
+else{Attack_choose=1; Attack_waits=0; if distinction!=3{sp_8d(o_spr1,o_spr2,o_spr3,o_spr4,o_spr5,o_spr6,o_spr7,o_spr8)}}
+//검색된 유닛이 없으면 공격 초기화
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">공격관련</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if hp&lt;=0{instance_destroy()}
+//체력이 없다면 죽게되있는법.
+
+if hp&gt;maxhp{hp=maxhp}
+//체력이 최대를 넘는다면 초기화 되는법.
+
+
+sk_reso()
+//자원캐기 실행
+
+for(i=0; i!=sknu+1; i+=1){if skil_tico2[i]&gt;0{skil_tico2[i]-=1}}
+//스킬 쿨타임 달기
+
+unit_cre1()
+//유닛생산 실행
+
+bil_csc()
+//건물관련 실행
+
+gud_sk()
+//땅스킬 실행
+
+room_block()
+//유닛이 룸밖에나가면 들어오기</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">기타</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

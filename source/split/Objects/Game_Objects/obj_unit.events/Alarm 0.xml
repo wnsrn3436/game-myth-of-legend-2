@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if attack_waits=3{alarm[0]=attack_alarm}
+
+if attack_waits!=0
+{
+    if unit_s=1
+    {
+        attack_waits=2
+        if instance_number(attack_unit) and (global.player_control=player or (!fn_get_my_player_id(global.socket) and global.player_com[player]))
+        {
+            var int;
+            int=attack_unit.hp
+            
+            attack_unit.hp-=attack_power
+            for(i=0; i!=attack_plus_number; i+=1){if attack_unit.unit_id=attack_plus_id[i]{attack_unit.hp-=attack_plus_power[i]; break}}
+            
+            int-=attack_unit.hp
+            
+            /*on*/buffer_clear(fnv_sned)
+            write_uint(fnv_sned, attack_unit.on)
+            write_uint(fnv_sned, int)
+            fn_message_send(global.socket, send_other, 26)
+        }
+    }
+    else if unit_s=2
+    {
+        attack_waits=2
+        var vb_unit;
+        vb_unit=instance_create(x, y, obj_bullet)
+        vb_unit.player=player
+        vb_unit.attack_unit=attack_unit
+        vb_unit.bullet_speed=bullet_speed
+        vb_unit.attack_power=attack_power
+        vb_unit.attack_range=attack_range
+        vb_unit.unit_id=unit_id
+        vb_unit.iid=id
+        vb_unit.attack_plus_number=attack_plus_number
+        for(i=0; i!=attack_plus_number; i+=1){vb_unit.attack_plus_id[i]=attack_plus_id[i]; vb_unit.attack_plus_power[i]=attack_plus_power[i]}
+    }
+    /*on*/if global.player_control=player
+    {
+        buffer_clear(fnv_sned)
+        write_uint(fnv_sned, on)
+        write_uint(fnv_sned, x)
+        write_uint(fnv_sned, y)
+        fn_message_send(global.socket, send_other, 23)
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">공격</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

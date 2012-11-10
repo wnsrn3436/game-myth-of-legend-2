@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="OTHER" id="10">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">Message</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">switch(fn_get_message_id())
+{
+    case 0:
+        //new player join (server)
+        for(i=0; i!=8; i+=1){if control[i]=0{if fn_get_message_send_id(){control[i]=fn_get_message_send_id()}else{control[i]=1}; name[i]=read_string_v2(fnv_message); global.player_name[fn_get_message_send_id()]=name[i]; break}}
+        buffer_clear(fnv_sned)
+        write_uint(fnv_sned, fn_get_message_send_id())
+        write_ubyte(fnv_sned, i)
+        write_string_v2(fnv_sned, name[i])
+        fn_message_send(global.socket, send_all_server_me, 1)//end
+        buffer_clear(fnv_sned)
+        write_ubyte(fnv_sned, i)
+        write_ubyte(fnv_sned, map)
+        for(i=0; i!=8; i+=1)
+        {
+            write_string_v2(fnv_sned, name[i])
+            write_ubyte(fnv_sned, wow[i])
+        }
+        write_string_v2(fnv_sned, global.hashes)
+        fn_message_send(global.socket, fn_get_message_send_id(), 2)//end
+        break;
+    case 1:
+        //(old player)
+        if read_uint(fnv_message)!=fn_get_my_player_id(global.socket){name[read_ubyte(fnv_message)]=read_string_v2(fnv_message)}
+        break;
+    case 2:
+        //(new player)
+        global.player_control=read_ubyte(fnv_message)
+        map=read_ubyte(fnv_message)
+        for(i=0; i!=8; i+=1)
+        {
+            name[i]=read_string_v2(fnv_message)
+            wow[i]=read_ubyte(fnv_message)
+        }
+        if global.hashes!=read_string_v2(fnv_message)
+        {
+            show_message("Different server and your data files.")
+            game_end()
+        }
+        break;
+    case 3:
+        //team change (server)
+        var int;
+        int=read_ubyte(fnv_message)
+        if !read_ubyte(fnv_message)
+        {
+            for(i=0; i!=4; i+=1)
+            {
+                if control[i]=0
+                {
+                    control[i]=control[int]; name[i]=name[int]; wow[i]=wow[int]
+                    control[int]=0; name[int]=""; wow[int]=0
+                    buffer_clear(fnv_sned)
+                    write_ubyte(fnv_sned, int)
+                    write_ubyte(fnv_sned, i)
+                    write_ubyte(fnv_sned, wow[i])
+                    write_string_v2(fnv_sned, name[i])
+                    fn_message_send(global.socket, send_other, 4)//end
+                    buffer_clear(fnv_sned)
+                    write_ubyte(fnv_sned, i)
+                    fn_message_send(global.socket, fn_get_message_send_id(), 5)//end
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for(i=4; i!=8; i+=1)
+            {
+                if control[i]=0
+                {
+                    control[i]=control[int]; name[i]=name[int]; wow[i]=wow[int]
+                    control[int]=0; name[int]=""; wow[int]=0
+                    buffer_clear(fnv_sned)
+                    write_ubyte(fnv_sned, int)
+                    write_ubyte(fnv_sned, i)
+                    write_ubyte(fnv_sned, wow[i])
+                    write_string_v2(fnv_sned, name[i])
+                    fn_message_send(global.socket, send_other, 4)//end
+                    buffer_clear(fnv_sned)
+                    write_ubyte(fnv_sned, i)
+                    fn_message_send(global.socket, fn_get_message_send_id(), 5)//end
+                    break;
+                }
+            }
+        }
+        break;
+    case 4:
+        //team change
+        var int, int2;
+        int=read_ubyte(fnv_message)
+        int2=read_ubyte(fnv_message)
+        name[int]=""; wow[int]=0
+        wow[int2]=read_ubyte(fnv_message); name[int2]=read_string_v2(fnv_message)
+        break;
+    case 5:
+        //team change #2 or wow change#2 -&gt; check=0
+        global.player_control=read_ubyte(fnv_message)
+        check=0
+        break;
+    case 6:
+        //wow change (server)
+        var int;
+        int=read_ubyte(fnv_message)
+        if !read_ubyte(fnv_message)
+        {
+            wow[int]=0
+            buffer_clear(fnv_sned)
+            write_ubyte(fnv_sned, int)
+            write_ubyte(fnv_sned, 0)
+            fn_message_send(global.socket, send_other, 7)//end
+            buffer_clear(fnv_sned)
+            write_ubyte(fnv_sned, int)
+            fn_message_send(global.socket, fn_get_message_send_id(), 5)//end
+        }
+        else
+        {
+            wow[int]=1
+            buffer_clear(fnv_sned)
+            write_ubyte(fnv_sned, int)
+            write_ubyte(fnv_sned, 1)
+            fn_message_send(global.socket, send_other, 7)//end
+            buffer_clear(fnv_sned)
+            write_ubyte(fnv_sned, int)
+            fn_message_send(global.socket, fn_get_message_send_id(), 5)//end
+        }
+        break;
+    case 7:
+        //wow change
+        wow[read_ubyte(fnv_message)]=read_ubyte(fnv_message)
+        break;
+    case 8:
+        //map change
+        map=read_ubyte(fnv_message)
+        break;
+    case 9:
+        //go
+        for(i=0; i!=8; i+=1){global.player_wow[i]=wow[i]}
+        check=1
+        alarm[0]=current_time
+        break;
+    case 10:
+        //player exit
+        var int;
+        int=read_ubyte(fnv_message)
+        wow[int]=0
+        name[int]=""
+        break;
+    case 30:
+        //chatting
+        ds_list_add(sys_wait_key.key, room_speed*10)
+        ds_list_add(sys_wait_key.key, read_ubyte(fnv_message))
+        ds_list_add(sys_wait_key.key, read_string_v2(fnv_message))
+        break;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

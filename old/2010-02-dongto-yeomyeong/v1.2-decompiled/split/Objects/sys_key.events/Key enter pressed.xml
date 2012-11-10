@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="KEYPRESS" id="13">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if key_ok=0
+{
+keyboard_string=""
+key_ok=1
+exit
+}
+
+if key_ok=1
+{
+key_ok=0
+
+sk_message_save(3, -2, global.player_control, keyboard_string)
+sk_message_send()
+keyboard_string=""
+
+exit
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

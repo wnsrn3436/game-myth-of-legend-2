@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sprite_index=global.unit_id_spr[unit_id, 2]
+
+if instance_number(attack_unit)
+{
+image_angle=point_direction(x, y, attack_unit.x, attack_unit.y)
+
+mp_potential_step(attack_unit.x, attack_unit.y, bullet_speed, 0)
+
+if instance_place(x, y, attack_unit)
+{
+attack_unit.hp-=attack_power
+for(i=0; i!=attack_plus_number; i+=1){if attack_unit.unit_id=attack_plus_id[i]{attack_unit.hp-=attack_plus_power[i]; break}}
+
+if instance_number(iid)
+{
+with(obj_unit)
+{
+
+if distance_to_point(other.iid.x, other.iid.y)&lt;other.attack_range and ((4&gt;player and other.player&gt;=4) or (player&gt;=4 and 4&gt;other.player))
+{
+if attack_waits=1
+{
+attack_unit=other.iid
+attack_waits=4
+}
+}
+
+}
+}
+
+instance_destroy()
+}
+}
+else
+{
+instance_destroy()
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

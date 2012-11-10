@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="dlrc_zip" type="GROUP"/>
+  <resource name="스크롤_툴" type="GROUP"/>
+  <resource name="한글_드로우" type="GROUP"/>
+  <resource name="sk_draw_box" type="RESOURCE"/>
+  <resource name="sk_res" type="RESOURCE"/>
+</resources>

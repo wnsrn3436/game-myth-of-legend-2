@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">포그 관련</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sprite_set_alpha_from_sprite(spr_Fog, spr_FogMask);
+
+fgrid = 16;
+fscale = 2;
+
+fwid = ceil(room_width / fgrid) + 1;
+fhei = ceil(room_height / fgrid) + 1;
+
+for (j = 0; j &lt; fhei; j += 1)
+{
+for (i = 0; i &lt; fwid; i += 1)
+{
+falp[i, j]=1
+}
+}
+
+dw = ceil(view_wview / fgrid) + 1;
+dh = ceil(view_hview / fgrid) + 1;
+
+surf = surface_create(view_wview, view_hview);
+surface_set_target(surf);
+draw_clear(0);
+surface_reset_target();</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

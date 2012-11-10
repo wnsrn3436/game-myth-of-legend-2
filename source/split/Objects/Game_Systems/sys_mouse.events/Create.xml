@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">마우스조작</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">global.drag_x=0
+global.drag_y=0
+//드래그 시작점 x, y
+
+click=0
+//드래그
+
+mouse_sie=0
+//0-일반 1-어택다운
+
+vab_unit=0
+vab_unit_id[7]=0
+//유닛드래그
+
+bil_ok=0
+//건물건설대기상태
+bil_id=noone
+//건물건설id
+
+mouse_check=0
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

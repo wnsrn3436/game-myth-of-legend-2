@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">part_x1 = view_xview*xscale
+part_y1 = view_yview*yscale
+part_x2 = (view_xview+view_wview)*xscale
+part_y2 = (view_yview+view_hview)*yscale
+//미니맵에서의 현재 위치 계산
+
+x_loc = sys_minimap_border.x + x_loc2
+y_loc = sys_minimap_border.y + y_loc2
+//화면 상 미니맵 가로,세로 위치
+
+x=x_loc
+y=y_loc
+//현재 위치 이동
+
+if min_fri_time=0
+{
+sk_m_fog_bk_update(min_back_fog)
+min_fri_time=1
+}
+//미니맵 지형을 업데이트함
+
+draw_sprite(min_back_fog, -1, x, y)
+//미니맵 지형을그림
+
+draw_set_color(c_orange)
+draw_rectangle(x_loc-0.5, y_loc-0.5, x_loc+0.5 + width, y_loc+0.5 + height, true)
+//미니맵 테두리 표시
+
+draw_set_color(c_orange)
+draw_rectangle(x_loc + part_x1, y_loc + part_y1, x_loc + part_x2,  y_loc + part_y2, true)
+//미니맵 현재 영역 표시
+
+draw_set_color(c_black)
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">미니맵에 드로우</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

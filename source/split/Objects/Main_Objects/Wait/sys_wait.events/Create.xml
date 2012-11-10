@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sex_set_font(1, fa_left, fa_middle)
+
+map=0
+map_max=2
+mapname[0]="1vs1"
+mapid[0]=rom_map1
+mapname[1]="2vs2"
+mapid[1]=rom_map2
+
+control[7]=0
+wow[7]=0
+for(i=0; i!=8; i+=1){name[i]=""}
+
+check=0
+check_map_var=0
+
+global.player_name=""
+
+buffer_clear(fnv_sned)
+write_string_v2(fnv_sned, global.name)
+fn_message_send(global.socket, send_server, 0)
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

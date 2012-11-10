@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if iid=0{instance_destroy()}
+//id 전송을 못받았으면 되짐
+else
+{
+if instance_number(iid)&gt;0 and instance_number(iiid)&gt;0
+{
+xx=iiid.x
+yy=iiid.y
+team=iid.team
+Attack_point=iid.Attack_point
+Att_spl_light=iid.Att_spl_light
+Att_spl_apoint=iid.Att_spl_apoint
+Att_spl_team=iid.Att_spl_team
+bullet_speed=iid.bullet_speed
+sprite_index=iid.bullet_sprite1
+image_alpha=iid.bullet_image_alpha1
+bullet_sprite2=iid.bullet_sprite2
+bullet_image_alpha2=iid.bullet_image_alpha2
+bullet_go_attp=iid.bullet_go_attp
+bullet_go_attpt=iid.bullet_go_attpt
+//해당 유닛으로부터 전송받기
+for(i=0; i!=iid.Attack_spt+1; i+=1){Attack_spt=iid.Attack_spt; Attack_p[i]=iid.Attack_p[i]; Attack_e[i]=iid.Attack_e[i]}
+//+데미지변수 전송
+move_towards_point(xx,yy,bullet_speed)
+image_angle=point_direction(x,y,xx,yy)
+//이동.각도변경
+}
+else{instance_destroy()}
+//해당 유닛이 없으면 되짐
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

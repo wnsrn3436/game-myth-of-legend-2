@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="rom_temp" type="RESOURCE"/>
+  <resource name="rom_map1" type="RESOURCE"/>
+  <resource name="rom_map2" type="RESOURCE"/>
+</resources>

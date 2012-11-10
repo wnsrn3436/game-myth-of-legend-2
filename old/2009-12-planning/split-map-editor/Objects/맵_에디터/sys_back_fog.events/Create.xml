@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">지형그리개</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">image_ch_alaem=global.image_ch_speed
+//이미지 알람
+image_ch_image=0
+//현재 이미지
+
+fgrid = 100;
+fscale = 1;
+
+fwid = ceil(room_width / fgrid) + 1;
+fhei = ceil(room_height / fgrid) + 1;
+
+for (j = 0; j &lt; fhei; j += 1)
+{
+for (i = 0; i &lt; fwid; i += 1)
+{
+falp[i, j] = 0;
+//지형그림
+falp2[i, j] = 0;
+//지형언덕
+falp2_c[i, j] = c_black;
+//언덕 색상
+falp_m[i, j]=round(random(sprite_get_number(global.spr_sys_tri[0])))
+//언덕 모드 (-1플레쉬 -1&lt;그림)
+falp_c[i, j]=0
+//지형 종류 (0시스템 1사용자)
+}
+}
+
+dw = ceil(view_wview / fgrid) + 1;
+dh = ceil(view_hview / fgrid) + 1;
+
+surf = surface_create(view_wview, view_hview);
+surface_set_target(surf);
+draw_clear(0);
+surface_reset_target();
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

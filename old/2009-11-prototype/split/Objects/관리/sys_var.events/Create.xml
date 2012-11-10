@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">전역변수,폰트를 선언관련</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sex_set_font(1); action_font(fonts_1,0); 
+//폰트 설정
+
+global.drag_x=0   //드래그 시작점x
+global.drag_y=0  //드래그 시작점y
+global.click_control=0   //클릭 컨트롤
+global.mo_control=0   //드래그 x
+global.key_speed=15         //키보드 뷰이동 스피드
+global.mouse_speed=15    //마우스 뷰이동 스피드
+global.attack=0     // 0=어택다운 no  2=어택다운 yes 1=어택다운 대기 , 3=건물건설 , 4=스킬
+global.click_number=0   //클릭된 유닛의 수
+global.player_control=1      //컨트롤 가능한 플레이어
+global.cre_ch=0      //태어날놈
+global.ssspecial[1000]=0    //글로벌 특별수
+global.on_ssspecial[1000]=0    //공유글로벌 특별수
+
+global.vak_reso_name='물 광산'          //자원의 이름
+global.vak_reso_hp=2000          //자원의 체력
+global.vak_reso_max_had=50             //자원체력의 제한 제한수
+
+global.player[1]=1    //인공지능 사용? 1-미사용 2-사용
+global.player[2]=1
+global.player[3]=1
+global.player[4]=1
+global.player[5]=1
+global.player[6]=1
+global.player[7]=1
+global.player[8]=1
+
+global.team[1]=1    //누가 어느팀이더냐?
+global.team[2]=2
+global.team[3]=3
+global.team[4]=4
+global.team[5]=5
+global.team[6]=6
+global.team[7]=7
+global.team[8]=8
+
+global.water[1]=100    //돈이 얼마이더냐?
+global.water[2]=100
+global.water[3]=100
+global.water[4]=100
+global.water[5]=100
+global.water[6]=100
+global.water[7]=100
+global.water[8]=100
+
+global.p_op[1]=0    //인구가 몇이더냐?
+global.p_op[2]=0
+global.p_op[3]=0
+global.p_op[4]=0
+global.p_op[5]=0
+global.p_op[6]=0
+global.p_op[7]=0
+global.p_op[8]=0
+
+global.mp_op[1]=10    //최대인구가 몇이더냐?
+global.mp_op[2]=10
+global.mp_op[3]=10
+global.mp_op[4]=10
+global.mp_op[5]=10
+global.mp_op[6]=10
+global.mp_op[7]=10
+global.mp_op[8]=10
+
+global.team_ca[1]=1    //팀랜덤 시작포인트 사용?
+global.team_ca[2]=1
+global.team_ca[3]=1
+global.team_ca[4]=1
+global.team_ca[5]=1
+global.team_ca[6]=1
+global.team_ca[7]=1
+global.team_ca[8]=1
+
+global.ca_ca=0  //그냥 랜덤 시작포인트 사용?
+
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">변수 선언</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">enld=0
+
+if file_exists("ml_uns.dll") = 1
+{
+
+ii=0; iii=0
+while(iii!=99999999)
+{
+ii+=1
+if file_exists("sploz\spl_"+string(ii)+"_1.prmt")=0{iii=99999999}
+}
+
+i=1
+while(i!=ii)
+{
+sk_spr_unz1()
+sk_spr_unz2()
+sk_spr_unz3()
+sk_spr_unz4()
+sk_spr_unz5()
+sk_spr_unz6()
+sk_spr_unz7()
+i+=1
+}
+
+}
+else{enld=1}
+
+if enld=1{show_message('데이타 파일이 없습니다.다'); game_end()}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스프라이트 불르기</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">//능력치 코드 불러오기
+
+sk_ex_1()</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">능력치 코드</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">room_goto_next()
+//다음룸으로</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">다음룸</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

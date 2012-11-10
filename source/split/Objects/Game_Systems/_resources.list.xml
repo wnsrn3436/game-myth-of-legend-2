@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sys_minimap" type="RESOURCE"/>
+  <resource name="sys_inter" type="RESOURCE"/>
+  <resource name="sys_key" type="RESOURCE"/>
+  <resource name="sys_mouse" type="RESOURCE"/>
+  <resource name="sys_hp_draw" type="RESOURCE"/>
+  <resource name="sys_fog" type="RESOURCE"/>
+  <resource name="sys_game" type="RESOURCE"/>
+  <resource name="sys_game_bgm" type="RESOURCE"/>
+  <resource name="sys_cir_draw" type="RESOURCE"/>
+  <resource name="sys_temp_ai" type="RESOURCE"/>
+</resources>

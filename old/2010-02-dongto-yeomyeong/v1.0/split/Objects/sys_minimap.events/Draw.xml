@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">part_x1 = view_xview*xscale
+part_y1 = view_yview*yscale
+part_x2 = (view_xview+view_wview)*xscale
+part_y2 = (view_yview+view_hview)*yscale
+//미니맵에서의 현재 위치 계산
+
+x_loc = view_xview+x_loc2
+y_loc = view_yview+y_loc2
+//화면 상 미니맵 가로,세로 위치
+
+x=x_loc
+y=y_loc
+//현재 위치 이동
+
+with(obj_unit){if player=global.player_control{other.ok_rr=1}}
+if ok_rr=0{with(obj_bil){if player=global.player_control{other.ok_rr=1}}}
+
+if min_fog_time=0
+{
+minimap_fog2=sprite_duplicate(spr_minimap_fog2)
+sk_land_destroy(minimap_fog2, c_white)
+sk_land_destroy(minimap_fog1, c_white)
+min_fog_time=global.min_fog_alarm
+with(sys_inter){draw_sprite_ext(spr_inter2, -1, x, y, 1, 1, image_angle, image_blend, image_alpha)}
+}
+//포그그리기
+
+draw_set_color(c_silver)
+draw_rectangle(x_loc-0.5, y_loc-0.5, x_loc+0.5 + width, y_loc+0.5 + height, 0)
+//화면색상
+
+draw_sprite_ext(minimap_fog2, 0, x, y, 1, 1, 0, c_dkgray, 0.5)
+draw_sprite(minimap_fog1, -1, x, y)
+//미니맵 포그 그리기
+
+with(obj_moni)
+{
+if !sk_in_fog(sys_fog, x, y, 1)
+{
+draw_set_color(c_green)
+draw_circle(x*other.xscale+other.x_loc, y*other.yscale+other.y_loc, other.mscale*5, 0)
+}
+}
+
+with(obj_unit)
+{
+if sk_in_fog(sys_fog, x, y, 0)
+{
+sk_udraw_color(player)
+if unit_s!=0{draw_circle(x*other.xscale+other.x_loc, y*other.yscale+other.y_loc, other.mscale*5, 0)}
+else
+{
+draw_set_alpha(0.5)
+draw_circle(x*other.xscale+other.x_loc, y*other.yscale+other.y_loc, other.mscale*8, 0)
+draw_set_alpha(1)
+}
+}
+}
+
+with(obj_bil)
+{
+if sk_in_fog(sys_fog, x, y, 0)
+{
+sk_udraw_color(player)
+if unit_s!=0{draw_circle(x*other.xscale+other.x_loc, y*other.yscale+other.y_loc, other.mscale*5, 0)}
+else
+{
+draw_set_alpha(0.5)
+draw_circle(x*other.xscale+other.x_loc, y*other.yscale+other.y_loc, other.mscale*8, 0)
+draw_set_alpha(1)
+}
+}
+}
+
+draw_set_color(c_orange)
+draw_rectangle(x_loc-0.5, y_loc-0.5, x_loc+0.5 + width, y_loc+0.5 + height, true)
+//미니맵 테두리 표시
+
+draw_set_color(c_orange)
+draw_rectangle(x_loc + part_x1, y_loc + part_y1, x_loc + part_x2,  y_loc + part_y2, true)
+//미니맵 현재 영역 표시
+
+draw_set_color(c_black)
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

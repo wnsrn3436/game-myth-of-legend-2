@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="1">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">in_bbox_data_clear(0)
+with(obj_unit)
+{
+    if ((4&gt;player and global.player_control&gt;=4) or (player&gt;=4 and 4&gt;global.player_control)) and sk_in_fog(x, y, 0){in_bbox_data_add(0, x, y, bbox_left, bbox_right, bbox_top, bbox_bottom, id)}
+}
+
+in_point_data_clear(0)
+with(obj_moni)
+{
+    if waits=noone{in_point_data_add(0, x, y, id)}
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

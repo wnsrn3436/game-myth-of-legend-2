@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">name=get_string("지형의 이름을 설정해주세요.", "")
+add=get_open_filename("PNG파일을 선택해주세요|*.PNG", "")
+
+if add!=""
+{
+tmp_name=file_text_open_write("name.txt")
+file_text_write_string(tmp_name, name)
+file_text_close(tmp_name)
+//이름 파일만들기
+
+file_copy(add, "1.png")
+
+max_files=0
+sk_dlrc_file_list("name.txt")
+sk_dlrc_file_list("1.png")
+
+sk_dlrc_zip(global.fodre+string(global.tri_max_number)+".dlrc", "+|+", "dlrc_file")
+for(i=0; i!=max_files; i+=1)
+{
+sk_dlrc_add(global.fodre+string(global.tri_max_number)+".dlrc", i, "+|+", 30)
+}
+//압축하기
+
+sk_res()
+//지형불르기
+
+obj_draw.click_number=global.tri_max_number-1
+
+for(i=0; i!=max_files; i+=1){sk_dlrc_delete_2("", i)}
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="50">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_choose_bar.chooses=0
+{
+if sk_oks_check()
+{
+if global._unit1.click_number&gt;-1
+{
+dx = min(max(round(mouse_x / sys_back_fog.fgrid), 0), sys_back_fog.fwid);
+dy = min(max(round(mouse_y / sys_back_fog.fgrid), 0), sys_back_fog.fhei);
+
+sys_back_fog.falp[dx, dy] = global._unit1.click_number;
+sys_back_fog.falp2[dx, dy] = real(obj_hill_set_sy0.bac_fog);
+sys_back_fog.falp2_c[dx, dy] = obj_hill_sec_sy0.bac_c
+sys_back_fog.falp_c[dx, dy] = 0
+
+if obj_choose_tri_sy0.chooses=0{sys_back_fog.falp_m[dx, dy]=round(random(sprite_get_number(global.spr_sys_tri[sys_back_fog.falp[dx, dy]])))}
+if obj_choose_tri_sy0.chooses=1{sys_back_fog.falp_m[dx, dy]=-1}
+}
+}
+}
+
+//시스템 지형 배치
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">츄스0</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_choose_bar.chooses=1
+{
+if sk_oks_check()
+{
+if global._unit1.click_number&gt;-1
+{
+dx = min(max(round(mouse_x / sys_back_fog.fgrid), 0), sys_back_fog.fwid);
+dy = min(max(round(mouse_y / sys_back_fog.fgrid), 0), sys_back_fog.fhei);
+
+sys_back_fog.falp[dx, dy] = global._unit1.click_number;
+sys_back_fog.falp2[dx, dy] = real(obj_hill_set_sy0.bac_fog);
+sys_back_fog.falp2_c[dx, dy] = obj_hill_sec_sy0.bac_c
+sys_back_fog.falp_c[dx, dy] = 1
+
+if obj_choose_tri_sy0.chooses=0{sys_back_fog.falp_m[dx, dy]=round(random(sprite_get_number(global.spr_you_tri[sys_back_fog.falp[dx, dy]])))}
+if obj_choose_tri_sy0.chooses=1{sys_back_fog.falp_m[dx, dy]=-1}
+}
+}
+}
+
+//시스템 지형 배치
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">츄스1</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

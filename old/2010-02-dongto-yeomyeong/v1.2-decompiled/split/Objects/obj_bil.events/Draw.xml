@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if 100&gt;unit_id
+{
+sprite_index=spr_w_bil_go
+if max_hp/sprite_get_number(spr_w_bil_go)*image_index&lt;=bil_time{image_index+=0.1}
+draw_sprite_ext(sprite_index, image_index-1, x, y, 1, 1, 0, -1, 1)
+}
+
+if unit_id&gt;=100
+{
+if ima=0{sprite_index=spr_s_bil_go_1; if image_index&gt;=sprite_get_number(spr_s_bil_go_1)-2{ima=1}}
+else{sprite_index=spr_s_bil_go_2}
+image_index+=0.5
+draw_sprite_ext(sprite_index, image_index, x, y, 1, 1, 0, -1, 1)
+}
+
+draw_sprite_ext(global.unit_id_spr[unit_id, 0], 0, x, y, 1, 1, 0, -1, 0.5)
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

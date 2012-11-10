@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mo=1
+{
+
+with(obj_id)
+{
+execute_string(other.skil_po)
+// 스킬의 능력치를 줌.
+}
+
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">모드1 그냥올리기</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mo=2
+{
+
+if skil_sta=0
+{
+if other.skil_eu=0{with(obj_unit){if distance_to_object(other.obj_id)&lt;other.ge and other.obj_id!=id{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=1{with(obj_unit){if distance_to_object(other.obj_id)&lt;other.ge and other.obj_id!=id and team!=other.ge2{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=2{with(obj_unit){if distance_to_object(other.obj_id)&lt;other.ge and other.obj_id!=id and team=other.ge2{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu2=1{with(obj_id){execute_string(other.skil_po); randonm[other.ran]=1}}
+}
+if skil_sta=1
+{
+if other.skil_eu=0{with(obj_unit){if distance_to_object(other.id)&lt;other.ge and other.obj_id!=id{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=1{with(obj_unit){if distance_to_object(other.id)&lt;other.ge and other.obj_id!=id and team!=other.ge2{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=2{with(obj_unit){if distance_to_object(other.id)&lt;other.ge and other.obj_id!=id and team=other.ge2{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu2=1{with(obj_id){if distance_to_object(other.id)&lt;other.ge{execute_string(other.skil_po); randonm[other.ran]=1}}}
+}
+// 스킬의 능력치를 줌.
+
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">모드2 범위유닛 올리기</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mo=3 and ge&gt;0
+{
+
+with(ge)
+{
+execute_string(other.skil_po)
+// 스킬의 능력치를 줌.
+}
+
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">모드3 그냥올리기(클릭적)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mo=4
+{
+
+if skil_mo_sta=0
+{
+if other.skil_eu=0{with(obj_unit){if distance_to_object(other.obj_id)&lt;other.ge4 and other.obj_id!=id{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=1{with(obj_unit){if distance_to_object(other.obj_id)&lt;other.ge4 and other.obj_id!=id and team!=other.ge5{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=2{with(obj_unit){if distance_to_object(other.obj_id)&lt;other.ge4 and other.obj_id!=id and team=other.ge5{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu2=1{with(obj_id){execute_string(other.skil_po); randonm[other.ran]=1}}
+}
+if skil_mo_sta=1
+{
+if other.skil_eu=0{with(obj_unit){if distance_to_point(ge2,ge3)&lt;other.ge4 and other.obj_id!=id{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=1{with(obj_unit){if distance_to_point(ge2,ge3)&lt;other.ge4 and other.obj_id!=id and team!=other.ge5{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=2{with(obj_unit){if distance_to_point(ge2,ge3)&lt;other.ge4 and other.obj_id!=id and team=other.ge5{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu2=1{with(obj_id){if distance_to_point(ge2,ge3)&lt;other.ge4{execute_string(other.skil_po); randonm[other.ran]=1}}}
+}
+if skil_mo_sta=2
+{
+if other.skil_eu=0{with(obj_unit){if distance_to_object(other.ge)&lt;other.ge4 and other.obj_id!=id{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=1{with(obj_unit){if distance_to_object(other.ge)&lt;other.ge4 and other.obj_id!=id and team!=other.ge5{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=2{with(obj_unit){if distance_to_object(other.ge)&lt;other.ge4 and other.obj_id!=id and team=other.ge5{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu2=1{with(obj_id){if distance_to_object(other.ge)&lt;other.ge4{execute_string(other.skil_po); randonm[other.ran]=1}}}
+}
+if skil_mo_sta=3
+{
+if other.skil_eu=0{with(obj_unit){if distance_to_object(other.id)&lt;other.ge4 and other.obj_id!=id{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=1{with(obj_unit){if distance_to_object(other.id)&lt;other.ge4 and other.obj_id!=id and team!=other.ge5{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu=2{with(obj_unit){if distance_to_object(other.id)&lt;other.ge4 and other.obj_id!=id and team=other.ge5{execute_string(other.skil_po); randonm[other.ran]=1}}}
+if other.skil_eu2=1{with(obj_id){if distance_to_object(other.id)&lt;other.ge4{execute_string(other.skil_po); randonm[other.ran]=1}}}
+}
+// 스킬의 능력치를 줌.
+
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">모드4 범위유닛 (범위)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if skil_poche!=0{alarm[1]=skil_poche*room_speed}
+//스킬 사용 시간을 줌.
+if skil_poche=0{if skil_for=0 and alarm[3]=-1{instance_destroy()}}
+//스킬 사용시간이 없으면 죽음
+
+if skil_for&gt;0
+{
+alarm[3]=skil_for2*room_speed
+//스킬 반복시간주기
+if skil_for2=0{alarm[3]=1}
+//반복시간 없으면 1이라도.
+if instance_number(obj_id)&gt;0 and skil_for3=1{obj_id.skil_tico2[iid-1]=obj_id.skil_tico[iid-1]*room_speed}
+//쿨타임 시간주기
+if skil_for!=999{skil_for-=1}
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스킬사용시간</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="2">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if instance_number(obj_id)&gt;0
+{
+skil_po=obj_id.skil_po[iid-1]
+skil_poche=obj_id.skil_poche[iid-1]
+skil_each=obj_id.skil_each[iid-1]
+skil_ea=obj_id.skil_ea[iid-1]
+skil_sskil=obj_id.skil_sskil[iid-1]
+skil_die=obj_id.skil_die[iid-1]
+depth=obj_id.skil_dep[iid-1]
+skil_sta=obj_id.skil_sta[iid-1]
+mp_spr=obj_id.mp_spr[iid]
+sprite_index=mp_spr
+if sk_dra&gt;2{sk_dra-=2}
+skil_for=obj_id.skil_for[iid-1]
+skil_for2=obj_id.skil_for2[iid-1]
+skil_for3=obj_id.skil_for3[iid-1]
+sk_dra2=sprite_get_number(obj_id.mp_spr[iid])
+skil_eu=obj_id.skil_eu[iid-1]
+skil_eu2=obj_id.skil_eu2[iid-1]
+skil_mo_sta=obj_id.skil_mo_sta[iid-1]
+skil_mo_mv=obj_id.skil_mo_mv[iid-1]
+skil_mo_mvs=obj_id.skil_mo_mvs[iid-1]
+skil_mo_lig=obj_id.skil_mo_lig[iid-1]
+skil_mo_for=obj_id.skil_mo_for[iid-1]
+skil_mo_die=obj_id.skil_mo_die[iid-1]
+skil_mo_ima=obj_id.skil_mo_ima[iid-1]
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스킬 변수 얻기</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">x=view_xview+320
+y=view_yview+415
+//인터페이스의 위치값
+
+draw_sprite_ext(spr_interface,-1,x,y,1,1,0,-1,1)
+//인터페이스 모습 드로우</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

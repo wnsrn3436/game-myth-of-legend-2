@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if alarm[2]=-1
+{
+
+if mo=1 or mo=2
+{
+if sk_dra&gt;0 and skil_sta=0 and instance_number(obj_id)&gt;0{draw_sprite(mp_spr,-1,obj_id.x,obj_id.y)}
+// 스킬쓴놈 기준
+if sk_dra&gt;0 and skil_sta=1{draw_sprite(mp_spr,-1,x,y)}
+// x ,y 좌표 기준
+}
+
+if mo=3 or mo=4
+{
+if sk_dra&gt;0 and skil_mo_sta=0 and instance_number(obj_id)&gt;0{draw_sprite(mp_spr,-1,obj_id.x,obj_id.y)}
+//시전유닛 기준
+if sk_dra&gt;0 and skil_mo_sta=1{draw_sprite(mp_spr,-1,ge2,ge3)}
+//클릭지역 기준
+if sk_dra&gt;0 and skil_mo_sta=2 and instance_number(ge)&gt;0{draw_sprite(mp_spr,-1,ge.x,ge.y)}
+//클릭유닛 기준
+if sk_dra&gt;0 and skil_mo_sta=3{draw_sprite(mp_spr,-1,x,y)}
+//x ,y 좌표기준
+}
+
+if sk_dra&gt;0{sk_dra-=1}
+
+if sk_dra=-1 and skil_mo_ima&gt;0
+{
+if eo=0{eo=1; image_index=skil_mo_ima}
+
+if eo=1 and image_index&lt;=skil_mo_ima-1{eo=-1}
+if mo=1 or mo=2 and eo=1
+{
+if skil_sta=0 and instance_number(obj_id)&gt;0{draw_sprite(mp_spr,-1,obj_id.x,obj_id.y)}
+// 스킬쓴놈 기준
+if skil_sta=1{draw_sprite(mp_spr,-1,x,y)}
+// x ,y 좌표 기준
+}
+
+if mo=3 or mo=4 and eo=1
+{
+if skil_mo_sta=0 and instance_number(obj_id)&gt;0{draw_sprite(mp_spr,-1,obj_id.x,obj_id.y)}
+//시전유닛 기준
+if skil_mo_sta=1{draw_sprite(mp_spr,-1,ge2,ge3)}
+//클릭지역 기준
+if skil_mo_sta=2 and instance_number(ge)&gt;0{draw_sprite(mp_spr,-1,ge.x,ge.y)}
+//클릭유닛 기준
+if skil_mo_sta=3{draw_sprite(mp_spr,-1,x,y)}
+//x ,y 좌표기준
+}
+}
+
+}</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

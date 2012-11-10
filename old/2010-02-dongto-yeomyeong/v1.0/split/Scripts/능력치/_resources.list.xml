@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_unit_skil_to" type="RESOURCE"/>
+  <resource name="sk_unit_skil_0" type="RESOURCE"/>
+  <resource name="sk_unit_skil_1" type="RESOURCE"/>
+  <resource name="sk_unit_skil_2" type="RESOURCE"/>
+  <resource name="sk_unit_skil_3" type="RESOURCE"/>
+  <resource name="sk_unit_skil_4" type="RESOURCE"/>
+  <resource name="sk_unit_skil_5" type="RESOURCE"/>
+  <resource name="sk_unit_skil_6" type="RESOURCE"/>
+  <resource name="sk_unit_skil_7" type="RESOURCE"/>
+  <resource name="sk_unit_skil_8" type="RESOURCE"/>
+  <resource name="sk_unit_skil_100" type="RESOURCE"/>
+  <resource name="sk_unit_skil_101" type="RESOURCE"/>
+  <resource name="sk_unit_skil_102" type="RESOURCE"/>
+  <resource name="sk_unit_skil_103" type="RESOURCE"/>
+  <resource name="sk_unit_skil_104" type="RESOURCE"/>
+  <resource name="sk_unit_skil_105" type="RESOURCE"/>
+  <resource name="sk_unit_skil_106" type="RESOURCE"/>
+  <resource name="sk_unit_skil_107" type="RESOURCE"/>
+</resources>

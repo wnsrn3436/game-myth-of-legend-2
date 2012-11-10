@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_minimap_border)
+{
+x=view_xview+xx
+y=view_yview+yy
+}
+
+x=sys_minimap_border.x-330
+y=sys_minimap_border.y+425
+
+if global._unit1.click_number&gt;-1
+{
+draw_sprite_ext(sprite_index, image_index, x, y, 0.8, 0.8, 0, bac_c, 1)
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

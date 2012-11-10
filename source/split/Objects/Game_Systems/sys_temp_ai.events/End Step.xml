@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="2">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">in_bbox_data_clear(1)
+in_point_data_clear(3)
+with(obj_unit)
+{
+    if ((player&gt;=4 and global.player_control&gt;=4) or (4&gt;player and 4&gt;global.player_control))
+    {
+        in_bbox_data_add(1, x, y, bbox_left, bbox_right, bbox_top, bbox_bottom, id)
+    }
+    else
+    {
+        if drag_ok=0 and skil_number&gt;0
+        {
+            for(i=0; i!=global.go_number; i+=1)
+            {
+                if unit_id=ds_list_find_value(global.go_moni, i){in_point_data_add(3, x, y, id); break}
+            }
+        }
+    }
+}
+
+in_point_data_clear(4)
+with(obj_bil)
+{
+    if ((player&gt;=4 and global.player_control&gt;=4) or (4&gt;player and 4&gt;global.player_control))
+    {
+        in_point_data_add(4, x, y, id)
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛 검색위치 설정</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_unit)
+{
+    if global.player_com[player]
+    {
+        if moni_go
+        {
+            if ai=0
+            {
+                moni_go_waits=1
+                ai=1
+            }
+            //ai
+            if moni_go_waits=1
+            {
+                moni_go_waits_id=in_point_data_find(0, x, y, id, 500)
+                if instance_number(moni_go_waits_id)
+                {
+                    moni_go_waits=2
+                }
+            }
+            else if moni_go_waits=4
+            {
+                moni_go_waits_id2=in_point_data_find(3, x, y, id, 500)
+                if instance_number(moni_go_waits_id2)
+                {
+                    moni_go_waits=5
+                }
+            }
+        }
+        else if unit_s&gt;0
+        {
+            if attack_waits=1
+            {
+                attack_unit=in_bbox_data_find(1, x, y, id, attack_range)
+                if !instance_number(attack_unit)
+                {
+                    attack_unit=in_point_data_find(4, x, y, id, attack_range)
+                    if instance_number(attack_unit)
+                    {
+                        attack_waits=2
+                    }
+                }
+                else
+                {
+                    attack_waits=2
+                }
+            }
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛 검색</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="Main_Objects" type="GROUP"/>
+  <resource name="Game_Systems" type="GROUP"/>
+  <resource name="Game_Objects" type="GROUP"/>
+</resources>

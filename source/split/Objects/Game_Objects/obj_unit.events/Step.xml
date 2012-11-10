@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if go_check=1 and 2&gt;attack_waits{mp_potential_step(go_x, go_y, move_speed, 0)}
+//명령전송 받으면 이동
+
+if x=go_x and y=go_y and go_check=1
+{
+    go_check=0
+    attack_waits=1
+}
+//지정위치 가면 명령지움
+
+if move_speed!=0
+{
+    if go_check=1
+    {
+        obj_place = instance_place(x, y, obj_unit)
+        if obj_place != noone
+        {
+            if obj_place.go_check=0 and go_x=obj_place.go_x and go_y=obj_place.go_y
+            {
+                go_x=x+choose(-5,+5)
+                go_y=y+choose(-5,+5)
+            }
+        }
+    }
+    //가는도중 어떤 나랑 같은 위치인 놈이 쉬고잇으면 퍼짐
+    obj_place=instance_place(x, y, obj_unit)
+    if obj_place!=noone
+    {
+        x+=lengthdir_x(1, point_direction(x, y, obj_place.x, obj_place.y)+180)
+        y+=lengthdir_y(1, point_direction(x, y, obj_place.x, obj_place.y)+180)
+        if global.player_control=player{alarm[2]=5}
+    }
+    //어떤놈이랑박으면 퍼짐
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">이동</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if unit_s=1 and attack_range&gt;0
+{
+    if attack_waits=1 and global.player_control=player
+    {
+        attack_unit=in_bbox_data_find(0, x, y, id, attack_range)
+        if !instance_number(attack_unit)
+        {
+            attack_unit=in_point_data_find(2, x, y, id, attack_range)
+            if instance_number(attack_unit)
+            {
+                attack_waits=2
+                /*on*/buffer_clear(fnv_sned)
+                write_uint(fnv_sned, on)
+                write_uint(fnv_sned, attack_unit.on)
+                fn_message_send(global.socket, send_other, 24)
+            }
+        }
+        else
+        {
+            attack_waits=2
+            /*on*/buffer_clear(fnv_sned)
+            write_uint(fnv_sned, on)
+            write_uint(fnv_sned, attack_unit.on)
+            fn_message_send(global.socket, send_other, 24)
+        }
+    }
+    //어택 대기일때 검색
+    
+    if attack_waits=2 and alarm[0]=-1
+    {
+        if !instance_number(attack_unit) or distance_to_object(attack_unit)&gt;attack_range
+        {
+            attack_waits=1
+            attack_unit=noone
+            exit
+        }
+        mp_potential_step(attack_unit.x, attack_unit.y, move_speed, 0)
+        if 100&gt;unit_id{image_index=round(point_direction(x, y, attack_unit.x, attack_unit.y)/90)}
+        if distance_to_object(attack_unit)&lt;3{attack_waits=3}
+    }
+    //공격가는중입니다!
+    
+    if attack_waits=4 and alarm[0]=-1
+    {
+        if !instance_number(attack_unit)
+        {
+            attack_waits=1
+            attack_unit=noone
+            exit 
+        }
+        mp_potential_step(attack_unit.x, attack_unit.y, move_speed, 0)
+        if 100&gt;unit_id{image_index=round(point_direction(x, y, attack_unit.x, attack_unit.y)/90)}
+        if distance_to_object(attack_unit)&lt;3{attack_waits=3}
+    }
+    //화살맞았다 ㅡㅡ
+    
+    if attack_waits=3{if alarm[0]=-1{alarm[0]=attack_speed}}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">근거리공격</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if unit_s=2 and attack_range&gt;0
+{
+    if attack_waits=1 and global.player_control=player
+    {
+        attack_unit=in_bbox_data_find(0, x, y, id, attack_range)
+        if !instance_number(attack_unit)
+        {
+            attack_unit=in_point_data_find(2, x, y, id, attack_range)
+            if instance_number(attack_unit)
+            {
+                attack_waits=2
+                /*on*/buffer_clear(fnv_sned)
+                write_uint(fnv_sned, on)
+                write_uint(fnv_sned, attack_unit.on)
+                fn_message_send(global.socket, send_other, 24)
+            }
+        }
+        else
+        {
+            attack_waits=2
+            /*on*/buffer_clear(fnv_sned)
+            write_uint(fnv_sned, on)
+            write_uint(fnv_sned, attack_unit.on)
+            fn_message_send(global.socket, send_other, 24)
+        }
+    }
+    //어택 대기일때 검색
+    
+    if attack_waits=2 and alarm[0]=-1
+    {
+        if !instance_number(attack_unit) or distance_to_object(attack_unit)&gt;attack_range
+        {
+            attack_waits=1
+            attack_unit=noone
+            exit
+        }
+        attack_waits=3
+        if 100&gt;unit_id{image_index=round(point_direction(x, y, attack_unit.x, attack_unit.y)/90)}
+    }
+    //공격가는중입니다!
+    
+    if attack_waits=4 and alarm[0]=-1
+    {
+        if !instance_number(attack_unit)
+        {
+            attack_waits=1
+            attack_unit=noone
+            exit
+        }
+        mp_potential_step(attack_unit.x, attack_unit.y, move_speed, 0)
+        if 100&gt;unit_id{image_index=round(point_direction(x, y, attack_unit.x, attack_unit.y)/90)}
+        if distance_to_object(attack_unit)&lt;attack_range{attack_waits=3}
+    }
+    //화살맞았다 ㅡㅡ
+    
+    if attack_waits=3{if alarm[0]=-1{alarm[0]=attack_speed}}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">장거리공격</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if moni_go!=1{exit}
+
+switch(moni_go_waits)
+{
+    case 1:
+        if global.player_control!=player{break;}
+        moni_go_waits_id=in_point_data_find(0, x, y, id, 500)
+        if instance_number(moni_go_waits_id)
+        {
+            moni_go_waits=2
+            /*on*/buffer_clear(fnv_sned)
+            write_uint(fnv_sned, on)
+            write_uint(fnv_sned, moni_go_waits_id.on)
+            write_uint(fnv_sned, x)
+            write_uint(fnv_sned, y)
+            fn_message_send(global.socket, send_other, 27)
+        }
+        break;
+    case 2:
+        if instance_number(moni_go_waits_id)
+        {
+            mp_potential_step(moni_go_waits_id.x, moni_go_waits_id.y, move_speed, 0)
+            if 100&gt;unit_id{image_index=round(point_direction(x, y, moni_go_waits_id.x, moni_go_waits_id.y)/90)}
+            if distance_to_object(moni_go_waits_id)&lt;3
+            {
+                if moni_go_waits_id.waits=noone{moni_go_waits=3; moni_go_waits_id.waits=id}
+                else{moni_go_waits=1}
+            }
+        }
+        else{moni_go_waits=1}
+        break;
+    case 3:
+        if alarm[1]=-1{alarm[1]=attack_speed}
+        break;
+    case 4:
+        if global.player_control!=player{break;}
+        moni_go_waits_id2=in_point_data_find(1, x, y, id, 500)
+        if instance_number(moni_go_waits_id2)
+        {
+            moni_go_waits=5
+            /*on*/buffer_clear(fnv_sned)
+            write_uint(fnv_sned, on)
+            write_uint(fnv_sned, moni_go_waits_id2.on)
+            write_uint(fnv_sned, x)
+            write_uint(fnv_sned, y)
+            fn_message_send(global.socket, send_other, 28)
+        }
+        break;
+    case 5:
+        if instance_number(moni_go_waits_id2)
+        {
+            mp_potential_step(moni_go_waits_id2.x, moni_go_waits_id2.y, move_speed, 0)
+            if 100&gt;unit_id{image_index=round(point_direction(x, y, moni_go_waits_id2.x, moni_go_waits_id2.y)/90)}
+            if distance_to_object(moni_go_waits_id2)&lt;3
+            {
+                global.player_moni[player]+=attack_power
+                moni_go_waits=1
+            }
+        }
+        else{moni_go_waits=4}
+        break;
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">채집</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (4&gt;global.player_control and 4&gt;player) or (global.player_control&gt;=4 and player&gt;=4) or global.map_heck
+{
+    ds_grid_set_disk(sys_fog.fog_id, min(max(round(x / sys_fog.fgrid), 0), sys_fog.fwid), min(max(round(y / sys_fog.fgrid), 0), sys_fog.fhei), range/sys_fog.fgrid, 0)
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">논포그</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if 0&gt;=hp and !fn_get_my_player_id(global.socket)
+{
+    /*on*/buffer_clear(fnv_sned)
+    write_uint(fnv_sned, on)
+    fn_message_send(global.socket, send_other, 20)
+    
+    pos=ds_list_find_index(global.on_unit, string(on))
+    ds_list_delete(global.on_unit, pos)
+    ds_list_delete(global.on_unit, pos)
+    
+    instance_destroy()
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">죽음</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if 100&gt;unit_id{image_speed=0}
+else{image_speed=0.1}
+
+if unit_cre_time=0
+{
+    /*on*/buffer_clear(fnv_sned)
+    write_uint(fnv_sned, on)
+    write_uint(fnv_sned, unit_cre_id[0])
+    write_uint(fnv_sned, cre_go_x)
+    write_uint(fnv_sned, cre_go_y)
+    fn_message_send(global.socket, send_server, 18)
+    
+    for(i=1; i!=unit_cre_number; i+=1){unit_cre_id[i-1]=unit_cre_id[i]}
+    unit_cre_number-=1
+    if unit_cre_number&gt;0{unit_cre_time=global.moni_alarm[unit_cre_id[0]]}
+}
+if unit_cre_time!=-1{unit_cre_time-=1}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스킬</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sk_get_my_id()=0
+{
+draw_sprite(sprite_index, -1, x, y)
+}
+
+switch (sys_on_room.map)
+{
+case 0: sk_sex_kr_smiddle(x, y-5, "1vs1 싸움의 전장", c_black); break;
+case 1: sk_sex_kr_smiddle(x, y-5, "2vs2 전설의 싸움", c_black); break;
+case 2: sk_sex_kr_smiddle(x, y-5, "3vs3 공성전의 혈투", c_black); break;
+case 3: sk_sex_kr_smiddle(x, y-5, "4vs4 최후의 전투", c_black); break;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">room_set_width(Map_Editor, real(obj_map_set_width.map_width))
+room_set_height(Map_Editor, real(obj_map_set_height.map_height))
+//맵사이즈 설정
+
+room_goto_next()
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

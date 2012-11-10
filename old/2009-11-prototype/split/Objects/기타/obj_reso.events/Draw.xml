@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if x&gt;=view_xview and x&lt;=view_xview+view_wview and y&gt;=view_yview and y&lt;=view_yview+view_hview
+{
+//뷰에 있을때 드로우
+
+if R_r&gt;0
+{
+draw_set_color(c_red)
+R_r-=1
+draw_ellipse(bbox_left-1,bbox_bottom-(bbox_right-bbox_left)/6,bbox_right+1,bbox_bottom+(bbox_right-bbox_left)/6,1)
+draw_set_color(c_black)
+}
+// 깜빡이 키기
+
+
+draw_sprite(spr_reso,-1,x,y)
+//스프라이트 드로우
+
+}</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

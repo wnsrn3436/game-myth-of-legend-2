@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="0">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">일꾼 생산주기</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_unit)
+{
+    if choose(0, 1)
+    {
+        if global.player_com[player] and drag_ok=0 and skil_number&gt;0 and unit_cre_number!=6
+        {
+            for(i=0; i!=ds_list_size(global.go_moni); i+=1)
+            {
+                if ds_list_find_value(global.go_moni, i)=unit_id
+                {
+                    unit_cre_id[unit_cre_number]=skil_id[0]
+                    if unit_cre_number=0{unit_cre_time=global.moni_alarm[skil_id[0]]}
+                    unit_cre_number+=1
+                    break
+                }
+            }
+        }
+    }
+}
+
+alarm[0]=room_speed*35/global.player_com_ai
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

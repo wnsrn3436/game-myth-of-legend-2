@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="문자열나누기" type="GROUP"/>
+  <resource name="39dll" type="GROUP"/>
+  <resource name="39간편 스크립트" type="GROUP"/>
+  <resource name="자리나누기" type="GROUP"/>
+  <resource name="오브젝메시지" type="GROUP"/>
+  <resource filename="sefx_v2_0" name="sefx_v2.0" type="GROUP"/>
+  <resource name="gauge_bar" type="GROUP"/>
+  <resource name="전신1 관련" type="GROUP"/>
+  <resource name="능력치" type="GROUP"/>
+</resources>

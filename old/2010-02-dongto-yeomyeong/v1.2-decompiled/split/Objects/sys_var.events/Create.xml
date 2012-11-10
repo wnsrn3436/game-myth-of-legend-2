@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">global.mouse_speed=15
+global.key_speed=15
+//마우스, 키보드이동속도
+
+global.drag_x=0
+global.drag_y=0
+//드래그 시작점 x, y
+
+global.min_fog_alarm=10
+//포그시간
+
+global.player_control=0
+//현재 컨트롤하는 플레이어
+
+for(i=0; i!=8; i+=1){global.player_name[i]=""}
+//이름
+
+for(i=0; i!=8; i+=1){global.player_moni[i]=400}
+//돈
+
+global.player_wow[7]=0
+//종족
+
+global.player_com[7]=0
+//컴퓨터여부
+
+sk_sex_set_font(1)
+draw_set_font(ml1_font)
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">전역변수</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">global.unit_id_spr[0, 0]=spr_w_unit_1_1
+global.unit_id_spr[0, 1]=spr_w_unit_1_2
+global.unit_id_spr[1, 0]=spr_w_unit_2_1
+global.unit_id_spr[1, 1]=spr_w_unit_2_2
+global.unit_id_spr[1, 2]=spr_bullet1
+global.unit_id_spr[2, 0]=spr_w_unit_3_1
+global.unit_id_spr[2, 1]=spr_w_unit_3_2
+global.unit_id_spr[3, 0]=spr_w_unit_4_1
+global.unit_id_spr[3, 1]=spr_w_unit_4_2
+global.unit_id_spr[8, 0]=spr_w_unit_5_1
+global.unit_id_spr[8, 1]=spr_w_unit_5_2
+
+global.unit_id_spr[4, 0]=spr_w_bil_1
+global.unit_id_spr[5, 0]=spr_w_bil_2
+global.unit_id_spr[6, 0]=spr_w_bil_3
+global.unit_id_spr[7, 0]=spr_w_bil_4
+
+global.unit_id_spr[100, 0]=spr_s_unit_1_1
+global.unit_id_spr[100, 1]=spr_s_unit_1_2
+global.unit_id_spr[100, 2]=spr_bullet2
+global.unit_id_spr[101, 0]=spr_s_unit_2_1
+global.unit_id_spr[101, 1]=spr_s_unit_2_2
+global.unit_id_spr[101, 2]=spr_bullet3
+global.unit_id_spr[102, 0]=spr_s_unit_3_1
+global.unit_id_spr[102, 1]=spr_s_unit_3_2
+global.unit_id_spr[103, 0]=spr_s_unit_4_1
+global.unit_id_spr[103, 1]=spr_s_unit_4_2
+global.unit_id_spr[103, 2]=spr_bullet4
+global.unit_id_spr[104, 0]=spr_s_unit_5_1
+global.unit_id_spr[104, 1]=spr_s_unit_5_2
+
+global.unit_id_spr[105, 0]=spr_s_bil_1
+global.unit_id_spr[106, 0]=spr_s_bil_2
+global.unit_id_spr[107, 0]=spr_s_bil_3
+global.unit_id_spr[107, 1]=spr_s_bil_3
+global.unit_id_spr[107, 2]=spr_bullet3
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛 id별 스픗지정</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">global.units_moni[0]=250
+global.units_moni[1]=250
+global.units_moni[2]=200
+global.units_moni[3]=400
+global.units_moni[8]=100
+
+global.units_moni[4]=500
+global.units_moni[5]=400
+global.units_moni[6]=250
+global.units_moni[7]=300
+
+global.units_moni[100]=150
+global.units_moni[101]=300
+global.units_moni[102]=350
+global.units_moni[103]=400
+global.units_moni[104]=100
+
+global.units_moni[105]=500
+global.units_moni[106]=400
+global.units_moni[107]=500
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛 돈 능력치</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">global.moni_alarm[0]=200
+global.moni_alarm[1]=220
+global.moni_alarm[2]=200
+global.moni_alarm[3]=230
+global.moni_alarm[8]=30
+
+global.moni_alarm[4]=1000
+global.moni_alarm[5]=800
+global.moni_alarm[6]=200
+global.moni_alarm[7]=800
+
+global.moni_alarm[100]=200
+global.moni_alarm[101]=220
+global.moni_alarm[102]=230
+global.moni_alarm[103]=200
+global.moni_alarm[104]=30
+
+global.moni_alarm[105]=1000
+global.moni_alarm[106]=800
+global.moni_alarm[107]=450
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛 생산시간 능력치</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

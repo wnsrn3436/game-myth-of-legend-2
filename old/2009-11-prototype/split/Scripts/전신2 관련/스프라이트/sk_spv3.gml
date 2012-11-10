@@ -1,0 +1,1 @@
+spr1=global.sp_u3[c_hoo,argument0]

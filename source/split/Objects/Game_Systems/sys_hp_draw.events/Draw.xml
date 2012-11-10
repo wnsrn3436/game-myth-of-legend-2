@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sex_set_font(1, fa_middle, fa_middle)
+with(obj_unit)
+{
+    if sk_in_view(x, y)
+    {
+        if sk_in_fog(x, y, 0)
+        {
+            sk_udraw_color(player)
+            draw_ellipse(x+3,bbox_top-15,x-5,bbox_top-10,0)
+            draw_set_color(c_black)
+            if click_check=1
+            {
+                draw_set_color(c_red)
+                gauge_bar(hp, max_hp, x-15, bbox_top-1, x+15, bbox_top-6, 0)
+                draw_set_color(c_black)
+                gauge_bar_back(x-15, bbox_top-1, x+15, bbox_top-6, 0)
+            }
+            if v_name!=""
+            {
+                draw_set_color(c_white)
+                sex_draw_text((bbox_left+bbox_right)/2, bbox_top-22, v_name)
+                draw_set_color(c_black)
+            }
+        }
+    }
+}
+sex_set_font(1, fa_left, fa_middle)
+
+with(obj_bil)
+{
+    if sk_in_view(x, y)
+    {
+        if sk_in_fog(x, y, 0)
+        {
+            sk_udraw_color(player)
+            draw_ellipse(x+3,bbox_top-15,x-5,bbox_top-10,0)
+            draw_set_color(c_black)
+            
+            draw_set_color(c_blue)
+            gauge_bar(bil_time, max_hp, x-15, bbox_top-1, x+15, bbox_top-6, 0)
+            draw_set_color(c_black)
+            gauge_bar_back(x-15, bbox_top-1, x+15, bbox_top-6, 0)
+            
+            draw_set_color(c_red)
+            gauge_bar(hp, max_hp, x-15, bbox_top-8, x+15, bbox_top-13, 0)
+            draw_set_color(c_black)
+            gauge_bar_back(x-15, bbox_top-8, x+15, bbox_top-13, 0)
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

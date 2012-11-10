@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="기타" type="GROUP"/>
+  <resource name="온라인관련" type="GROUP"/>
+  <resource name="제작진" type="GROUP"/>
+</resources>

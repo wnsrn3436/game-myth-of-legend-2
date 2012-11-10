@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="4">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if keyboard_check(vk_control) and click=1{click=0; exit}
+//컨트롤 클릭해제
+with(obj_unit){if global.player_control!=player_id{click=0}}
+
+if !place_meeting(x,y,sys_interface) and global.attack=0 and (click=0 or global.click_number&gt;1)
+{
+if !keyboard_check(vk_control) or global.player_control!=player_id{obj_unit.click=0}
+if global.click_number&lt;=7{click=1}
+exit;
+}
+
+//클릭
+
+if !place_meeting(x,y,sys_interface) and global.attack=0 and (click=1 or global.click_number=1) and distinction!=3 and global.player_control=player_id
+{
+with(obj_unit)
+{
+
+if c_hoo=other.c_hoo and global.player_control=player_id and global.click_number&lt;=7 and distinction!=3 and distance_to_object(other.id)&lt;300 
+{
+click=1
+global.click_number+=1
+}
+
+}}
+//전체 클릭</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">클릭</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="obj_click" type="RESOURCE"/>
+  <resource name="obj_bullet" type="RESOURCE"/>
+  <resource name="obj_reso" type="RESOURCE"/>
+  <resource name="obj_fa_c" type="RESOURCE"/>
+  <resource name="obj_cre_ca" type="RESOURCE"/>
+  <resource name="obj_fa_expl" type="RESOURCE"/>
+  <resource name="obj_skil_st" type="RESOURCE"/>
+  <resource name="obj_skil_expo" type="RESOURCE"/>
+  <resource name="witunit" type="RESOURCE"/>
+  <resource name="obj_cir_draw" type="RESOURCE"/>
+</resources>

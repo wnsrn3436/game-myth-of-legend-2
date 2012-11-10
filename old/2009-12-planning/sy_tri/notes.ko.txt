@@ -1,0 +1,11 @@
+이 폴더는 게임의 지형을담당하는 폴더임
+
+
+tri_*.dlrc   =  게임의 지형이들어있음 (tmp_name.txt; tmp_spr.zip(1~??.PNG압축) )
+
+{
+
+tmp_name.txt는 지형의 이름
+tmp_spr.zip는 지형의 게임상의서의 그림 (1~??.PNG가 압축됨)
+
+}

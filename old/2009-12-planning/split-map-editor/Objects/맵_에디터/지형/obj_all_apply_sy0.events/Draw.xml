@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_minimap_border)
+{
+x=view_xview+xx
+y=view_yview+yy
+}
+
+x=sys_minimap_border.x-330
+y=sys_minimap_border.y+360
+
+if global._unit1.click_number&gt;-1
+{
+draw_sprite(sprite_index, image_index, x, y)
+image_index=0; sk_draw_midd_text(x-10, y-8, "전체적용", c_purple)
+}
+else{image_index=1}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

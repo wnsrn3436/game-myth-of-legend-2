@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_unit)
+{
+
+if x&gt;=view_xview and x&lt;=view_xview+view_wview and y&gt;=view_yview and y&lt;=view_yview+view_hview
+{
+//뷰에 있을때 드로우
+
+if ununit!=-1 and click=1
+{draw_set_alpha(0.5); draw_roundrect_color(bbox_left-10,y,bbox_left,y+14,c_aqua,c_aqua,0); draw_set_alpha(1)
+draw_text(bbox_left-8,y,ununit)}
+//부대표시
+sk_udraw_color(); draw_ellipse(x+3,bbox_top-15,x-5,bbox_top-10,0); draw_set_color(c_black)
+//유닛 색구별
+if click=1 and click_number&lt;=8
+{
+draw_rectangle(x-hp_right_size-1,bbox_top-6,x-hp_right_size+maxhp/maxhp*hp_right_size*hp_size+1,bbox_top-1,0)
+draw_set_color(c_red)
+draw_rectangle(x-hp_right_size,bbox_top-5,x-hp_right_size+hp/maxhp*hp_right_size*hp_size,bbox_top-2,0)
+//유닛 hp바 드로우
+}
+if nameind=1{draw_kr_string(x-(string_length(name)/2)*6,bbox_top-30,name,c_white)}
+//이름표시
+
+draw_set_color(c_black)
+}
+if global.attack=3 and bil_iid&gt;0
+{other.x=mouse_x; other.y=mouse_y; with(other.id){room_block()}
+explode_script(mask[bil_iid-1],"|"); other.sprite_index=global.sp_u1[real(explode[0]),1]
+if !place_meeting(other.x,other.y,obj_unit) and !place_meeting(other.x,other.y,obj_reso){draw_sprite_ext(global.sp_u1[real(explode[0]),2],0,other.x,other.y,1,1,0,-1,0.5)}
+else{draw_sprite_ext(global.sp_u1[real(explode[0]),2],0,other.x,other.y,1,1,0,c_red,0.5)}
+}
+//건물건설시, 드로우
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛드로우</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_reso)
+{
+
+if x&gt;=view_xview and x&lt;=view_xview+view_wview and y&gt;=view_yview and y&lt;=view_yview+view_hview
+{
+//뷰에 있을때 드로우
+
+draw_set_alpha(0.7)
+ik=global.vak_reso_name+' - '+string(hp)
+if hp_draw=1{draw_rectangle(x+5,y+5,x+10+string_length(ik)*6,y+20,0)}
+if hp_draw=1{draw_kr_string(x+7,y+5,ik,c_aqua)}
+draw_set_alpha(1)
+
+}
+
+
+}
+
+//자원 hp드로우</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">기타 드로우</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

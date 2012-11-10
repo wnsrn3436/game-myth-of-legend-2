@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="obj_draw" type="RESOURCE"/>
+  <resource name="obj_Integration" type="RESOURCE"/>
+  <resource name="obj_res" type="RESOURCE"/>
+  <resource name="obj_add" type="RESOURCE"/>
+  <resource name="obj_add2" type="RESOURCE"/>
+  <resource name="obj_dele" type="RESOURCE"/>
+  <resource name="obj_copy" type="RESOURCE"/>
+  <resource name="obj_save" type="RESOURCE"/>
+  <resource name="obj_neditor" type="RESOURCE"/>
+  <resource name="obj_change1" type="RESOURCE"/>
+  <resource name="obj_change2" type="RESOURCE"/>
+  <resource name="obj_bar1" type="RESOURCE"/>
+  <resource name="obj_bar2" type="RESOURCE"/>
+  <resource name="obj_scr_bar" type="RESOURCE"/>
+  <resource name="obj_status_bar" type="RESOURCE"/>
+</resources>

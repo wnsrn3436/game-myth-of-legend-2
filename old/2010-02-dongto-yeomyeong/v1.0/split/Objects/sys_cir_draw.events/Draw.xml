@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_unit)
+{
+
+if sk_in_view(x, y) and sk_in_fog(sys_fog, x, y, 0)
+{
+
+if click_check=1
+{
+draw_set_color(c_green)
+draw_ellipse(bbox_left-1,bbox_bottom-(bbox_right-bbox_left)/6,bbox_right+1,bbox_bottom+(bbox_right-bbox_left)/6,1)
+draw_set_color(c_black)
+}
+//원을 드로우
+
+}
+
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

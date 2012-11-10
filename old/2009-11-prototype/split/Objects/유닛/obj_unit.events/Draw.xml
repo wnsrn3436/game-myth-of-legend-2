@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if x&gt;=view_xview and x&lt;=view_xview+view_wview and y&gt;=view_yview and y&lt;=view_yview+view_hview
+{
+//뷰에 있을때 드로우
+
+if bil_cl=0
+{
+if distinction!=3{draw_sprite(sprite_index,subimg,x,y)}
+//스프라이트 드로우
+if distinction=3{draw_sprite(o_spr2,subimg,x,y)}
+//건물의 모습드로우
+if cre[1]&gt;0{draw_sprite(global.sp_u6[c_hoo,3],-1,x,y)}
+//유닛생산모습 드로우
+}
+else{if maxhp/sprite_get_number(global.sp_u6[c_hoo,4])*bil_rm&lt;=bil_cl2{bil_rm+=1}
+draw_sprite(global.sp_u6[c_hoo,4],bil_rm-1,x,y)}
+//건물 건설모습 드로우
+}</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

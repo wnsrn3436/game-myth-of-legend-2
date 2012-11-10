@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (4&gt;global.player_control and 4&gt;player) or (global.player_control&gt;=4 and player&gt;=4)
+{
+sk_fog_obj(sys_fog, x, y, range, 0)
+}
+//투명
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">포그 투명화</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">bil_time+=1
+hp+=1
+
+if 0&gt;=hp
+{
+if (4&gt;global.player_control and 4&gt;player) or (global.player_control&gt;=4 and player&gt;=4){sk_fog_obj(sys_fog, x, y, range, 2)}
+if global.player_control=player
+{
+instance_destroy()
+}
+}
+
+if bil_time&gt;=max_hp and global.player_control=player
+{
+if alarm[1]=-1
+{
+sk_message_save(sk_get_o_space(), -2, 2)
+sk_message_send()
+alarm[1]=60
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">기타</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sk_obj_me_check()
+{
+
+for(i=0; i!=sk_get_ome_max(); i+=1)
+{
+
+if sk_me_obj_read(i, 0, 0)=0
+{
+hp=sk_me_obj_read(i, 0, 1)
+bil_time=sk_me_obj_read(i, 0, 2)
+}
+//능력치
+
+if sk_me_obj_read(i, 0, 0)=1
+{
+if (4&gt;global.player_control and 4&gt;player) or (global.player_control&gt;=4 and player&gt;=4){sk_fog_obj(sys_fog, x, y, range, 2)}
+instance_destroy()
+}
+//사망
+
+if sk_me_obj_read(i, 0, 0)=2
+{
+ins=instance_create(x, y, obj_unit)
+ins.unit_id=unit_id
+ins.player=player
+with(ins){sk_unit_skil_to(unit_id)}
+
+sk_fog_obj(sys_fog, x, y, range, 2)
+instance_destroy()
+}
+//생산
+
+}
+
+sk_ome_clear()
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">메시지받기</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

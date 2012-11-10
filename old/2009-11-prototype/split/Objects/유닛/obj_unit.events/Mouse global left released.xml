@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="56">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if !place_meeting(x,y,sys_interface) and global.player_control=player_id and distinction!=3 and global.attack=0
+{
+if ((x&gt;=global.drag_x &amp;&amp; x&lt;=sys_mouse.x) || (x&lt;=global.drag_x &amp;&amp; x&gt;=sys_mouse.x)) &amp;&amp; ((y&gt;=global.drag_y &amp;&amp; y&lt;=sys_mouse.y) || (y&lt;=global.drag_y &amp;&amp; y&gt;=sys_mouse.y))
+{obj_unit.click=0 ; drag_wait=1 ; alarm[0]=0}
+}
+//인간 드래그
+else if !place_meeting(x,y,sys_interface) and global.player_control!=player_id and global.attack=0
+{
+if ((x&gt;=global.drag_x &amp;&amp; x&lt;=sys_mouse.x) || (x&lt;=global.drag_x &amp;&amp; x&gt;=sys_mouse.x)) &amp;&amp; ((y&gt;=global.drag_y &amp;&amp; y&lt;=sys_mouse.y) || (y&lt;=global.drag_y &amp;&amp; y&gt;=sys_mouse.y))
+{obj_unit.click=0 ; click=1}
+}
+//컴퓨터 드래그</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">드래그</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

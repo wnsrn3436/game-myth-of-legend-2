@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if hp&lt;=0{instance_destroy()}
+//체력이 없다면 죽게되있는법.
+
+if instance_number(state)=0{state=0; max_hp=0}
+else if state!=0{if state.picking_state=0{state=0; max_hp=0}}
+//캐는 유닛없을때 초기화
+
+if max_hp&gt;=max_had{state.picking_state=5; state=0; max_hp=0}
+//최대값이 다차면 자원운반 명령
+
+if place_meeting(x, y,sys_mouse){hp_draw=1}
+else{hp_draw=0}
+//마우스와 닿으면  hp드로우</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

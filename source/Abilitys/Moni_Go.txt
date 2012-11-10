@@ -1,0 +1,7 @@
+ds_list_add(global.go_moni, 4)
+ds_list_add(global.go_moni, 105)
+//자원을 가져다줄 유닛의 id
+
+ds_list_add(global.moni_hp_minus, 1)
+ds_list_add(global.moni_hp_minus, 1)
+//조선, 슬라임의 자원채집시 hp 감소 수치.

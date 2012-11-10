@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">c_hoo=global.cre_ch
+//능력치 코드
+
+sk_ex_var()
+//능력치 불러오기</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">능력치</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sk_etc_var()
+//기타변수 불러오기</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">기타변수</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sk_o_spr(sk_spv1(1),sk_spv1(2),sk_spv1(3),sk_spv1(4),sk_spv1(5),sk_spv1(6),sk_spv1(7),sk_spv1(8))
+//기본
+
+sk_m_spr(sk_spv2(1),sk_spv2(2),sk_spv2(3),sk_spv2(4),sk_spv2(5),sk_spv2(6),sk_spv2(7),sk_spv2(8))
+//이동
+
+sk_a_spr(sk_spv3(1),sk_spv3(2),sk_spv3(3),sk_spv3(4),sk_spv3(5),sk_spv3(6),sk_spv3(7),sk_spv3(8))
+//공격
+
+sk_mp_spr(sk_spv4(1),sk_spv4(2),sk_spv4(3),sk_spv4(4),sk_spv4(5),sk_spv4(6),sk_spv4(7),sk_spv4(8))
+//마법
+
+sk_die_spr(sk_spv5(1),sk_spv5(2),sk_spv5(3),sk_spv5(4),sk_spv5(5),sk_spv5(6),sk_spv5(7),sk_spv5(8))
+//죽음
+
+sp_8d(o_spr1,o_spr2,o_spr3,o_spr4,o_spr5,o_spr6,o_spr7,o_spr8)</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스프라이트</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

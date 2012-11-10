@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="2">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">건물 건설주기</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_unit)
+{
+    if ai=1
+    {
+        if choose(0, 1)
+        {
+            moni_go_waits=0
+            attack_waits=0
+            go_check=1
+            go_x=choose(x+irandom(500), x+(-irandom(500)))
+            go_y=choose(y+irandom(500), y+(-irandom(500)))
+            image_index=round(point_direction(x, y, go_x, go_y)/90)
+            ai=2
+        }
+        break
+    }
+    else if ai=2
+    {
+        var bil_id, ins_su;
+        ins_su=max(irandom(skil_number)-1, 0)
+        repeat(3){if ins_su=0{ins_su=max(irandom(skil_number)-1, 0)}else{break}}
+        bil_id=skil_id[ins_su]
+        sprite_index=global.unit_id_spr[bil_id, 0]
+        if !place_meeting(mouse_x, mouse_y, obj_moni) and !place_meeting(mouse_x, mouse_y, obj_unit) and !place_meeting(mouse_x, mouse_y, obj_bil)
+        {
+            /*on*/buffer_clear(fnv_sned)
+            write_uint(fnv_sned, x)
+            write_uint(fnv_sned, y)
+            write_uint(fnv_sned, bil_id)
+            write_uint(fnv_sned, player)
+            fn_message_send(global.socket, send_server, 14)
+            instance_destroy()
+            break
+        }
+        else
+        {
+            moni_go_waits=0
+            attack_waits=0
+            go_check=1
+            go_x=choose(x+irandom(500), x+(-irandom(500)))
+            go_y=choose(y+irandom(500), y+(-irandom(500)))
+            image_index=round(point_direction(x, y, go_x, go_y)/90)
+        }
+    }
+}
+
+alarm[2]=room_speed*40/global.player_com_ai
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

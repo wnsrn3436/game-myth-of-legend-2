@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">bil_time+=1
+hp+=1
+
+if 0&gt;=hp
+{
+    if !fn_get_my_player_id(global.socket)
+    {
+        /*on*/buffer_clear(fnv_sned)
+        write_uint(fnv_sned, on)
+        fn_message_send(global.socket, send_other, 17)
+        
+        pos=ds_list_find_index(global.on_unit, string(on))
+        ds_list_delete(global.on_unit, pos)
+        ds_list_delete(global.on_unit, pos)
+        
+        instance_destroy()
+    }
+}
+else if (4&gt;global.player_control and 4&gt;player) or (global.player_control&gt;=4 and player&gt;=4) or global.map_heck
+{
+    ds_grid_set_disk(sys_fog.fog_id, min(max(round(x / sys_fog.fgrid), 0), sys_fog.fwid), min(max(round(y / sys_fog.fgrid), 0), sys_fog.fhei), range/sys_fog.fgrid, 0)
+}
+
+if bil_time&gt;=max_hp and !fn_get_my_player_id(global.socket)
+{
+    ins=instance_create(x, y, obj_unit)
+    ins.unit_id=unit_id
+    ins.player=player
+    ins.on=global.on_unit_count
+    with(ins){sk_unit_skil_to(unit_id)}
+    ins.hp+=hp-max_hp
+    
+    /*on*/buffer_clear(fnv_sned)
+    write_uint(fnv_sned, on)
+    write_uint(fnv_sned, global.on_unit_count)
+    write_uint(fnv_sned, ins.hp)
+    fn_message_send(global.socket, send_other, 16)
+    
+    ds_list_add(global.on_unit, string(ins.on))
+    ds_list_add(global.on_unit, ins)
+    global.on_unit_count+=1
+    
+    pos=ds_list_find_index(global.on_unit, string(on))
+    ds_list_delete(global.on_unit, pos)
+    ds_list_delete(global.on_unit, pos)
+    
+    instance_destroy()
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

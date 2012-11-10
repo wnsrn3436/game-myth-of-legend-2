@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_space_open" type="RESOURCE"/>
+  <resource name="sk_o_space_make" type="RESOURCE"/>
+  <resource name="sk_get_o_space" type="RESOURCE"/>
+  <resource name="sk_o_space_change" type="RESOURCE"/>
+  <resource name="sk_get_space" type="RESOURCE"/>
+  <resource name="sk_space_plus" type="RESOURCE"/>
+  <resource name="sk_space_change" type="RESOURCE"/>
+</resources>

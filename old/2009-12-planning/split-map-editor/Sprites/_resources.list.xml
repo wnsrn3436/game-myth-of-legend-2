@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sp_bar" type="RESOURCE"/>
+  <resource name="spr_save" type="RESOURCE"/>
+  <resource name="spr_status_bar" type="RESOURCE"/>
+  <resource name="spr_scr_bar" type="RESOURCE"/>
+  <resource name="spr_kor1" type="RESOURCE"/>
+  <resource name="spr_kor2" type="RESOURCE"/>
+  <resource name="spr_button1" type="RESOURCE"/>
+  <resource name="spr_button2" type="RESOURCE"/>
+  <resource name="spr_minimap_border" type="RESOURCE"/>
+  <resource name="spr_minimap" type="RESOURCE"/>
+  <resource name="spr_minimap_f_back" type="RESOURCE"/>
+  <resource name="spr_choose_bar" type="RESOURCE"/>
+  <resource name="spr_long_bar" type="RESOURCE"/>
+  <resource name="spr_map_interfa" type="RESOURCE"/>
+  <resource name="spr_o_button1" type="RESOURCE"/>
+</resources>

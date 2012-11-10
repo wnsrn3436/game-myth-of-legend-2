@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">// 미니맵에서의 현재 위치 계산 ▼
+part_x1 = view_xview*xscale
+part_y1 = view_yview*yscale
+part_x2 = (view_xview+view_wview)*xscale
+part_y2 = (view_yview+view_hview)*yscale
+
+x_loc = view_xview + 277.5 // 화면 상 미니맵 가로 위치
+y_loc = view_yview + 379.5 // 화면 상 미니맵 세로 위치
+if instance_number(obj_unit)&gt;0
+{
+if obj_unit.min_size*mscale&lt;1{obj_unit.min_size=obj_unit.min_size/mscale+obj_unit.min_size*mscale}  //유닛 드로우 크기조절
+}
+
+// 미니맵 배경 표시 ▼
+draw_set_color(c_white)
+draw_rectangle(x_loc, y_loc, x_loc + width, y_loc + height, false)
+draw_set_color(c_orange)
+draw_rectangle(x_loc-0.5, y_loc-0.5, x_loc+0.5 + width, y_loc+0.5 + height, true)
+
+// 미니맵에 유닛 표시 ▼
+sk_map_draw()
+
+
+// 미니맵 현재 영역 표시 ▼
+draw_set_color(c_orange)
+draw_rectangle(x_loc + part_x1, y_loc + part_y1, x_loc + part_x2,  y_loc + part_y2, true)
+draw_set_color(c_black)</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

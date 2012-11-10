@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if attack_waits=3{alarm[0]=attack_alarm}
+
+if attack_waits!=0 and unit_s=1
+{
+attack_waits=2
+if instance_number(attack_unit)
+{
+attack_unit.hp-=attack_power
+
+for(i=0; i!=attack_plus_number; i+=1){if attack_unit.unit_id=attack_plus_id[i]{attack_unit.hp-=attack_plus_power[i]; break}}
+}
+}
+
+if attack_waits!=0 and unit_s=2
+{
+attack_waits=2
+
+var vb_unit;
+vb_unit=instance_create(x, y, obj_bullet)
+
+vb_unit.player=player
+vb_unit.attack_unit=attack_unit
+vb_unit.bullet_speed=bullet_speed
+vb_unit.attack_power=attack_power
+vb_unit.attack_range=attack_range
+vb_unit.unit_id=unit_id
+vb_unit.iid=id
+vb_unit.attack_plus_number=attack_plus_number
+for(i=0; i!=attack_plus_number; i+=1){vb_unit.attack_plus_id[i]=attack_plus_id[i]; vb_unit.attack_plus_power[i]=attack_plus_power[i]}
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

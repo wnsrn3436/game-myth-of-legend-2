@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="KEYPRESS" id="27">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_key.key_check{exit}
+if unit_cre_number&gt;0 and click_check=1 and sys_mouse.vab_unit=1
+{
+    global.player_moni[global.player_control]+=global.units_moni[unit_cre_id[unit_cre_number-1]]
+    unit_cre_id[unit_cre_number-1]=0
+    unit_cre_number-=1
+    if unit_cre_number=0{unit_cre_time=-1}
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

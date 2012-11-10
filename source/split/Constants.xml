@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<constants>
+  <constant name="ml2_show_4" value="&quot;생산대기열이 가득찼습니다.&quot;"/>
+  <constant name="ml2_show_3" value="&quot;집결지가 초기화되었습니다.&quot;"/>
+  <constant name="ml2_show_2" value="&quot;집결지가 설정되었습니다.&quot;"/>
+  <constant name="ml2_show_1" value="&quot;자원이 부족합니다.&quot;"/>
+  <constant name="cfn_server_error_event" value="2"/>
+  <constant name="cfn_exit_player_event" value="1"/>
+  <constant name="cfn_message_event" value="0"/>
+  <constant name="cfn_check" value="&quot;ML2_1.1125&quot;"/>
+  <constant name="cfn_error_4" value="&quot;Your game is different from the version of the server.&quot;"/>
+  <constant name="cfn_error_3" value="&quot;Server is closed.&quot;"/>
+  <constant name="cfn_error_2" value="&quot;Connection with some of the players lost.&quot;"/>
+  <constant name="cfn_error_1" value="&quot;Persons of the server is full.&quot;"/>
+  <constant name="send_other" value="-6"/>
+  <constant name="send_all_server_me" value="-5"/>
+  <constant name="send_all_me" value="-4"/>
+  <constant name="send_all_server" value="-3"/>
+  <constant name="send_all" value="-2"/>
+  <constant name="send_me" value="-1"/>
+  <constant name="send_server" value="0"/>
+</constants>

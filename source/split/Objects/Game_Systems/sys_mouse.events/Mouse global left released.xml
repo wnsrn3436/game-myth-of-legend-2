@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="56">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var c_check;
+c_check=0
+
+if click=1
+{
+    with(obj_unit)
+    {
+        if global.player_control=player and sk_drag_check(global.drag_x, global.drag_y, mouse_x, mouse_y) and drag_ok=1
+        {
+            if !c_check
+            {
+                for(i=0; i!=other.vab_unit; i+=1){if instance_number(other.vab_unit_id[i]){other.vab_unit_id[i].click_check=0}}
+                other.vab_unit=0
+                c_check=1
+            }
+            click_check=1
+            other.vab_unit_id[other.vab_unit]=id
+            other.vab_unit+=1
+            if other.vab_unit&gt;7{break}
+        }
+    }
+    click=0
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

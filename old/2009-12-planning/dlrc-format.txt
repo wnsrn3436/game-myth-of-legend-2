@@ -1,0 +1,37 @@
+The file body always ends with 5 empty bytes (5 bytes are dropped automatically on extraction)
+-------------------------------------------
+dlrc_file
++|+
+[file name]
+[current offset in bytes]
+[file size]
+[encryption key]
+file body
+~
+~
+~
+~
+~      
++|+
+[file name]
+[current offset in bytes]
+[file size]
+[encryption key]
+file body
+~
+~
+~
+~
+~      
++|+
+[file name]
+[current offset in bytes]
+[file size]
+[encryption key]
+file body
+~
+~
+~
+~
+~      
++|+

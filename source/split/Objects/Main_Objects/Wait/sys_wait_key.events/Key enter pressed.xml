@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="KEYPRESS" id="13">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if keyboard_string!=""
+{
+    ds_list_add(key, room_speed*10)
+    ds_list_add(key, global.player_control)
+    ds_list_add(key, global.name+" : "+keyboard_string)
+    
+    /*on*/buffer_clear(fnv_sned)
+    write_ubyte(fnv_sned, global.player_control)
+    write_string_v2(fnv_sned, global.name+" : "+keyboard_string)
+    fn_message_send(global.socket, send_other, 30)
+    
+    keyboard_string=""
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

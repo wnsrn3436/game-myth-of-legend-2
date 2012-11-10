@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if view_wview&lt;mouse_x-view_xview{view_xview=min(room_width-view_wview,view_xview+global.mouse_speed)}
+if view_hview&lt;mouse_y-view_yview{view_yview=min(room_height-view_hview,view_yview+global.mouse_speed)}
+if 0&gt;mouse_x-view_xview{view_xview=max(0,view_xview-global.mouse_speed)}
+if 0&gt;mouse_y-view_yview{view_yview=max(0,view_yview-global.mouse_speed)}
+//마우스로 뷰 이동</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">뷰 이동</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if global.mouse_ropes=1 and sys_minimap.ok=0
+{
+if view_wview&lt;mouse_x-view_xview{window_views_mouse_set(view_xview+view_wview-2,mouse_y)}
+if 0&gt;mouse_x-view_xview{window_views_mouse_set(view_xview+2,mouse_y)}
+if view_hview&lt;mouse_y-view_yview{window_views_mouse_set(mouse_x,view_yview+view_hview-2)}
+if 0&gt;mouse_y-view_yview{window_views_mouse_set(mouse_x,view_yview+2)}
+}
+//마우스 좌표이동
+
+x=mouse_x
+y=mouse_y
+
+if x&gt;room_width{x=room_width-2}
+if x&lt;0{x=2}
+
+if y&gt;room_height{y=room_height-2}
+if y&lt;0{y=2}
+
+//좌표 이동
+
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">좌표이동</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

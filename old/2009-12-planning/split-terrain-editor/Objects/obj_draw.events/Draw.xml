@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if click_number&gt;-1
+{
+
+if click_number&gt;=key_start_key and click_number&lt;=key_start_key+key_max-1
+{
+draw_set_alpha(0.3)
+draw_set_color(c_aqua)
+draw_rectangle(obj_status_bar.x, (click_number-key_start_key)*key_size2+key_size, obj_status_bar.x+sprite_get_width(spr_status_bar)-1, (click_number-key_start_key)*key_size2+key_size+key_size2, 0)
+draw_set_color(c_black)
+draw_set_alpha(1)
+//몸체
+draw_rectangle(obj_status_bar.x, (click_number-key_start_key)*key_size2+key_size, obj_status_bar.x+sprite_get_width(spr_status_bar)-1, (click_number-key_start_key)*key_size2+key_size+key_size2, 1)
+//테두리
+}
+
+if alarm[0]=-1
+{
+draw_sprite(global.spr_tri[click_number], image_ch_image, 206, 92)
+//지형 그림
+
+sk_draw_kr_string(206, 10, "name = "+global.name_tri[click_number], c_black)
+draw_text(206, 30, "id = "+string(click_number))
+draw_text(206, 50, "width = "+string(sprite_get_width(global.spr_tri[click_number])))
+draw_text(206, 70, "height = "+string(sprite_get_height(global.spr_tri[click_number])))
+//크기
+}
+
+}
+//선택지형 그리기
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">지형 그림보이기등</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var umber;
+umber=0
+
+for(i=key_start_key; i!=key_max+key_start_key; i+=1)
+{
+if global.tri_max_number&gt;i
+{
+sk_draw_kr_string(45, key_size+umber*key_size2, string(i)+"-"+global.name_tri[i], c_black)
+}
+umber+=1
+}
+//지형 글자그리기
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">지형이름</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_Integration)
+{
+
+if ok=1
+{
+sk_draw_box(mouse_x, mouse_y, ok_message, c_aqua, c_black, 1, 0.7)
+}
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">메뉴설명</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

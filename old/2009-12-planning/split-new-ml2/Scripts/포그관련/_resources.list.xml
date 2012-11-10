@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_fog_obj" type="RESOURCE"/>
+  <resource name="sk_in_fog" type="RESOURCE"/>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_bar1_alpha" type="RESOURCE"/>
+  <resource name="sk_bar2_alpha" type="RESOURCE"/>
+  <resource name="sk_bar1_go_1" type="RESOURCE"/>
+  <resource name="sk_bar2_go_1" type="RESOURCE"/>
+  <resource name="sk_bar1_go_2" type="RESOURCE"/>
+  <resource name="sk_bar2_go_2" type="RESOURCE"/>
+  <resource name="sk_scr_bar_change" type="RESOURCE"/>
+  <resource name="sk_scr_bar_go" type="RESOURCE"/>
+</resources>

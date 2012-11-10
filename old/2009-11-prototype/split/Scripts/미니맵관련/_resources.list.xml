@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="in_map" type="RESOURCE"/>
+  <resource name="sk_map_draw" type="RESOURCE"/>
+</resources>

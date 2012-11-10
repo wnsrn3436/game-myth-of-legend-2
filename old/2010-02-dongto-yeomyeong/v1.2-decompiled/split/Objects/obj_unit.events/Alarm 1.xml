@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="1">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if moni_go_waits!=0
+{
+moni_go_waits=4
+if instance_number(moni_go_waits_id)
+{
+moni_go_waits_id.moni-=attack_power
+moni_go_waits_id.waits=0
+with(moni_go_waits_id){if sk_get_my_id()=0 and alarm[1]=-1{alarm[1]=100}}
+}
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

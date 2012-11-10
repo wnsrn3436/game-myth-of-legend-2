@@ -1,0 +1,12 @@
+This folder holds the items of the game
+
+
+ite_*.dlrc   =  contains the effect and images of an item (1.txt; 1.gif; 2.gif)
+
+{
+
+1.txt is the effect of the item
+1.gif is the image of the item on screen
+2.gif is the image of the item in the interface
+
+}

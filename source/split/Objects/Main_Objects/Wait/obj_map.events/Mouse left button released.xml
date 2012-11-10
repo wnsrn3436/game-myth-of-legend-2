@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if !fn_get_my_player_id(global.socket) and sys_wait.check=0
+{
+    sys_wait.map+=1
+    if sys_wait.map=sys_wait.map_max{sys_wait.map=0}
+    
+    buffer_clear(fnv_sned)
+    write_ubyte(fnv_sned, sys_wait.map)
+    fn_message_send(global.socket, send_other, 8)
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

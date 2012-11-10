@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if click=1
+{
+    draw_set_alpha(0.3)
+    draw_set_color(c_green)
+    draw_rectangle(global.drag_x, global.drag_y, mouse_x, mouse_y, 0)
+    
+    draw_set_alpha(1)
+    draw_set_color(c_red)
+    draw_rectangle(global.drag_x, global.drag_y, mouse_x, mouse_y, 1)
+    
+    draw_set_color(c_black)
+}
+
+if bil_ok=1
+{
+    sprite_index=global.unit_id_spr[bil_id, 0]
+    if !place_meeting(mouse_x, mouse_y, sys_inter) and !place_meeting(mouse_x, mouse_y, obj_moni) and !place_meeting(mouse_x, mouse_y, obj_unit) and !place_meeting(mouse_x, mouse_y, obj_bil) and !sk_in_fog(mouse_x, mouse_y, 1)
+    {
+        draw_sprite_ext(sprite_index, 0, mouse_x, mouse_y, 1, 1, 0, -1, 0.5)
+    }
+    else{draw_sprite_ext(sprite_index, 0, mouse_x, mouse_y, 1, 1, 0, c_red, 0.5)}
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

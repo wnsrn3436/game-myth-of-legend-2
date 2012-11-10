@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">for(i=0; i!=4; i+=1)
+{
+    if name[i]=""{draw_set_alpha(0.5); sex_draw_text(50, 225+(i*15), "noone"); draw_set_alpha(1); continue}
+    
+    sk_udraw_color(i)
+    if !wow[i]{sex_draw_text(50, 225+(i*15), name[i]+" [조선]")}
+    else{sex_draw_text(50, 225+(i*15), name[i]+" [슬라임]")}
+    draw_set_color(c_black)
+}
+
+for(i=4; i!=8; i+=1)
+{
+    if name[i]=""{draw_set_alpha(0.5); sex_draw_text(480, 225+((i-4)*20), "noone"); draw_set_alpha(1); continue}
+    
+    sk_udraw_color(i)
+    if !wow[i]{sex_draw_text(480, 225+((i-4)*20), name[i]+" [조선]")}
+    else{sex_draw_text(480, 225+((i-4)*20), name[i]+" [슬라임]")}
+    draw_set_color(c_black)
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

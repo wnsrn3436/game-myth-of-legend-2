@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sk_get_my_id()=0{sk_message_converter(0)}
+
+while(sk_message_check())
+{
+for(i=0; i!=sk_get_me_maxme(); i+=1)
+{
+
+sk_message_cut(i)
+
+if sk_me_p_check()
+{
+
+if sk_get_me_id()=0
+{
+sk_p_join()
+
+for(j=0; j!=8; j+=1){if on_s_cre[j]=0{on_s_cre[j]=1; on_s_cre_name[j]=sk_get_me_name(); break}}
+
+sk_message_save(2, sk_get_me_send(), j)
+sk_message_save(3, -1, on_s_cre_name[0], on_s_cre_name[1], on_s_cre_name[2], on_s_cre_name[3], on_s_cre_name[4], on_s_cre_name[5], on_s_cre_name[6], on_s_cre_name[7])
+sk_message_save(4, -1, on_s_cre_wow[0], on_s_cre_wow[1], on_s_cre_wow[2], on_s_cre_wow[3], on_s_cre_wow[4], on_s_cre_wow[5], on_s_cre_wow[6], on_s_cre_wow[7])
+sk_message_save(11, -1, map)
+sk_message_send()
+}
+//가입
+
+if sk_get_me_id()=1
+{
+sk_p_exit()
+
+on_s_cre[sk_me_read(0, 0)]=0
+on_s_cre_name[sk_me_read(0, 0)]=""
+on_s_cre_wow[sk_me_read(0, 0)]=0
+
+sk_message_save(3, -1, on_s_cre_name[0], on_s_cre_name[1], on_s_cre_name[2], on_s_cre_name[3], on_s_cre_name[4], on_s_cre_name[5], on_s_cre_name[6], on_s_cre_name[7])
+sk_message_save(4, -1, on_s_cre_wow[0], on_s_cre_wow[1], on_s_cre_wow[2], on_s_cre_wow[3], on_s_cre_wow[4], on_s_cre_wow[5], on_s_cre_wow[6], on_s_cre_wow[7])
+sk_message_send()
+}
+//탈퇴
+
+if sk_get_me_id()=2
+{
+global.player_control=sk_me_read(0, 0)
+}
+//플레이어조종권한
+
+if sk_get_me_id()=3
+{
+for(j=0; j!=8; j+=1){on_s_cre_name[j]=sk_me_read(1, j)}
+}
+//이름얻기
+
+if sk_get_me_id()=4
+{
+for(j=0; j!=8; j+=1){on_s_cre_wow[j]=sk_me_read(0, j)}
+}
+//종족얻기
+
+if sk_get_me_id()=5
+{
+var vb_sav;
+vb_sav=on_s_cre_wow[sk_me_read(0, 0)]
+
+on_s_cre[sk_me_read(0, 0)]=0
+on_s_cre_name[sk_me_read(0, 0)]=""
+on_s_cre_wow[sk_me_read(0, 0)]=0
+
+for(j=0; j!=4; j+=1){if on_s_cre[j]=0{on_s_cre[j]=1; on_s_cre_name[j]=sk_get_me_name(); on_s_cre_wow[j]=vb_sav; break}}
+
+sk_message_save(2, sk_get_me_send(), j)
+sk_message_save(3, -1, on_s_cre_name[0], on_s_cre_name[1], on_s_cre_name[2], on_s_cre_name[3], on_s_cre_name[4], on_s_cre_name[5], on_s_cre_name[6], on_s_cre_name[7])
+sk_message_save(4, -1, on_s_cre_wow[0], on_s_cre_wow[1], on_s_cre_wow[2], on_s_cre_wow[3], on_s_cre_wow[4], on_s_cre_wow[5], on_s_cre_wow[6], on_s_cre_wow[7])
+sk_message_send()
+}
+//팀1 변경요청
+
+if sk_get_me_id()=6
+{
+var vb_sav;
+vb_sav=on_s_cre_wow[sk_me_read(0, 0)]
+
+on_s_cre[sk_me_read(0, 0)]=0
+on_s_cre_name[sk_me_read(0, 0)]=""
+on_s_cre_wow[sk_me_read(0, 0)]=0
+
+for(j=4; j!=8; j+=1){if on_s_cre[j]=0{on_s_cre[j]=1; on_s_cre_name[j]=sk_get_me_name(); on_s_cre_wow[j]=vb_sav; break}}
+
+sk_message_save(2, sk_get_me_send(), j)
+sk_message_save(3, -1, on_s_cre_name[0], on_s_cre_name[1], on_s_cre_name[2], on_s_cre_name[3], on_s_cre_name[4], on_s_cre_name[5], on_s_cre_name[6], on_s_cre_name[7])
+sk_message_save(4, -1, on_s_cre_wow[0], on_s_cre_wow[1], on_s_cre_wow[2], on_s_cre_wow[3], on_s_cre_wow[4], on_s_cre_wow[5], on_s_cre_wow[6], on_s_cre_wow[7])
+sk_message_send()
+}
+//팀2 변경요청
+
+if sk_get_me_id()=7
+{
+on_s_cre_wow[sk_me_read(0, 0)]=0
+
+sk_message_save(4, -1, on_s_cre_wow[0], on_s_cre_wow[1], on_s_cre_wow[2], on_s_cre_wow[3], on_s_cre_wow[4], on_s_cre_wow[5], on_s_cre_wow[6], on_s_cre_wow[7])
+sk_message_send()
+}
+//조선변경요청
+
+if sk_get_me_id()=8
+{
+on_s_cre_wow[sk_me_read(0, 0)]=1
+
+sk_message_save(4, -1, on_s_cre_wow[0], on_s_cre_wow[1], on_s_cre_wow[2], on_s_cre_wow[3], on_s_cre_wow[4], on_s_cre_wow[5], on_s_cre_wow[6], on_s_cre_wow[7])
+sk_message_send()
+}
+//조선변경요청
+
+if sk_get_me_id()=9
+{
+for(j=0; j!=8; j+=1){global.player_wow[j]=on_s_cre_wow[j]}
+for(j=0; j!=8; j+=1){global.player_name[j]=on_s_cre_name[j]}
+
+switch(map)
+{
+case 0: room_goto(s1vs1); break;
+case 1: room_goto(s2vs2); break;
+case 2: room_goto(s3vs3); break;
+case 3: room_goto(s4vs4); break;
+}
+ 
+}
+//시작
+
+if sk_get_me_id()=10
+{
+map+=1
+if map=map_max{map=0}
+
+sk_message_save(11, -1, map)
+sk_message_send()
+}
+//맵변경
+
+if sk_get_me_id()=11
+{
+map=sk_me_read(0, 0)
+}
+//맵받기
+
+}
+
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">메시지받기</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

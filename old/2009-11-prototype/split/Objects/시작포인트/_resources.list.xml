@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="obj_sp_con" type="RESOURCE"/>
+  <resource name="obj_spoint" type="RESOURCE"/>
+  <resource name="obj_spoint1" type="RESOURCE"/>
+  <resource name="obj_spoint2" type="RESOURCE"/>
+  <resource name="obj_spoint3" type="RESOURCE"/>
+  <resource name="obj_spoint4" type="RESOURCE"/>
+  <resource name="obj_spoint5" type="RESOURCE"/>
+  <resource name="obj_spoint6" type="RESOURCE"/>
+  <resource name="obj_spoint7" type="RESOURCE"/>
+  <resource name="obj_spoint8" type="RESOURCE"/>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="4">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if global.attack&gt;0 and global.attack&lt;3
+{
+with(obj_unit)
+{
+if click=1 and global.player_control=player_id and distinction!=3
+{
+sc_move(0)
+move_x = max(0, (mouse_x - other.x_loc)/other.xscale)
+move_y = max(0, (mouse_y - other.y_loc)/other.yscale)
+Attack_choose=1
+}
+if global.attack!=0
+{global.attack=0; action_set_cursor(spr_mouse,0)}
+//어택다운 취소 실행
+}
+//유닛 어택다운 이동
+}
+else{ok=1}</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

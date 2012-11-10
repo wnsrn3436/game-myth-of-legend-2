@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="한글드로우" type="GROUP"/>
+  <resource name="미니맵관련" type="GROUP"/>
+  <resource name="포그관련" type="GROUP"/>
+  <resource name="검색관련" type="GROUP"/>
+  <resource name="전신관련" type="GROUP"/>
+</resources>

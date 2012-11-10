@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if alarm[0]&gt;room_speed/2
+{
+    sex_draw_text(x, y, "Chat : "+keyboard_string+ime_get_string())
+}
+else
+{
+    sex_draw_text(x, y, "Chat : "+keyboard_string+ime_get_string()+"|")
+}
+
+var key_max, key_var, keys, kebu;
+key_max=ds_list_size(key)/3
+kebu=room_speed*10
+for(i=key_max-1; i&gt;=0; i-=1)
+{
+    key_var=i*3
+    keys=ds_list_find_value(key, key_var)
+    if !keys
+    {
+        ds_list_delete(key, key_var)
+        ds_list_delete(key, key_var)
+        ds_list_delete(key, key_var)
+        i-=1
+        key_max-=1
+    }
+    else
+    {
+        sk_udraw_color(ds_list_find_value(key, key_var+1))
+        draw_set_alpha(keys/kebu)
+        sex_draw_text(x, y-30-((key_max-i)*16), ds_list_find_value(key, key_var+2))
+        ds_list_replace(key, key_var, keys-1)
+    }
+}
+
+draw_set_color(c_black)
+draw_set_alpha(1)
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

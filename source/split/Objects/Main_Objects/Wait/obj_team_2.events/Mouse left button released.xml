@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if 4&gt;global.player_control and sys_wait.check=0
+{
+    buffer_clear(fnv_sned)
+    write_ubyte(fnv_sned, global.player_control)
+    write_ubyte(fnv_sned, 1)
+    fn_message_send(global.socket, send_server, 3)
+    sys_wait.check=1
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_spr_unz1" type="RESOURCE"/>
+  <resource name="sk_spr_unz2" type="RESOURCE"/>
+  <resource name="sk_spr_unz3" type="RESOURCE"/>
+  <resource name="sk_spr_unz4" type="RESOURCE"/>
+  <resource name="sk_spr_unz5" type="RESOURCE"/>
+  <resource name="sk_spr_unz6" type="RESOURCE"/>
+  <resource name="sk_spr_unz7" type="RESOURCE"/>
+  <resource name="sk_file_sp_dl" type="RESOURCE"/>
+</resources>

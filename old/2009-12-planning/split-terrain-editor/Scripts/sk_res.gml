@@ -1,0 +1,37 @@
+//지형을 불러옵니다
+
+var tmp_sprspr;
+
+global.tri_max_number=0
+
+for(i=0; file_exists(global.fodre+string(i)+".dlrc")=1; i+=1)
+{
+sk_dlrc_load(global.fodre+string(i)+".dlrc", "+|+")
+
+for(t=0; t!=dlrc_max_number; t+=1)
+{
+sk_dlrc_extract(global.fodre+string(i)+".dlrc", "sy_tmp\", t)
+}
+
+global.spr_tri[i]=sprite_add("sy_tmp\"+string(1)+".PNG",0,0,0,0,0)
+for(j=2; file_exists("sy_tmp\"+string(j)+".PNG")=1; j+=1)
+{
+tmp_sprspr=sprite_add("sy_tmp\"+string(j)+".PNG",0,0,0,0,0)
+sprite_merge(global.spr_tri[i], tmp_sprspr)
+//덧붙이기
+}
+//스픗불르기
+
+open=file_text_open_read("sy_tmp\name.txt")
+global.name_tri[i]=file_text_read_string(open)+file_text_read_string(open)
+file_text_close(open)
+//이름불르기
+
+global.tri_max_number+=1
+//최대 지형수 증가
+
+for(t=0; t!=dlrc_max_number; t+=1){sk_dlrc_delete("sy_tmp\", t)}
+//임시파일삭제
+}
+
+// sk_res()

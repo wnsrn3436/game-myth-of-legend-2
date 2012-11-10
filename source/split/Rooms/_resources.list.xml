@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="rom_start" type="RESOURCE"/>
+  <resource name="rom_main" type="RESOURCE"/>
+  <resource name="rom_wait" type="RESOURCE"/>
+  <resource name="rom_maker" type="RESOURCE"/>
+  <resource name="Game" type="GROUP"/>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="4">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">//스킬 사용의 댓가초기화
+with(obj_cre_ca){if id!=other.id{obj_id=0}}
+
+if obj_id!=0 and instance_number(obj_id)&gt;0
+{
+mask=obj_id.mask[obj_id.skki[iid]-1]
+ins=obj_id.player_id
+explode_script(mask,"|")
+if real(explode[0])!=0
+{
+money_p()
+//돈 초기화
+
+for(i=iid;i!=5;i+=1){if i!=4{obj_id.cre[i]=obj_id.cre[i+1]; obj_id.crerm[i]=obj_id.crerm[i+1]; obj_id.skki[i]=obj_id.skki[i+1]}else{obj_id.cre[4]=0; obj_id.crerm[4]=spr_sk; obj_id.skki[4]=0}}
+//유닛생산 넘기기 , 그림 넘기기 ,  skki 넘기기
+if iid=1{obj_id.cretm=0}
+
+}
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">요금 반납</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

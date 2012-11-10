@@ -1,0 +1,4 @@
+This folder holds the maps of the game
+
+
+*.maps2   =  a map file

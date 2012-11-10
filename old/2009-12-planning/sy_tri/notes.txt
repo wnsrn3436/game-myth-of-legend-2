@@ -1,0 +1,11 @@
+This folder holds the terrain of the game
+
+
+tri_*.dlrc   =  contains terrain of the game (tmp_name.txt; tmp_spr.zip (1~??.PNG compressed))
+
+{
+
+tmp_name.txt is the name of the terrain
+tmp_spr.zip is the in-game image of the terrain (1~??.PNG compressed)
+
+}

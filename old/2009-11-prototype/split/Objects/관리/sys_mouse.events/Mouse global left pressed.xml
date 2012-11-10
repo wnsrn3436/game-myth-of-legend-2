@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="53">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if global.attack=2 and alarm[0]=-1 and global.click_control=0
+{global.attack=1; alarm[0]=1; instance_create(mouse_x,mouse_y,obj_click); action_set_cursor(spr_mouse,0)}
+//어택다운 취소 실행</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

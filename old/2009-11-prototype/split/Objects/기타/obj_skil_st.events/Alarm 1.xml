@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="1">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mo=1
+{
+with(obj_id)
+{
+
+if other.skil_each=1
+{
+other.art=string_replace_all(other.skil_po,'+','&amp;')
+other.art=string_replace_all(other.art,'-','+')
+other.art=string_replace_all(other.art,'&amp;','-')
+other.art=string_replace_all(other.art,'*','&amp;')
+other.art=string_replace_all(other.art,'/','*')
+other.art=string_replace_all(other.art,'&amp;','/')
+//문자열 치환
+execute_string(other.art)
+// 스킬의 능력치를 뺌.
+}
+execute_string(other.skil_ea)
+//수동능력치 뺌
+
+}}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">모드1 능력치 초기화</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mo=2
+{
+with(obj_unit)
+{
+if randonm[other.ran]=1
+{
+
+if other.skil_each=1
+{
+other.art=string_replace_all(other.skil_po,'+','&amp;')
+other.art=string_replace_all(other.art,'-','+')
+other.art=string_replace_all(other.art,'&amp;','-')
+other.art=string_replace_all(other.art,'*','&amp;')
+other.art=string_replace_all(other.art,'/','*')
+other.art=string_replace_all(other.art,'&amp;','/')
+//문자열 치환
+execute_string(other.art)
+// 스킬의 능력치를 뺌.
+}
+execute_string(other.skil_ea)
+//수동능력치 뺌
+
+randonm[other.ran]=0
+//랜덤받기 초기화
+}}}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">모드2 능력치 초기화</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mo=3 and ge&gt;0
+{
+with(ge)
+{
+
+if other.skil_each=1
+{
+other.art=string_replace_all(other.skil_po,'+','&amp;')
+other.art=string_replace_all(other.art,'-','+')
+other.art=string_replace_all(other.art,'&amp;','-')
+other.art=string_replace_all(other.art,'*','&amp;')
+other.art=string_replace_all(other.art,'/','*')
+other.art=string_replace_all(other.art,'&amp;','/')
+//문자열 치환
+execute_string(other.art)
+// 스킬의 능력치를 뺌.
+}
+execute_string(other.skil_ea)
+//수동능력치 뺌
+
+}}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">모드3 능력치 초기화</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mo=4
+{
+with(obj_unit)
+{
+if randonm[other.ran]=1
+{
+
+if other.skil_each=1
+{
+other.art=string_replace_all(other.skil_po,'+','&amp;')
+other.art=string_replace_all(other.art,'-','+')
+other.art=string_replace_all(other.art,'&amp;','-')
+other.art=string_replace_all(other.art,'*','&amp;')
+other.art=string_replace_all(other.art,'/','*')
+other.art=string_replace_all(other.art,'&amp;','/')
+//문자열 치환
+execute_string(other.art)
+// 스킬의 능력치를 뺌.
+}
+execute_string(other.skil_ea)
+//수동능력치 뺌
+
+randonm[other.ran]=0
+//랜덤받기 초기화
+}}}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">모드4 능력치 초기화</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if skil_for=0 and alarm[3]=-1{instance_destroy()}
+//반복 아니면 죽음</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">죽음</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

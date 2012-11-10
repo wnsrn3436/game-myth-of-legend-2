@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">for(i=0; i!=9; i+=1)
+{
+if keyboard_check_pressed(i+49)
+{
+vaz=i
+
+with(sys_mouse)
+{
+
+if vab_unit=1
+{
+if instance_number(vab_unit_id[0])
+{
+if global.player_control=vab_unit_id[0].player and vab_unit_id[0].skil_number&gt;other.vaz
+{
+
+if global.player_moni[global.player_control]&gt;=global.units_moni[vab_unit_id[0].skil_id[other.vaz]]
+{
+if vab_unit_id[0].skil_exe[other.vaz]=0
+{
+sys_mouse.bil_ok=1
+sys_mouse.bil_id=vab_unit_id[0].skil_id[other.vaz]
+
+vab_unit=0
+global.player_moni[global.player_control]-=global.units_moni[vab_unit_id[0].skil_id[other.vaz]]
+with(vab_unit_id[0]){instance_destroy()}
+}
+else
+{
+if vab_unit_id[0].unit_cre_number!=6
+{
+vab_unit_id[0].unit_cre_id[vab_unit_id[0].unit_cre_number]=vab_unit_id[0].skil_id[other.vaz]
+if vab_unit_id[0].unit_cre_number=0{vab_unit_id[0].unit_cre_time=global.moni_alarm[vab_unit_id[0].skil_id[other.vaz]]}
+vab_unit_id[0].unit_cre_number+=1
+global.player_moni[global.player_control]-=global.units_moni[vab_unit_id[0].skil_id[other.vaz]]
+}
+}
+}
+
+}
+}
+}
+
+}
+
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스킬단축키</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

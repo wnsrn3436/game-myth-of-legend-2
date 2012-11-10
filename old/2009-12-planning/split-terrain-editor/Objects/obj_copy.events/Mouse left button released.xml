@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if obj_draw.click_number&gt;-1
+{
+for(i=global.tri_max_number; i!=obj_draw.click_number; i-=1)
+{
+file_rename(global.fodre+string(i)+".dlrc", global.fodre+string(i+1)+".dlrc")
+}
+//이름변경
+
+file_copy(global.fodre+string(obj_draw.click_number)+".dlrc", global.fodre+string(obj_draw.click_number+1)+".dlrc")
+//파일복사
+
+sk_res()
+//지형불르기
+
+obj_draw.alarm[0]=10
+//얼마동안 드로우못하게
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

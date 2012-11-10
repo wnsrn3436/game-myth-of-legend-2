@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="OTHER" id="10">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">Message</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">switch(fn_get_message_id())
+{
+    case 11:
+        //chatting
+        ds_list_add(sys_key.key, room_speed*5)
+        ds_list_add(sys_key.key, read_ubyte(fnv_message))
+        ds_list_add(sys_key.key, read_string_v2(fnv_message))
+        break;
+    case 12:
+        //moni destroy
+        var pos;
+        pos=ds_list_find_index(global.on_moni, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_moni, pos+1)){break;}
+        with(ds_list_find_value(global.on_moni, pos+1)){instance_destroy()}
+        ds_list_delete(global.on_moni, pos)
+        ds_list_delete(global.on_moni, pos)
+        break;
+    case 13:
+        //moni hp-
+        var pos;
+        pos=ds_list_find_index(global.on_moni, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_moni, pos+1)){break;}
+        with(ds_list_find_value(global.on_moni, pos+1)){moni-=read_uint(fnv_message)}
+        break;
+    case 14:
+        //bil create (server)
+        buffer_clear(fnv_sned)
+        write_buffer(fnv_sned, fnv_message)
+        write_uint(fnv_sned, global.on_unit_count)
+        fn_message_send(global.socket, send_all_server_me, 15)
+        global.on_unit_count+=1
+        break;
+    case 15:
+        //bil create
+        var ins;
+        ins=instance_create(read_uint(fnv_message), read_uint(fnv_message), obj_bil)
+        ins.unit_id=read_uint(fnv_message)
+        ins.player=read_uint(fnv_message)
+        with(ins){sk_unit_skil_to(unit_id); max_hp=moni_alarm; hp=1; on=read_uint(fnv_message)}
+        ds_list_add(global.on_unit, string(ins.on))
+        ds_list_add(global.on_unit, ins)
+        break;
+    case 16:
+        //bil unit
+        var pos, ins;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            ins=instance_create(x, y, obj_unit)
+            ins.unit_id=unit_id
+            ins.player=player
+            ins.on=read_uint(fnv_message)
+            with(ins){sk_unit_skil_to(unit_id)}
+            ins.hp=read_uint(fnv_message)
+            ds_list_add(global.on_unit, string(ins.on))
+            ds_list_add(global.on_unit, ins)
+            instance_destroy()
+        }
+        ds_list_delete(global.on_unit, pos)
+        ds_list_delete(global.on_unit, pos)
+        break;
+    case 17:
+        //bil destroy
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1)){instance_destroy()}
+        ds_list_delete(global.on_unit, pos)
+        ds_list_delete(global.on_unit, pos)
+        break;
+    case 18:
+        //unit create (server)
+        buffer_clear(fnv_sned)
+        write_buffer(fnv_sned, fnv_message)
+        write_uint(fnv_sned, global.on_unit_count)
+        fn_message_send(global.socket, send_all_server_me, 19)
+        global.on_unit_count+=1
+        break;
+    case 19:
+        //unit create
+        var pos, int, ins, temp_go_x, temp_go_y;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        int=read_uint(fnv_message)
+        temp_go_x=read_uint(fnv_message)
+        temp_go_y=read_uint(fnv_message)
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            ins=instance_create(x, bbox_bottom+sprite_get_bbox_bottom(global.unit_id_spr[int, 0]), obj_unit)
+            ins.unit_id=int
+            ins.player=player
+            ins.on=read_uint(fnv_message)
+            with(ins)
+            {
+                sk_unit_skil_to(unit_id)
+                if temp_go_x&gt;0 and temp_go_y&gt;0
+                {
+                    go_check=1
+                    attack_waits=0
+                    go_x=temp_go_x
+                    go_y=temp_go_y
+                    image_index=round(point_direction(x, y, go_x, go_y)/90)
+                }
+            }
+            ds_list_add(global.on_unit, string(ins.on))
+            ds_list_add(global.on_unit, ins)
+        }
+        break;
+    case 20:
+        //unit destroy
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1)){instance_destroy()}
+        ds_list_delete(global.on_unit, pos)
+        ds_list_delete(global.on_unit, pos)
+        break;
+    case 21:
+        //unit move
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            moni_go_waits=0
+            attack_waits=0
+            go_check=1
+            go_x=read_uint(fnv_message)
+            go_y=read_uint(fnv_message)
+            x=read_uint(fnv_message)
+            y=read_uint(fnv_message)
+            image_index=round(point_direction(x, y, go_x, go_y)/90)
+        }
+        break;
+    case 22:
+        //unit attack move
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            moni_go_waits=0
+            attack_waits=1
+            go_check=1
+            go_x=read_uint(fnv_message)
+            go_y=read_uint(fnv_message)
+            x=read_uint(fnv_message)
+            y=read_uint(fnv_message)
+            image_index=round(point_direction(x, y, go_x, go_y)/90)
+        }
+        break;
+    case 23:
+        //unit x, y
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            x=read_uint(fnv_message)
+            y=read_uint(fnv_message)
+        }
+        break;
+    case 24:
+        //unit attack id
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            attack_waits=2
+            attack_unit=ds_list_find_value(global.on_unit, ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))+1)
+        }
+        break;
+    case 25:
+        //unit attack[4] id
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            attack_waits=4
+            attack_unit=ds_list_find_value(global.on_unit, ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))+1)
+        }
+        break;
+    case 26:
+        //unit hp-
+        var int;
+        int=ds_list_find_value(global.on_unit, ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))+1)
+        if instance_number(int){int.hp-=read_uint(fnv_message)}
+        break;
+    case 27:
+        //unit moni go
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            go_check=0
+            attack_waits=0
+            moni_go_waits=2
+            moni_go_waits_id=ds_list_find_value(global.on_moni, ds_list_find_index(global.on_moni, string(read_uint(fnv_message)))+1)
+            x=read_uint(fnv_message)
+            y=read_uint(fnv_message)
+        }
+        break;
+    case 28:
+        //unit moni go bil
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            go_check=0
+            attack_waits=0
+            moni_go_waits=5
+            moni_go_waits_id2=ds_list_find_value(global.on_unit, ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))+1)
+            x=read_uint(fnv_message)
+            y=read_uint(fnv_message)
+        }
+        break;
+    case 29:
+        //unit v name
+        var pos;
+        pos=ds_list_find_index(global.on_unit, string(read_uint(fnv_message)))
+        /**/if !instance_number(ds_list_find_value(global.on_unit, pos+1)){break;}
+        with(ds_list_find_value(global.on_unit, pos+1))
+        {
+            v_name=read_string_v2(fnv_message)
+        }
+        break;
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

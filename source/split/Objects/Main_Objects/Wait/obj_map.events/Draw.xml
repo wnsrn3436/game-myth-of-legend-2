@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">draw_sprite(sprite_index, image_index, x, y)
+
+sex_set_font(1, fa_middle, fa_middle)
+sex_draw_text(x, y, sys_wait.mapname[sys_wait.map])
+sex_set_font(1, fa_left, fa_middle)
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

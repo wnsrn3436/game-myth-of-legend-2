@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="4">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">mouse_coll_check=1
+//미니맵 클릭 허용
+
+if sys_mouse.mouse_sie=1
+{
+
+with(obj_unit)
+{
+if global.player_control=player and click_check=1
+{
+moni_go_waits=0
+attack_waits=1
+go_check=1
+go_x=max(0, (mouse_x - other.x_loc)/other.xscale)
+go_y=max(0, (mouse_y - other.y_loc)/other.yscale)
+
+image_index=round(point_direction(x, y, go_x, go_y)/90)
+sk_message_save(sk_get_o_space(), -1, 0, x, y, hp, go_check, go_x, go_y, attack_waits, attack_unit, moni_go_waits, moni_go_waits_id, image_index)
+}
+}
+
+alarm[0]=5
+instance_create(mouse_x, mouse_y, obj_etc)
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">어택다운</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

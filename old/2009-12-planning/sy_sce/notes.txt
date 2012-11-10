@@ -1,0 +1,12 @@
+This folder holds the scenarios of the game
+
+
+sce_*.maps2   =  contains a scenario
+
+
+
+
+
+*
+---contents---
+*

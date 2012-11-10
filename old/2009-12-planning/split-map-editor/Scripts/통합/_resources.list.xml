@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="한글_드로우" type="GROUP"/>
+  <resource name="dlrc_zip" type="GROUP"/>
+  <resource name="sk_draw_box" type="RESOURCE"/>
+  <resource name="sk_draw_midd_text" type="RESOURCE"/>
+  <resource name="sk_draw_gauge_bar" type="RESOURCE"/>
+  <resource name="sk_draw_gauge_bar2" type="RESOURCE"/>
+</resources>

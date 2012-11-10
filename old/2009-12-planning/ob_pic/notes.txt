@@ -1,0 +1,18 @@
+This folder holds the unit images
+
+
+spl_1_*.dlrc   =  idle (8 facing directions)   (for buildings, only 1.gif = foundation and 2.gif = building are drawn)
+
+spl_2_*.dlrc   =  move (8 facing directions)
+
+spl_3_*.dlrc   =  attack (8 facing directions)
+
+spl_4_*.dlrc   =  skill (8 magic poses)
+
+spl_5_*.dlrc   =  death (8 facing directions)
+
+spl_6_*.dlrc   =  arrow (1.gif = arrow in flight, 2.gif = arrow stuck in the enemy)
+
+spl_7_*.dlrc   =  1.gif = unit being trained, 2.gif = building under construction
+
+spl_8_*.dlrc   =  unit interface image

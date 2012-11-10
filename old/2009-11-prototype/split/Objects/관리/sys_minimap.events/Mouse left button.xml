@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if ok=1
+{
+view_xview = min(max(0, (mouse_x - x_loc)/xscale - view_wview/2), room_width - view_wview)
+view_yview = min(max(0, (mouse_y - y_loc)/yscale - view_hview/2), room_height - view_hview)
+//미니맵 찍은곳 계산후 뷰에적용
+
+sys_drag.click=0
+global.drag_x=sys_mouse.x
+global.drag_y=sys_mouse.y
+//드래그 초기화
+}</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

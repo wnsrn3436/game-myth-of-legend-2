@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="53">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if global.click_control=0 and click=1 and global.player_control=player_id and global.attack=1 and distinction!=3
+{
+sc_move(0)
+Attack_choose=1
+
+with(obj_unit){if place_meeting(x, y,sys_mouse) and other.team!=team{other.Attack_waits=2; other._inst=id; other.Attack_choose=2; R_r=5}}
+//마우스에 닿고 other이 팀아니면 정보줌 (R_r=5 만큼 깜빡이게)
+}
+
+// 어택다운 명령</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">어택다운</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if click=1 and bil_iid&gt;0 and bil_go=0 and global.click_control=0
+{
+if !place_meeting(sys_hp_draw.x,sys_hp_draw.y,obj_unit) and !place_meeting(sys_hp_draw.x,sys_hp_draw.y,obj_reso)
+{
+global.attack=0; action_set_cursor(spr_mouse,0)
+//마우스 기본으로,
+instance_create(mouse_x,mouse_y,obj_click)
+//이동표시 오브젝 생성
+sc_move(1)
+move_x=sys_hp_draw.x
+move_y=sys_hp_draw.y
+picking_state=0
+//이동
+bil_go=1
+//건물짓게 하기
+}
+else{massge_expo(10,'')}
+}
+//건물건설 명령</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">건물건설</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if click=1 and sk_iid&gt;0 and sk_go=0 and global.click_control=0
+{
+global.attack=0; action_set_cursor(spr_mouse,0)
+//마우스 기본으로,
+instance_create(mouse_x,mouse_y,obj_click)
+//이동표시 오브젝 생성
+obj_place=-4
+with(obj_unit){if instance_place(x, y, sys_mouse){other.obj_place=id; R_r=5}}
+
+if obj_place != noone
+{
+if skil_mo_e2=0  //자신을 포함하지 않음
+{
+if (skil_mo_e[sk_iid-1]=0 and obj_place.id!=id) or (skil_mo_e[sk_iid-1]=1 and obj_place.team!=team and obj_place.id!=id) or (skil_mo_e[sk_iid-1]=2 and obj_place.team=team and obj_place.id!=id)
+{
+sc_move(1)
+picking_state=0
+//이동
+sk_go=1
+//스킬쓰게 하기
+gud_iid=obj_place; gud_x=mouse_x; gud_y=mouse_y
+}
+else{massge_expo(18,'')}
+}
+if skil_mo_e2=1  //자신을 포함함
+{
+if skil_mo_e[sk_iid-1]=0 or (skil_mo_e[sk_iid-1]=1 and obj_place.team!=team) or (skil_mo_e[sk_iid-1]=2 and obj_place.team=team)
+{
+sc_move(1)
+picking_state=0
+//이동
+sk_go=1
+//스킬쓰게 하기
+gud_iid=obj_place; gud_x=mouse_x; gud_y=mouse_y
+}
+else{massge_expo(18,'')}
+}
+}
+else if(skil_mo_e3[sk_iid-1]=1)   //유닛을 클릭하지 않았다면
+{
+sc_move(1)
+picking_state=0
+//이동
+sk_go=1
+//스킬쓰게 하기
+gud_iid=id; gud_x=mouse_x; gud_y=mouse_y
+}
+else{massge_expo(18,'')}
+
+
+}
+//땅스킬 사용 명령</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">땅스킬 사용</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

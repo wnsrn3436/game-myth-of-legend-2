@@ -1,0 +1,13 @@
+This folder holds the other sounds of the game
+
+
+sou_*.dlrc   =  contains sounds of the game
+(after decrypting, a zip extension file that is really an mp3 comes out)
+
+
+
+
+
+*
+---contents---
+*

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var vab_image;
+vab_image=image_index
+
+if attack_waits!=3{sprite_index=global.unit_id_spr[unit_id, 0]}
+else{sprite_index=global.unit_id_spr[unit_id, 1]}
+
+if alarm[1]!=-1
+{
+    if alarm[1]&gt;attack_speed/1.2{sprite_index=global.unit_id_spr[unit_id, 1]}
+    if alarm[1]&lt;attack_speed/4 and alarm[1]&gt;attack_speed/8{sprite_index=global.unit_id_spr[unit_id, 1]}
+    if alarm[1]&lt;attack_speed/12 and alarm[1]&gt;attack_speed/16{sprite_index=global.unit_id_spr[unit_id, 1]}
+}
+
+image_index=vab_image
+if sk_in_view(x, y) and sk_in_fog(x, y, 0){draw_sprite(sprite_index, image_index, x, y)}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="fn_init" type="RESOURCE"/>
+  <resource name="fn_socket_make" type="RESOURCE"/>
+  <resource name="fn_socket_join" type="RESOURCE"/>
+  <resource name="fn_socket_close" type="RESOURCE"/>
+  <resource name="fn_get_error_string" type="RESOURCE"/>
+  <resource name="fn_message_receive" type="RESOURCE"/>
+  <resource name="fn_get_receive_list" type="RESOURCE"/>
+  <resource name="fn_get_message_id" type="RESOURCE"/>
+  <resource name="fn_get_message_send_id" type="RESOURCE"/>
+  <resource name="fn_message_send" type="RESOURCE"/>
+  <resource name="fn_get_my_player_id" type="RESOURCE"/>
+  <resource name="fn_get_player_number" type="RESOURCE"/>
+  <resource name="fn_set_player_accept_max" type="RESOURCE"/>
+  <resource name="buffers" type="GROUP"/>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_ip_dll_open" type="RESOURCE"/>
+  <resource name="sk_make_socket" type="RESOURCE"/>
+  <resource name="sk_join_socket" type="RESOURCE"/>
+  <resource name="sk_dll_close" type="RESOURCE"/>
+  <resource name="sk_message_converter" type="RESOURCE"/>
+  <resource name="sk_message_check" type="RESOURCE"/>
+  <resource name="sk_message_cut" type="RESOURCE"/>
+  <resource name="sk_me_p_check" type="RESOURCE"/>
+  <resource name="sk_me_read" type="RESOURCE"/>
+  <resource name="sk_get_me_id" type="RESOURCE"/>
+  <resource name="sk_get_me_send" type="RESOURCE"/>
+  <resource name="sk_get_me_read" type="RESOURCE"/>
+  <resource name="sk_get_me_name" type="RESOURCE"/>
+  <resource name="sk_get_me_maxme" type="RESOURCE"/>
+  <resource name="sk_get_me_msave" type="RESOURCE"/>
+  <resource name="sk_get_my_id" type="RESOURCE"/>
+  <resource name="sk_get_my_name" type="RESOURCE"/>
+  <resource name="sk_message_save" type="RESOURCE"/>
+  <resource name="sk_message_sadd" type="RESOURCE"/>
+  <resource name="sk_message_send" type="RESOURCE"/>
+  <resource name="sk_get_p_m_number" type="RESOURCE"/>
+  <resource name="sk_get_p_number" type="RESOURCE"/>
+  <resource name="sk_p_join" type="RESOURCE"/>
+  <resource name="sk_p_exit" type="RESOURCE"/>
+</resources>

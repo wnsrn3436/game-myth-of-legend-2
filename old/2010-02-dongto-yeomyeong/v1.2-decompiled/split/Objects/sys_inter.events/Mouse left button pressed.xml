@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="4">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+
+if vab_unit&gt;1
+{
+for(i=0; i!=vab_unit; i+=1)
+{
+
+if instance_number(vab_unit_id[i])
+{
+if sk_mouse_check(other.x+195+(i*35), other.y+255, other.x+225+(i*35), other.y+285)
+{
+with(obj_unit){click_check=0}
+vab_unit_id[i].click_check=1
+
+vab_unit=1
+vab_unit_id[0]=vab_unit_id[i]
+break
+}
+}
+
+}
+}
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛얼굴 클릭(여럿)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+var oks;
+oks=0
+
+if vab_unit=1
+{
+if instance_number(vab_unit_id[0])
+{
+if global.player_control=vab_unit_id[0].player
+{
+
+var k;
+k=other.y+152
+
+for(i=0; i!=vab_unit_id[0].skil_number; i+=1)
+{
+for(j=0; j!=3; j+=1)
+{
+if i+j&gt;=vab_unit_id[0].skil_number{break}
+
+if sk_mouse_check(other.x+531+(j*37), k-15, other.x+563+(j*37), k+15)
+{
+
+if global.player_moni[global.player_control]&gt;=global.units_moni[vab_unit_id[0].skil_id[i+j]]
+{
+if vab_unit_id[0].skil_exe[i+j]=0
+{
+sys_mouse.bil_ok=1
+sys_mouse.bil_id=vab_unit_id[0].skil_id[i+j]
+
+vab_unit=0
+global.player_moni[global.player_control]-=global.units_moni[vab_unit_id[0].skil_id[i+j]]
+
+oks=1
+}
+else
+{
+if vab_unit_id[0].unit_cre_number!=6
+{
+vab_unit_id[0].unit_cre_id[vab_unit_id[0].unit_cre_number]=vab_unit_id[0].skil_id[i+j]
+if vab_unit_id[0].unit_cre_number=0{vab_unit_id[0].unit_cre_time=global.moni_alarm[vab_unit_id[0].skil_id[i+j]]}
+vab_unit_id[0].unit_cre_number+=1
+global.player_moni[global.player_control]-=global.units_moni[vab_unit_id[0].skil_id[i+j]]
+}
+}
+}
+
+}
+}
+if oks=1{with(vab_unit_id[0]){instance_destroy()}; break}
+
+i+=j-1
+if i&gt;=vab_unit_id[0].skil_number{break}
+k+=35
+}
+
+}
+}
+}
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스킬 클릭</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+
+if vab_unit=1
+{
+if instance_number(vab_unit_id[0])
+{
+
+if vab_unit_id[0].unit_cre_number&gt;0 and global.player_control=vab_unit_id[0].player
+{
+
+if sk_mouse_check(other.x+235, other.y+255, other.x+265, other.y+285)
+{
+global.player_moni[global.player_control]+=global.units_moni[vab_unit_id[0].unit_cre_id[0]]
+
+with(vab_unit_id[0])
+{
+unit_cre_time=-1
+
+for(i=1; i!=unit_cre_number; i+=1){unit_cre_id[i-1]=unit_cre_id[i]}
+unit_cre_number-=1
+
+if unit_cre_number&gt;0{unit_cre_time=global.moni_alarm[unit_cre_id[0]]}
+}
+
+}
+
+}
+
+}
+}
+
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">생산 얼굴 취소(생산중)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+
+if vab_unit=1
+{
+if instance_number(vab_unit_id[0])
+{
+
+if vab_unit_id[0].unit_cre_number&gt;1 and global.player_control=vab_unit_id[0].player
+{
+
+for(i=1; i!=vab_unit_id[0].unit_cre_number; i+=1)
+{
+
+if sk_mouse_check(other.x+300+(i*35), other.y+265, other.x+330+(i*35), other.y+295)
+{
+global.player_moni[global.player_control]+=global.units_moni[vab_unit_id[0].unit_cre_id[i]]
+
+for(j=i+1; j!=vab_unit_id[0].unit_cre_number; j+=1){vab_unit_id[0].unit_cre_id[j-1]=vab_unit_id[0].unit_cre_id[j]}
+
+vab_unit_id[0].unit_cre_number-=1
+
+break
+}
+
+}
+
+}
+}
+
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">생산 얼굴 취소(대기중)</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

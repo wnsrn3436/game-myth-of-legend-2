@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">화살</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">xx=0
+yy=0
+team=0
+Attack_point=0
+bullet_speed=0
+Att_spl_light=0
+Att_spl_apoint=0
+Att_spl_team=0
+bullet_sprite2=0
+bullet_image_alpha2=0
+bullet_go_attp=0
+bullet_go_attpt=0
+Attack_p[0]=0
+Attack_e[0]=0
+Attack_spt=0
+alarm[0]=1</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

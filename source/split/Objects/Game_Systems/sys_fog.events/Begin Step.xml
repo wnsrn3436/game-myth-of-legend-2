@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="1">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sx = floor(view_xview / fgrid)
+sy = floor(view_yview / fgrid)
+ex = sx + dw
+ey = sy + dh
+
+surface_set_target(surf)
+draw_clear(0)
+
+texture_set_interpolation(true)
+
+for (j = sy; j &lt; ey; j += 1)
+{
+    for (i = sx; i &lt; ex; i += 1)
+    {
+        switch(ds_grid_get(fog_id, i, j))
+        {
+            case 1: draw_sprite_ext(spr_fog, 0, i * fgrid - view_xview, j * fgrid - view_yview, fscale, fscale, 0, $ffffff, 1); break;
+            case 2: draw_sprite_ext(spr_fog, 0, i * fgrid - view_xview, j * fgrid - view_yview, fscale, fscale, 0, c_dkgray, 1); break;
+            case 0: draw_sprite_ext(spr_fog, 0, i * fgrid - view_xview, j * fgrid - view_yview, fscale, fscale, 0, $ffffff, 0); break;
+        }
+    }
+}
+
+texture_set_interpolation(false)
+
+surface_reset_target()
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">포그</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

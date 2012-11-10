@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sx = floor(view_xview / fgrid);
+sy = floor(view_yview / fgrid);
+ex = sx + dw;
+ey = sy + dh;
+surface_set_target(surf);
+draw_clear(0);
+
+for (j = sy; j &lt; ey; j += 1)
+{
+for (i = sx; i &lt; ex; i += 1)
+{
+
+sk_back_draw_sp(falp_c[i, j])
+//평지
+
+}
+}
+
+for (j = sy; j &lt; ey; j += 1)
+{
+for (i = sx; i &lt; ex; i += 1)
+{
+if falp2[i, j]&gt;0
+{
+
+draw_set_color(falp2_c[i, j])
+if falp_c[i, j]=0{draw_rectangle(i*fgrid-view_xview-falp2[i, j], j*fgrid-view_yview-1, i*fgrid-view_xview+sprite_get_width(global.spr_sys_tri[falp[i, j]])+falp2[i, j], j*fgrid-view_yview+sprite_get_height(global.spr_sys_tri[falp[i, j]])+falp2[i, j], 0)}
+if falp_c[i, j]=1{draw_rectangle(i*fgrid-view_xview-falp2[i, j], j*fgrid-view_yview-1, i*fgrid-view_xview+sprite_get_width(global.spr_you_tri[falp[i, j]])+falp2[i, j], j*fgrid-view_yview+sprite_get_height(global.spr_you_tri[falp[i, j]])+falp2[i, j], 0)}
+draw_set_color(c_black)
+//언덕
+
+}
+}
+}
+
+for (j = sy; j &lt; ey; j += 1)
+{
+for (i = sx; i &lt; ex; i += 1)
+{
+if falp2[i, j]&gt;0
+{
+
+sk_back_draw_sp(falp_c[i, j])
+//언덕지형
+if falp_c[i, j]=0{draw_text(i*fgrid-view_xview+sprite_get_width(global.spr_sys_tri[falp[i, j]])/2, j*fgrid-view_yview+sprite_get_height(global.spr_sys_tri[falp[i, j]])/2, falp2[i, j])}
+if falp_c[i, j]=1{draw_text(i*fgrid-view_xview+sprite_get_width(global.spr_you_tri[falp[i, j]])/2, j*fgrid-view_yview+sprite_get_height(global.spr_you_tri[falp[i, j]])/2, falp2[i, j])}
+
+}
+}
+}
+
+surface_reset_target();
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">서피스</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if image_ch_alaem!=-1{image_ch_alaem-=1}
+else{image_ch_alaem=global.image_ch_speed; image_ch_image+=1}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">알람</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

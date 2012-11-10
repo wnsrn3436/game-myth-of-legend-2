@@ -1,0 +1,4 @@
+This folder holds the screenshots of the game
+
+
+scr_*.bmp   =  a screenshot

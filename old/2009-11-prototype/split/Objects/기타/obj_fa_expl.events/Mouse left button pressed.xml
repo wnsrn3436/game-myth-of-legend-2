@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="4">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">//스킬 사용의 댓가
+
+if global.attack!=0{massge_expo(11,'')}   //마우스가 다를때
+
+if obj_id!=0 and instance_number(obj_id)&gt;0 and global.attack=0
+{
+mask=obj_id.mask[iid-1]
+ins=obj_id.player_id
+explode_script(mask,"|")
+
+if obj_id.bil_go!=0{massge_expo(12,'')}  //건설중이면
+if obj_id.sk_go!=0{massge_expo(16,'')}     //스킬 시전중이면
+
+if real(explode[0])!=0 and obj_id.skil_tico2[iid-1]=0 and obj_id.bil_go=0 and obj_id.sk_go=0
+{
+
+if real(explode[2])!=0
+{
+a1=global.ex_cwatw[real(explode[0])]
+if global.water[ins]&gt;=a1{b1=1}
+else{massge_expo(1,'')}
+//자원 달기
+}
+
+if real(explode[5])!=0
+{
+a2=real(explode[5])
+if obj_id.hp&gt;a2{b2=1}
+else{massge_expo(2,'')}
+//체력 달기
+}
+
+if real(explode[6])!=0
+{
+a3=real(explode[6])
+if obj_id.exp_p&gt;=a3{b3=1}
+else{massge_expo(3,'')}
+//exp 달기
+}
+
+if real(explode[3])!=0
+{
+a4=global.ex_pop[real(explode[0])]
+if global.p_op[ins]+a4&lt;=global.mp_op[ins]{b4=1}
+else{massge_expo(5,'')}
+//인구수 검사
+}
+
+if real(explode[2])!=0 and b1=1{b1=3}
+if real(explode[2])=0 and b1=0{b1=3}
+if real(explode[5])!=0 and b2=1{b2=3}
+if real(explode[5])=0 and b2=0{b2=3}
+if real(explode[6])!=0 and b3=1{b3=3}
+if real(explode[6])=0 and b3=0{b3=3}
+if real(explode[3])!=0 and b4=1{b4=3}
+if real(explode[3])=0 and b4=0{b4=3}
+//자원이 잘맞아 떨어졋는지 확인
+
+if b1=3 and b2=3 and b3=3 and b4=3
+{global.water[ins]-=a1; obj_id.hp-=a2; obj_id.exp_p-=a3}
+//자원달기
+
+}
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">일반 사용댓가</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if global.attack=0
+{
+
+if obj_id!=0 and instance_number(obj_id)&gt;0
+{
+if obj_id.skil_tico2[iid-1]!=0{massge_expo(6,'')}  //쿨타임 안됬음
+
+if real(explode[0])!=0 and obj_id.skil_tico2[iid-1]=0
+{
+if b1=3 and b2=3 and b3=3 and b4=3
+{
+obj_id.skil_tico2[iid-1]=obj_id.skil_tico[iid-1]*room_speed
+//쿨타임 시간주기
+
+sk_op1()
+//스킬의 사용
+
+}}}
+
+b1=0; b2=0; b3=0; b4=0
+//초기화
+
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스킬의 사용</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

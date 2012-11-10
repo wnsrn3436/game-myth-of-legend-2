@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if keyboard_check(vk_left){view_xview = max(0, view_xview - global.key_speed)}
+if keyboard_check(vk_up){view_yview = max(0, view_yview - global.key_speed)}
+if keyboard_check(vk_right){view_xview = min(room_width - view_wview, view_xview + global.key_speed)}
+if keyboard_check(vk_down){view_yview = min(room_height - view_hview, view_yview + global.key_speed)}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

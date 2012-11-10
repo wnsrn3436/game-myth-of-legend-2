@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="OTHER" id="10">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if global.player_control=player{global.map_heck=0}
+
+ins=instance_create(x, y, obj_unit)
+ins.player=player
+ins.on=global.on_unit_count; global.on_unit_count+=1
+if !global.player_wow[player]{ins.unit_id=4}else{ins.unit_id=105}
+with(ins){sk_unit_skil_to(unit_id)}
+ds_list_add(global.on_unit, string(ins.on))
+ds_list_add(global.on_unit, ins)
+
+for(i=0; i!=4; i+=1)
+{
+    if !global.player_wow[player]
+    {
+        ins=instance_create(x, y+sprite_get_bbox_bottom(global.unit_id_spr[4, 0])+sprite_get_bbox_bottom(global.unit_id_spr[8, 0]), obj_unit)
+        ins.player=player
+        ins.unit_id=8
+        ins.on=global.on_unit_count; global.on_unit_count+=1
+        with(ins){sk_unit_skil_to(unit_id)}
+        ds_list_add(global.on_unit, string(ins.on))
+        ds_list_add(global.on_unit, ins)
+    }
+    else
+    {
+        ins=instance_create(x, y+sprite_get_bbox_bottom(global.unit_id_spr[105, 0])+sprite_get_bbox_bottom(global.unit_id_spr[104, 0]), obj_unit)
+        ins.player=player
+        ins.unit_id=104
+        ins.on=global.on_unit_count; global.on_unit_count+=1
+        with(ins){sk_unit_skil_to(unit_id)}
+        ds_list_add(global.on_unit, string(ins.on))
+        ds_list_add(global.on_unit, ins)
+    }
+}
+
+if global.player_control=player
+{
+    view_xview=min(room_width-641, max(0, x-view_wview/2))
+    view_yview=min(room_height-481, max(0, y-view_hview/2))
+}
+
+instance_destroy()
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

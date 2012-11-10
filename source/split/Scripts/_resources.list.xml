@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="FN_Simple_Scripts_v3" type="GROUP"/>
+  <resource name="Sefx_dog" type="GROUP"/>
+  <resource name="ML_Scr" type="GROUP"/>
+</resources>

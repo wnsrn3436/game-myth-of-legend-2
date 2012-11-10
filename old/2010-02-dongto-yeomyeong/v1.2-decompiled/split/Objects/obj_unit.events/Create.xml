@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">unit_id=-1
+click_check=0
+
+go_check=0
+go_x=0
+go_y=0
+
+player=-1
+
+attack_waits=1
+attack_unit=noone
+
+moni_go_waits=0
+moni_go_waits_id=noone
+moni_go_waits_id2=noone
+
+unit_cre_number=0
+unit_cre_id[9]=0
+unit_cre_time=-1
+
+sk_o_space_make()
+sk_ome_start()
+alarm[2]=choose(10, 20, 30, 40, 50)
+
+ok_rr=0
+//관전모드
+
+attack_range2=0
+//컴터의경우 대비
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

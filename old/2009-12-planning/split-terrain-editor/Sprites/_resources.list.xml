@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="spr_res" type="RESOURCE"/>
+  <resource name="spr_add" type="RESOURCE"/>
+  <resource name="spr_add2" type="RESOURCE"/>
+  <resource name="spr_dele" type="RESOURCE"/>
+  <resource name="spr_copy" type="RESOURCE"/>
+  <resource name="spr_save" type="RESOURCE"/>
+  <resource name="spr_neditor" type="RESOURCE"/>
+  <resource name="sp_bar" type="RESOURCE"/>
+  <resource name="spr_status_bar" type="RESOURCE"/>
+  <resource name="spr_scr_bar" type="RESOURCE"/>
+  <resource name="spr_kor1" type="RESOURCE"/>
+  <resource name="spr_kor2" type="RESOURCE"/>
+</resources>

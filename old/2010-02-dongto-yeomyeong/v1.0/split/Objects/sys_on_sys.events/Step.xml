@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_unit)
+{
+if global.player_com[player]=1 and (unit_id=8 or unit_id=104)
+{
+if moni_go_waits=0{moni_go_waits=1}
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">컴퓨터 자원캐기</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sk_get_my_id()=0{sk_message_converter(1)}
+
+while(sk_message_check())
+{
+for(i=0; i!=sk_get_me_maxme(); i+=1)
+{
+
+sk_message_cut(i)
+
+if sk_me_p_check()
+{
+
+if sk_get_me_id()=1
+{
+sk_p_exit()
+
+sk_message_save(4, -2, sk_me_read(0, 0))
+sk_message_send()
+}
+//탈퇴
+
+if sk_get_me_id()=2
+{
+ins=instance_create(sk_me_read(0, 0), sk_me_read(0, 1), obj_bil)
+ins.unit_id=sk_me_read(0, 2)
+ins.player=sk_me_read(0, 3)
+with(ins){sk_unit_skil_to(unit_id); max_hp=moni_alarm}
+ins.hp=1
+}
+//건물건설
+
+if sk_get_me_id()=3
+{
+with(sys_key)
+{
+for(j=key_max; j!=0; j-=1){key[j]=key[j-1]}
+key[0]=global.player_name[sk_me_read(0, 0)]+" - "+sk_me_read(1, 1)
+key_max+=1
+}
+}
+//채팅
+
+if sk_get_me_id()=4
+{
+vb_st=sk_me_read(0, 0)
+
+with(obj_unit){if player=other.vb_st{instance_destroy()}}
+with(obj_bil){if player=other.vb_st{instance_destroy()}}
+
+with(sys_key)
+{
+for(j=key_max; j!=0; j-=1){key[j]=key[j-1]}
+key[0]=global.player_name[other.vb_st]+" 님이 퇴장하셧습니다"
+key_max+=1
+}
+}
+//나감메시지
+
+if 0&gt;sk_get_me_id()
+{
+with(obj_unit){sk_me_obj_save()}
+with(obj_bil){sk_me_obj_save()}
+with(obj_moni){sk_me_obj_save()}
+}
+//유닛에게메시지
+
+}
+
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">메시지받기</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

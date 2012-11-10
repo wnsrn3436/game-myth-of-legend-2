@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_o_spr" type="RESOURCE"/>
+  <resource name="sk_m_spr" type="RESOURCE"/>
+  <resource name="sk_a_spr" type="RESOURCE"/>
+  <resource name="sk_mp_spr" type="RESOURCE"/>
+  <resource name="sk_die_spr" type="RESOURCE"/>
+  <resource name="sk_spv1" type="RESOURCE"/>
+  <resource name="sk_spv2" type="RESOURCE"/>
+  <resource name="sk_spv3" type="RESOURCE"/>
+  <resource name="sk_spv4" type="RESOURCE"/>
+  <resource name="sk_spv5" type="RESOURCE"/>
+</resources>

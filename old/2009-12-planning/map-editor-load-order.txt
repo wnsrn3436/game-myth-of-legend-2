@@ -1,0 +1,3 @@
+0 = load the dll
+1 = system terrain
+2 = user terrain

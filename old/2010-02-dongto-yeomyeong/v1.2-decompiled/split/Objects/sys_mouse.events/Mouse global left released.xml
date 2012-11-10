@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="56">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">var vab_ok, vab_su;
+vab_ok=0
+vab_su=vab_unit
+
+if click=1
+{
+
+vab_unit=0
+
+with(obj_unit)
+{
+if global.player_control=player and sk_drag_check(global.drag_x, global.drag_y, mouse_x, mouse_y) and drag_ok=1
+{
+vab_ok=1
+}
+}
+
+with(obj_unit){if vab_ok=1{click_check=0}}
+
+with(obj_unit)
+{
+if global.player_control=player and sk_drag_check(global.drag_x, global.drag_y, mouse_x, mouse_y) and drag_ok=1
+{
+if 7&gt;=other.vab_unit{click_check=1; other.vab_unit_id[other.vab_unit]=id; other.vab_unit+=1}
+}
+}
+
+if vab_unit=0{vab_unit=vab_su}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛드래그</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">click=0
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">드래그취소</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

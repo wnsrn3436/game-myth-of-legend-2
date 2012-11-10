@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if distance_to_point(mouse_x, mouse_y)&lt;1{mouse_check=1}
+else{mouse_check=0}
+
+if waits!=noone
+{
+    if !instance_number(waits)
+    {
+        waits=noone
+    }
+    if instance_number(waits)
+    {
+        if waits.moni_go_waits!=3
+        {
+            waits=noone
+        }
+    }
+}
+
+if 0&gt;=moni and !fn_get_my_player_id(global.socket)
+{
+    /*on*/buffer_clear(fnv_sned)
+    write_uint(fnv_sned, on)
+    fn_message_send(global.socket, send_other, 12)
+    
+    pos=ds_list_find_index(global.on_moni, string(on))
+    ds_list_delete(global.on_moni, pos)
+    ds_list_delete(global.on_moni, pos)
+    
+    instance_destroy()
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

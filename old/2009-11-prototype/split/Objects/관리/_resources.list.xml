@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sys_var" type="RESOURCE"/>
+  <resource name="sys_minimap" type="RESOURCE"/>
+  <resource name="sys_mouse" type="RESOURCE"/>
+  <resource name="sys_interface" type="RESOURCE"/>
+  <resource name="sys_key" type="RESOURCE"/>
+  <resource name="sys_drag" type="RESOURCE"/>
+  <resource name="sys_hp_draw" type="RESOURCE"/>
+</resources>

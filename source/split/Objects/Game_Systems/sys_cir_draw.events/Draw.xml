@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_unit)
+{
+    if sk_in_view(x, y)
+    {
+        if sk_in_fog(x, y, 0) and click_check=1
+        {
+            draw_set_color(c_green)
+            draw_ellipse(bbox_left-1, bbox_bottom-(bbox_right-bbox_left)/6, bbox_right+1, bbox_bottom+(bbox_right-bbox_left)/6, 1)
+            draw_set_color(c_black)
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛선택 표시</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_mouse.vab_unit=1
+{
+    with(sys_mouse.vab_unit_id[0])
+    {
+        if cre_go_x&gt;0 and cre_go_y&gt;0
+        {
+            draw_set_alpha(0.3)
+            draw_set_color(c_green)
+            draw_line_width(x, y, cre_go_x, cre_go_y, 4)
+            draw_circle(cre_go_x, cre_go_y, 5, 0)
+            draw_set_color(c_black)
+            draw_set_alpha(1)
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">집결지 표시</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

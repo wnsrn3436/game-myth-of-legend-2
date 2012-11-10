@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if obj_draw.click_number&gt;-1
+{
+
+name=get_string("바뀌어질 지형의 이름을 설정해주세요.", global.name_tri[obj_draw.click_number])
+//이름을 구함
+
+sk_dlrc_load(global.fodre+string(obj_draw.click_number)+".dlrc", "+|+")
+
+for(t=0; t!=dlrc_max_number; t+=1)
+{
+sk_dlrc_extract(global.fodre+string(obj_draw.click_number)+".dlrc", "sy_tmp\", t)
+}
+//추출
+
+tmp_name=file_text_open_write("sy_tmp\name.txt")
+file_text_write_string(tmp_name, name)
+file_text_close(tmp_name)
+//이름 파일만들기
+
+max_files=0
+for(i=0; i!=dlrc_max_number; i+=1)
+{
+sk_dlrc_file_list_2("sy_tmp\", i)
+}
+
+sk_dlrc_zip(global.fodre+string(obj_draw.click_number)+".dlrc", "+|+", "dlrc_file")
+for(i=0; i!=max_files; i+=1)
+{
+sk_dlrc_add(global.fodre+string(obj_draw.click_number)+".dlrc", i, "+|+", 30)
+}
+//압축하기
+
+for(i=0; i!=max_files; i+=1){sk_dlrc_delete_2("sy_tmp\", i)}
+
+sk_res()
+//지형불르기
+
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

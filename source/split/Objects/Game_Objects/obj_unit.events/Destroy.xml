@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DESTROY" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (4&gt;global.player_control and 4&gt;player) or (global.player_control&gt;=4 and player&gt;=4) or global.map_heck
+{
+    ds_grid_set_disk(sys_fog.fog_id, min(max(round(x / sys_fog.fgrid), 0), sys_fog.fwid), min(max(round(y / sys_fog.fgrid), 0), sys_fog.fhei), range/sys_fog.fgrid, 2)
+    with(sys_minimap)
+    {
+        surface_set_target(min_surf)
+        draw_set_color(c_dkgray)
+        draw_circle(other.min_fog_xx*xscale, other.min_fog_yy*yscale, other.range*mscale_back, 0)
+        draw_set_color(c_black)
+        surface_reset_target()
+    }
+}
+
+if moni_check
+{
+    in_point_data_delete(1, id)
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

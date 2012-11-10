@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="1">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if moni_go_waits!=0
+{
+    moni_go_waits=4
+    if (global.player_control=player or (!fn_get_my_player_id(global.socket) and global.player_com[player])) and instance_number(moni_go_waits_id)
+    {
+        moni_go_waits_id.moni-=attack_power
+        /*on*/buffer_clear(fnv_sned)
+        write_uint(fnv_sned, moni_go_waits_id.on)
+        write_uint(fnv_sned, attack_power)
+        fn_message_send(global.socket, send_other, 13)
+        /*on*/buffer_clear(fnv_sned)
+        write_uint(fnv_sned, on)
+        if 100&gt;unit_id{write_uint(fnv_sned, ds_list_find_value(global.moni_hp_minus, 0))}
+        else{write_uint(fnv_sned, ds_list_find_value(global.moni_hp_minus, 1))}
+        fn_message_send(global.socket, send_all_server_me, 26)
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">채집</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

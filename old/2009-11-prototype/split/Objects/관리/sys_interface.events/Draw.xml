@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">x=view_xview+320
+y=view_yview+415
+draw_sprite(spr_interface,-1,x,y)
+
+if global.click_number=1
+{
+with(obj_unit){if click_number=1 and click=1{unit_draw_inte1()}}
+}
+//유닛이 한명클릭 됫을때의 인터페이스 드로우
+
+if global.click_number&gt;1
+{
+with(obj_unit){if click=1{unit_draw_inte2()}}
+}
+//유닛이 한명클릭 됫을때의 인터페이스 드로우
+
+draw_set_color(c_white)
+draw_sprite(spr_water_ico,-1,view_xview+12,view_yview+12)
+action_draw_variable(global.water[global.player_control],view_xview+25,view_yview+5)
+draw_sprite(spr_pop_ico,-1,view_xview+12,view_yview+42)
+action_draw_variable(string(global.p_op[global.player_control])+'/'+string(global.mp_op[global.player_control]),view_xview+25,view_yview+35)
+draw_set_color(c_black)
+//자원과 인구의량을 드로우</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

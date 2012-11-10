@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_udraw_color" type="RESOURCE"/>
+  <resource name="sk_in_view" type="RESOURCE"/>
+  <resource name="sk_in_fog" type="RESOURCE"/>
+  <resource name="sk_mouse_check" type="RESOURCE"/>
+  <resource name="sk_drag_check" type="RESOURCE"/>
+  <resource name="gauge_bar" type="RESOURCE"/>
+  <resource name="gauge_bar_back" type="RESOURCE"/>
+  <resource name="sk_unit_skil_to" type="RESOURCE"/>
+</resources>

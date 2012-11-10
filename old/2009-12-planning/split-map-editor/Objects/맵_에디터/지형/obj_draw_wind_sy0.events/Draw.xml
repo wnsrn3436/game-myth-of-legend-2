@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_choose_bar.chooses=0
+{
+if global._unit1.click_number&gt;-1
+{
+dx = min(max(round(mouse_x / sys_back_fog.fgrid), 0), sys_back_fog.fwid);
+dy = min(max(round(mouse_y / sys_back_fog.fgrid), 0), sys_back_fog.fhei);
+
+draw_sprite_ext(global.spr_sys_tri[global._unit1.click_number], 0, dx * sys_back_fog.fgrid, dy * sys_back_fog.fgrid, sys_back_fog.fscale, sys_back_fog.fscale, 0, -1, 0.5)
+
+draw_set_color(c_white)
+draw_rectangle(dx*sys_back_fog.fgrid, dy*sys_back_fog.fgrid, dx*sys_back_fog.fgrid+sprite_get_width(global.spr_sys_tri[global._unit1.click_number]), dy*sys_back_fog.fgrid+sprite_get_height(global.spr_sys_tri[global._unit1.click_number]), 1)
+draw_set_color(c_black)
+}
+}
+//시스템 지형
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">츄스0</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_choose_bar.chooses=1
+{
+if global._unit1.click_number&gt;-1
+{
+dx = min(max(round(mouse_x / sys_back_fog.fgrid), 0), sys_back_fog.fwid);
+dy = min(max(round(mouse_y / sys_back_fog.fgrid), 0), sys_back_fog.fhei);
+
+draw_sprite_ext(global.spr_you_tri[global._unit1.click_number], 0, dx * sys_back_fog.fgrid, dy * sys_back_fog.fgrid, sys_back_fog.fscale, sys_back_fog.fscale, 0, -1, 0.5)
+
+draw_set_color(c_white)
+draw_rectangle(dx*sys_back_fog.fgrid, dy*sys_back_fog.fgrid, dx*sys_back_fog.fgrid+sprite_get_width(global.spr_you_tri[global._unit1.click_number]), dy*sys_back_fog.fgrid+sprite_get_height(global.spr_you_tri[global._unit1.click_number]), 1)
+draw_set_color(c_black)
+}
+}
+//시스템 지형
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">츄스1</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

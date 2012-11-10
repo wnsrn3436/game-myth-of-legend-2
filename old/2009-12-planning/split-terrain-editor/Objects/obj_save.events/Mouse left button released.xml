@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if obj_draw.click_number&gt;-1
+{
+
+load=get_directory_alt("저장폴더를 선택해주세요", "")
+
+if load!=""
+{
+sk_dlrc_load(global.fodre+string(obj_draw.click_number)+".dlrc", "+|+")
+
+for(t=1; t!=dlrc_max_number; t+=1)
+{
+sk_dlrc_extract(global.fodre+string(obj_draw.click_number)+".dlrc", load+"\", t)
+}
+}
+
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

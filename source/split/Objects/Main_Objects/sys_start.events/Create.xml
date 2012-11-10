@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">global.moni_max=1000
+//자원 초기값
+
+global.player_control=0
+//현재 컨트롤하는 플레이어
+
+for(i=0; i!=8; i+=1)
+{
+    global.player_name[i]=""
+    global.player_moni[i]=400
+}
+//이름, 돈
+
+global.player_wow[7]=0
+//종족
+
+global.player_com_ai=0
+global.player_com_ai_sting[0]="Easiest"
+global.player_com_ai_sting[1]="Easy"
+global.player_com_ai_sting[2]="Moderate"
+global.player_com_ai_sting[3]="Hard"
+global.player_com_ai_sting[4]="Hardest"
+global.player_com[7]=0
+//AI
+
+global.on_moni=ds_list_create()
+global.on_moni_count=0
+global.on_unit=ds_list_create()
+global.on_unit_count=0
+
+global.map_heck=1
+
+saud_load("bgm\menu.wav", "Main")
+saud_load("bgm\credits.mp3", "Maker")
+global.game_bgm=ds_list_create()
+for(i=0; i!=13; i+=1)
+{
+    if file_exists("bgm\bgm"+string(i)+".wav"){ds_list_add(global.game_bgm, "bgm\bgm"+string(i)+".wav")}
+    else if file_exists("bgm\bgm"+string(i)+".mp3"){ds_list_add(global.game_bgm, "bgm\bgm"+string(i)+".mp3")}
+}
+
+draw_set_font(ml_font)
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">전역변수</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">ini_open("Options.ini")
+global.key_speed=ini_read_real("ML2", "key_speed", 15)
+global.mouse_speed=ini_read_real("ML2", "mouse_speed", 15)
+global.fog_graphics=ini_read_real("ML2", "fog_graphics", 1)
+ini_close()
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">INI</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">buffers=buffer_create()
+global.go_moni=ds_list_create()
+global.moni_hp_minus=ds_list_create()
+execute_file("Abilitys\Costs.txt")
+execute_file("Abilitys\Times.txt")
+execute_file("Abilitys\Moni_Go.txt")
+
+append_file_to_buffer(buffers, parameter_string(0))
+append_file_to_buffer(buffers, "Abilitys\Costs.txt")
+append_file_to_buffer(buffers, "Abilitys\Times.txt")
+append_file_to_buffer(buffers, "Abilitys\Moni_Go.txt")
+
+fname=file_find_first("Abilitys\*.txt", 0)
+while(fname!="")
+{
+    fname2=filename_change_ext(fname, "")
+    if string_letters(fname2)=""
+    {
+        fname2=real(fname2)
+        global.abilitys_max[fname2]=0
+        file=file_text_open_read("Abilitys\"+fname)
+        while(!file_text_eof(file))
+        {
+            str=file_text_read_string(file)
+            if str!=""
+            {
+                if !string_pos(chr(34), str){global.abilitys[fname2, global.abilitys_max[fname2]]=real(string_delete(str, 1, string_pos("=", str)))}
+                else{global.abilitys_name[fname2]=string_replace_all(string_delete(str, 1, string_pos("=", str)), chr(34), "")}
+                global.abilitys_max[fname2]+=1
+            }
+            file_text_readln(file)
+        }
+        file_text_close(file)
+        append_file_to_buffer(buffers, "Abilitys\"+fname)
+    }
+    fname=file_find_next()
+}
+file_find_close()
+
+for(i=1; i!=4; i+=1)
+{
+    fname=file_find_first("Sprites\*_"+string(i)+".gmspr", 0)
+    while(fname!="")
+    {
+        rel=real(string_delete(fname, string_pos("_", fname), string_length(fname)))
+        global.unit_id_spr[rel, i-1]=sprite_add_sprite("Sprites\"+fname)
+        sprite_set_offset(global.unit_id_spr[rel, i-1], floor(sprite_get_width(global.unit_id_spr[rel, i-1])/2), floor(sprite_get_height(global.unit_id_spr[rel, i-1])/2))
+        append_file_to_buffer(buffers, "Sprites\"+fname)
+        fname=file_find_next()
+    }
+    file_find_close()
+}
+
+file_delete("temp.ml2")
+write_buffer_to_file(buffers, "temp.ml2")
+global.hashes=md5_hash_file("temp.ml2")
+file_delete("temp.ml2")
+buffer_destroy(buffers)
+room_goto(rom_main)
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛 능력치</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

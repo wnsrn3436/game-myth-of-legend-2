@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if view_wview&lt;mouse_x-view_xview{view_xview=min(room_width-view_wview,view_xview+global.mouse_speed)}
+if view_hview&lt;mouse_y-view_yview{view_yview=min(room_height-view_hview,view_yview+global.mouse_speed)}
+if 0&gt;mouse_x-view_xview{view_xview=max(0,view_xview-global.mouse_speed)}
+if 0&gt;mouse_y-view_yview{view_yview=max(0,view_yview-global.mouse_speed)}
+
+if mouse_sie=0{action_set_cursor(spr_mouse, 0)}
+else{action_set_cursor(spr_mouse_2, 0)}
+
+sprite_index=spr_no
+if place_meeting(mouse_x, mouse_y, sys_inter){mouse_check=1}
+else{mouse_check=0}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

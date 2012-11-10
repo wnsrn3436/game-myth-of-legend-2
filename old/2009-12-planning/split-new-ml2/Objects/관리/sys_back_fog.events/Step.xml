@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sx = floor(view_xview / fgrid);
+sy = floor(view_yview / fgrid);
+ex = sx + dw;
+ey = sy + dh;
+surface_set_target(surf);
+draw_clear(0);
+
+for (j = sy; j &lt; ey; j += 1)
+{
+for (i = sx; i &lt; ex; i += 1)
+{
+draw_sprite_ext(spr_tmp, 0, i * fgrid - view_xview, j * fgrid - view_yview, fscale, fscale, 0, -1, 1)
+//지형을 그림
+}
+}
+
+surface_reset_target();</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">지형</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

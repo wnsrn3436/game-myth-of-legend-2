@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="4">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">sk_ip_dll_open(get_string("당신의IP번호를입력하세요　", "127.0.0.1"), "39dll.dll", 23452)
+
+if sk_make_socket(8, get_string("이름을입력하세요　", "플레이어"))
+{
+room_goto_next()
+}
+else
+{
+show_message("방을만들수없습니다　")
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

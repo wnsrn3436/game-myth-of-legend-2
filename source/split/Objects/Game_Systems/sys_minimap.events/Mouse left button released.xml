@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if mouse_coll_check=1 and sys_mouse.mouse_sie=1
+{
+    for(i=0; i!=sys_mouse.vab_unit; i+=1)
+    {
+        with(sys_mouse.vab_unit_id[i])
+        {
+            if global.player_control=player
+            {
+                moni_go_waits=0
+                attack_waits=1
+                go_check=1
+                go_x=max(0, (mouse_x - other.x_loc)/other.xscale)
+                go_y=max(0, (mouse_y - other.y_loc)/other.yscale)
+                image_index=round(point_direction(x, y, go_x, go_y)/90)
+                
+                /*on*/buffer_clear(fnv_sned)
+                write_uint(fnv_sned, on)
+                write_uint(fnv_sned, go_x)
+                write_uint(fnv_sned, go_y)
+                write_uint(fnv_sned, x)
+                write_uint(fnv_sned, y)
+                fn_message_send(global.socket, send_other, 22)
+            }
+        }
+    }
+    sys_mouse.mouse_sie=0
+    instance_create(mouse_x, mouse_y, obj_etc)
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">어택다운</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

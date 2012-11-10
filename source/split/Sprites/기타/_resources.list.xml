@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="spr_inter" type="RESOURCE"/>
+  <resource name="spr_mouse" type="RESOURCE"/>
+  <resource name="spr_mouse_2" type="RESOURCE"/>
+  <resource name="spr_moni" type="RESOURCE"/>
+  <resource name="spr_moni_spr" type="RESOURCE"/>
+  <resource name="spr_no" type="RESOURCE"/>
+  <resource name="spr_spoint" type="RESOURCE"/>
+  <resource name="spr_click" type="RESOURCE"/>
+  <resource name="spr_hp_ico" type="RESOURCE"/>
+  <resource name="spr_name_ico" type="RESOURCE"/>
+  <resource name="spr_att_ico" type="RESOURCE"/>
+  <resource name="spr_mov_ico" type="RESOURCE"/>
+  <resource name="spr_nf_ico" type="RESOURCE"/>
+  <resource name="spr_int_expl_p" type="RESOURCE"/>
+  <resource name="spr_cloud" type="RESOURCE"/>
+  <resource name="spr_fog" type="RESOURCE"/>
+  <resource name="spr_fog_mask" type="RESOURCE"/>
+  <resource name="spr_font32" type="RESOURCE"/>
+  <resource name="spr_font16" type="RESOURCE"/>
+  <resource name="spr_w_bil_go" type="RESOURCE"/>
+  <resource name="spr_s_bil_go_1" type="RESOURCE"/>
+  <resource name="spr_s_bil_go_2" type="RESOURCE"/>
+  <resource name="spr_rm" type="RESOURCE"/>
+</resources>

@@ -1,0 +1,5 @@
+This folder holds the unit stats
+
+
+abi_*.dlrc   =  contains the stats of a unit
+(after decrypting, a zip extension file that is really a txt comes out)

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">마우스관련</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">image_alpha=0
+sprite_index=spr_minimap
+
+i=1
+while(i!=9)
+{
+obj_di=instance_create(x,y,obj_fa_c)
+obj_di.iid=i
+obj_di=instance_create(x,y,obj_fa_expl)
+obj_di.iid=i
+i+=1
+}
+//얼굴클릭 오브젝트 , 스킬클릭 오브젝트 8기 소환
+
+i=1
+while(i!=5)
+{
+obj_di=instance_create(x,y,obj_cre_ca)
+obj_di.iid=i
+i+=1
+}
+// 유닛생산 오브젝트 4기소환</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

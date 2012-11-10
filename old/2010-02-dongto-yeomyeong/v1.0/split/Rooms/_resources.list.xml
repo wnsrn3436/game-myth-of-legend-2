@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="main" type="RESOURCE"/>
+  <resource name="wait" type="RESOURCE"/>
+  <resource name="s1vs1" type="RESOURCE"/>
+  <resource name="s2vs2" type="RESOURCE"/>
+  <resource name="s3vs3" type="RESOURCE"/>
+  <resource name="s4vs4" type="RESOURCE"/>
+  <resource name="맵임시" type="RESOURCE"/>
+  <resource name="제작진" type="RESOURCE"/>
+</resources>

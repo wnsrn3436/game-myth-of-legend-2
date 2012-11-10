@@ -1,0 +1,5 @@
+This folder holds the triggers of the game
+
+
+ter_*.dlrc   =  contains the settings of a trigger
+(after decrypting, a zip extension file that is really a txt comes out)

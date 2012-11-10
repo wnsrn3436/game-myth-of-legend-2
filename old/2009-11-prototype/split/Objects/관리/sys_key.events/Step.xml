@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">for(i=0;i!=10;i+=1)
+{
+if keyboard_check(vk_control) and keyboard_check_pressed(ord(string(i)))
+{
+with(obj_unit)
+{
+if global.player_control=player_id
+{
+massge_expo(17,string(other.i))
+if ununit=other.i{ununit=-1}
+if click=1{ununit=other.i}
+}}}
+//부대만들기
+if !keyboard_check(vk_control) and keyboard_check_pressed(ord(string(i)))
+{cliok=0
+with(obj_unit){if click=1 and ununit!=other.i{other.cliok=1}}
+obj_unit.click=0
+with(obj_unit)
+{
+if global.player_control=player_id
+{
+if ununit=other.i{click=1}
+if click=1 and other.cliok=0{view_off()}
+}}}
+//선택
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">부대 만들기, 선택</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

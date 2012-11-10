@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="Map_Load" type="RESOURCE"/>
+  <resource name="Map_Option" type="RESOURCE"/>
+  <resource name="Map_Editor" type="RESOURCE"/>
+</resources>

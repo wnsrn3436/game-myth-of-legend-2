@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">임시 AI</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if fn_get_my_player_id(global.socket) or !global.player_com_ai
+{
+    instance_destroy()
+    exit
+}
+
+in_bbox_id_add(1) //unit(com)
+
+in_point_id_add(3) //moni go(com)
+in_point_id_add(4) //bil(com)
+
+alarm[0]=room_speed*6/global.player_com_ai
+alarm[1]=room_speed*35/global.player_com_ai
+alarm[2]=room_speed*20/global.player_com_ai
+alarm[3]=room_speed*400/global.player_com_ai
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

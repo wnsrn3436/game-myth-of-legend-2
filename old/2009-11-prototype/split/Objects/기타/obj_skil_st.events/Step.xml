@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if (mo=3 or mo=4) and alarm[2]=-1 and sk_dra!=-1
+{
+if skil_mo_mv=1 and point_distance(x,y,ge2,ge3)&gt;=5{move_towards_point(ge2,ge3,skil_mo_mvs); sk_dra=2}
+else if(skil_mo_mv=1){speed=0}
+if skil_mo_mv=2 and instance_number(ge)&gt;0 and distance_to_object(ge)&gt;=5{move_towards_point(ge.x,ge.y,skil_mo_mvs); sk_dra=2}
+else if(skil_mo_mv=2){speed=0}
+
+if skil_mo_lig!=0 and distance_to_object(ge)&gt;=skil_mo_lig{instance_destroy()}
+//시야밖? 죽음
+
+if skil_mo_ima&gt;0 and image_index&gt;=skil_mo_ima{image_index=0}
+}
+// 이동
+
+if sk_dra=0 and alarm[2]=-1{alarm[0]=1; sk_dra=-1}
+//그림 끝? 알람 발동!
+
+if alarm[2]=-1
+{
+if sk_dra!=-1{execute_string(skil_sskil)}
+
+if skil_die=0 and instance_number(obj_id)=0{instance_destroy()}
+//유닛죽으면 죽기
+
+if mo=3 or mo=4
+{
+if skil_mo_die=1 and instance_number(ge)=0{instance_destroy()}
+//클릭유닛죽으면 죽기
+}
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">기타</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

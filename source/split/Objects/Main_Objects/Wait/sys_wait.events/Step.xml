@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">fn_message_receive(global.socket)
+
+if !check{exit}
+
+if alarm[0]&gt;0
+{
+    while(1)
+    {
+        if alarm[0]&lt;current_time-(check_map_var*1000)
+        {
+            ds_list_add(sys_wait_key.key, room_speed*10)
+            ds_list_add(sys_wait_key.key, 9)
+            ds_list_add(sys_wait_key.key, "[SYSTEM] "+string(5-check_map_var)+" seconds to start the game.")
+            check_map_var+=1
+            if check_map_var=6
+            {
+                room_goto(mapid[map])
+                break;
+            }
+            sound_play(ml_sound0)
+            screen_redraw()
+        }
+        else{break}
+    }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

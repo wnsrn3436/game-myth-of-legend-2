@@ -1,0 +1,11 @@
+This folder holds the skills of the game
+
+
+ski_*.dlrc   =  contains the settings of a skill (1.txt; 1.gif)
+
+{
+
+1.txt is the settings of the skill
+1.gif is the image of the skill in the interface
+
+}

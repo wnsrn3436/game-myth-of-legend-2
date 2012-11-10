@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="54">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if !mouse_check
+{
+    for(i=0; i!=vab_unit; i+=1)
+    {
+        with(vab_unit_id[i])
+        {
+            if global.player_control=player
+            {
+                moni_go_waits=0
+                attack_waits=0
+                go_check=1
+                go_x=mouse_x
+                go_y=mouse_y
+                image_index=round(point_direction(x, y, go_x, go_y)/90)
+                
+                /*on*/buffer_clear(fnv_sned)
+                write_uint(fnv_sned, on)
+                write_uint(fnv_sned, go_x)
+                write_uint(fnv_sned, go_y)
+                write_uint(fnv_sned, x)
+                write_uint(fnv_sned, y)
+                fn_message_send(global.socket, send_other, 21)
+            }
+        }
+    }
+    if vab_unit=1
+    {
+        with(vab_unit_id[0])
+        {
+            if global.player_control=player and drag_ok=0 and skil_number&gt;0
+            {
+                if distance_to_point(mouse_x, mouse_y)&gt;1
+                {
+                    cre_go_x=mouse_x
+                    cre_go_y=mouse_y
+                    sys_inter.info_text=ml2_show_2
+                    sys_inter.alarm[0]=room_speed*2
+                }
+                else
+                {
+                    cre_go_x=0
+                    cre_go_y=0
+                    sys_inter.info_text=ml2_show_3
+                    sys_inter.alarm[0]=room_speed*2
+                }
+            }
+        }
+    }
+}
+
+instance_create(mouse_x, mouse_y, obj_etc)
+mouse_sie=0
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛이동, 집결지</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

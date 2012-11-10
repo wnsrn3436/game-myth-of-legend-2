@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="KEYBOARD" id="8">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if key_check
+{
+    if ime_get_string()="" and keyboard_string!=""
+    {
+        var i, str_len;
+        str_len=string_length(keyboard_string)
+        for(i=0; i&lt;str_len; i+=1){if(ord(string_copy(keyboard_string, i+1, 1))&gt;&gt;7)=1{i+=1}}
+        if(i&gt;str_len){keyboard_string=string_delete(keyboard_string, str_len, 1)}
+    }
+}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

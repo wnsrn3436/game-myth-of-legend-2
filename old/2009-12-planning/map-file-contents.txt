@@ -1,0 +1,24 @@
+What should a saved map file contain?
+
+The map info file
+
+The small map image (shown in the waiting room)
+
+The large map image (shown while loading)
+
+
+
+
+Terrain variables
+User terrain images
+
+Unit position variables
+User units
+
+User triggers
+
+User terrain objects
+
+User images
+
+User sounds

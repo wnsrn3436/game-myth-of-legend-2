@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">for(i=0;i&lt;24;i+=1)
+{
+_inst = instance_range_random(obj_spoint,9999999999999)
+_inst2 = instance_range_random(obj_spoint,9999999999999)
+
+if global.ca_ca=1{sk_cr_cag()}
+else
+{
+if _inst.team=_inst2.team and global.team_ca[_inst.team]=1{sk_cr_cag()}
+}
+
+}</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">위치바꿈</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_spoint)
+{
+if global.player_control=player_id{view_off()}
+//시점 맞추기
+global.cre_ch=1
+_inst=instance_create(x,y,obj_1)
+_inst.team=team
+_inst.player=player
+_inst.player_id=player_id
+global.p_op[player_id]+=_inst.pop
+global.mp_op[player_id]+=_inst.max_pop
+//
+global.cre_ch=1
+_inst=instance_create(x,y,obj_1)
+_inst.team=team
+_inst.player=player
+_inst.player_id=player_id
+global.p_op[player_id]+=_inst.pop
+global.mp_op[player_id]+=_inst.max_pop
+//
+global.cre_ch=1
+_inst=instance_create(x,y,obj_1)
+_inst.team=team
+_inst.player=player
+_inst.player_id=player_id
+global.p_op[player_id]+=_inst.pop
+global.mp_op[player_id]+=_inst.max_pop
+//
+//유닛 소환후 변수멕이기
+instance_destroy()
+}
+instance_destroy()</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛소환</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_dlrc_zip" type="RESOURCE"/>
+  <resource name="sk_dlrc_file_list" type="RESOURCE"/>
+  <resource name="sk_dlrc_file_list_2" type="RESOURCE"/>
+  <resource name="sk_dlrc_add" type="RESOURCE"/>
+  <resource name="sk_dlrc_add_2" type="RESOURCE"/>
+  <resource name="sk_dlrc_load" type="RESOURCE"/>
+  <resource name="sk_dlrc_extract" type="RESOURCE"/>
+  <resource name="sk_dlrc_extract_2" type="RESOURCE"/>
+  <resource name="sk_dlrc_delete" type="RESOURCE"/>
+  <resource name="sk_dlrc_delete_2" type="RESOURCE"/>
+  <resource name="sk_dlrc_inspection" type="RESOURCE"/>
+  <resource name="부속sk" type="GROUP"/>
+</resources>

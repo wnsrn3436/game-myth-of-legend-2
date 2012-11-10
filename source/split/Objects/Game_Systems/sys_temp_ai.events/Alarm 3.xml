@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="3">
+  <actions>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">공격주기</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_unit)
+{
+    if global.player_com[player]
+    {
+        if unit_s&gt;0 and !moni_go and drag_ok=1
+        {
+            if attack_waits=1
+            {
+                attack_unit=in_bbox_data_find(1, x, y, id, 99999)
+                if !instance_number(attack_unit)
+                {
+                    attack_unit=in_point_data_find(4, x, y, id, 99999)
+                    if instance_number(attack_unit)
+                    {
+                        attack_waits=4
+                    }
+                }
+                else
+                {
+                    attack_waits=4
+                }
+            }
+        }
+    }
+}
+
+alarm[3]=room_speed*400/global.player_com_ai
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

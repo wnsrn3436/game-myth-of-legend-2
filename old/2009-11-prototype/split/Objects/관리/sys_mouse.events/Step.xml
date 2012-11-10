@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">x=mouse_x
+y=mouse_y
+
+if !place_meeting(x,y,sys_interface)
+{
+ if global.attack=0
+ {
+ if place_meeting(x, y,obj_unit){action_set_cursor(spr_enter,0)}
+ else{action_set_cursor(spr_mouse,0)}
+ //닿으면 마우스변경
+ }
+}
+
+if global.attack=2
+{
+action_set_cursor(spr_attack_m,0)
+}
+//어택다운 마우스
+
+if global.attack=3
+{
+action_set_cursor(spr_sk_m,0)
+}
+//건물건설 마우스
+
+if global.attack=4
+{
+action_set_cursor(spr_sk_sk,0)
+}
+//스킬사용 마우스
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">마우스 변경관련</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if alarm[0]&gt;-1{alarm[0]-=1}
+//어택다운 알람
+if alarm[0]=-1 and global.attack=1
+{global.attack=0}
+//알람 다되면 어택다운 취소
+
+
+
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">알람관련</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">global.click_number=0; with(obj_fa_c){sprite_index=-1; obj_id=0}
+with(obj_cre_ca){sprite_index=-1; obj_id=0}
+with(obj_fa_expl){sprite_index=spr_sk; obj_id=0}
+//넘버 초기화
+with(obj_unit){if click=1{global.click_number+=1; click_number=global.click_number; if click_number&gt;8{click=0}}}
+//유닛 넘버 증가</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">기타</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

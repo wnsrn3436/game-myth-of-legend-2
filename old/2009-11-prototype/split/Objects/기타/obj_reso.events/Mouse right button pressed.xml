@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="5">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">R_r=5
+//깜빡이 키기
+with(obj_unit)
+{
+if click=1 and global.player_control=player_id and rococ&gt;0{Attack_choose=0; picking_state=1; obj_placed=other.id}
+}
+//유닛에게 자원캐기 명령</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

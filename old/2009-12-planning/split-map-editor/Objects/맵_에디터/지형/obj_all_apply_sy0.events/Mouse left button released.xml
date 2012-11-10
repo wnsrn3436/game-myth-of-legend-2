@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="7">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_choose_bar.chooses=0
+{
+if image_index=0
+{
+
+for (j = 0; j &lt; sys_back_fog.fhei; j += 1)
+{
+for (i = 0; i &lt; sys_back_fog.fwid; i += 1)
+{
+sys_back_fog.falp[i, j] = global._unit1.click_number;
+sys_back_fog.falp2[i, j] = real(obj_hill_set_sy0.bac_fog);
+sys_back_fog.falp2_c[i, j] = obj_hill_sec_sy0.bac_c
+sys_back_fog.falp_c[i, j] = 0
+
+if obj_choose_tri_sy0.chooses=0{sys_back_fog.falp_m[i, j]=round(random(sprite_get_number(global.spr_sys_tri[sys_back_fog.falp[i, j]])))}
+if obj_choose_tri_sy0.chooses=1{sys_back_fog.falp_m[i, j]=-1}
+}
+}
+
+sys_map_minimap.min_fri_time=0
+//미니맵 업데이트
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">츄스0</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if sys_choose_bar.chooses=1
+{
+if image_index=0
+{
+
+for (j = 0; j &lt; sys_back_fog.fhei; j += 1)
+{
+for (i = 0; i &lt; sys_back_fog.fwid; i += 1)
+{
+sys_back_fog.falp[i, j] = global._unit1.click_number;
+sys_back_fog.falp2[i, j] = real(obj_hill_set_sy0.bac_fog);
+sys_back_fog.falp2_c[i, j] = obj_hill_sec_sy0.bac_c
+sys_back_fog.falp_c[i, j] = 1
+
+if obj_choose_tri_sy0.chooses=0{sys_back_fog.falp_m[i, j]=round(random(sprite_get_number(global.spr_you_tri[sys_back_fog.falp[i, j]])))}
+if obj_choose_tri_sy0.chooses=1{sys_back_fog.falp_m[i, j]=-1}
+}
+}
+
+sys_map_minimap.min_fri_time=0
+//미니맵 업데이트
+}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">츄스1</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

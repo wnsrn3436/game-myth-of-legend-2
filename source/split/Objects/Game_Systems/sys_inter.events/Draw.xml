@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="DRAW" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">x=view_xview-10
+y=view_yview+180
+
+draw_sprite_ext(sprite_index, -1, x, y, 1, 1, image_angle, image_blend, image_alpha)
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">인터페이스</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+    if vab_unit=1
+    {
+        if instance_number(vab_unit_id[0])
+        {
+            draw_sprite_ext(global.unit_id_spr[vab_unit_id[0].unit_id, 0], 0, other.x+200, other.y+280, 30/sprite_get_width(global.unit_id_spr[vab_unit_id[0].unit_id, 0]), 30/sprite_get_height(global.unit_id_spr[vab_unit_id[0].unit_id, 0]), 0, -1, 1)
+            if vab_unit_id[0].unit_cre_number=0 or global.player_control!=vab_unit_id[0].player
+            {
+                draw_set_color(c_white)
+                draw_sprite(spr_name_ico, -1, other.x+230, other.y+260)
+                sex_draw_text(other.x+245, other.y+255, vab_unit_id[0].name)
+                //이름
+                draw_sprite(spr_hp_ico, -1, other.x+230, other.y+280)
+                draw_text(other.x+245, other.y+275, string(vab_unit_id[0].hp)+"/"+string(vab_unit_id[0].max_hp))
+                //체력
+                draw_sprite(spr_att_ico, -1, other.x+330, other.y+260)
+                draw_text(other.x+345, other.y+255, vab_unit_id[0].attack_power)
+                //공격력
+                draw_sprite(spr_mov_ico, -1, other.x+330, other.y+280)
+                draw_text(other.x+345, other.y+275, vab_unit_id[0].move_speed)
+                //이속
+                draw_sprite(spr_nf_ico, -1, other.x+430, other.y+260)
+                sk_udraw_color(vab_unit_id[0].player)
+                draw_text(other.x+445, other.y+253, "player : "+string(vab_unit_id[0].player))
+                draw_set_color(c_black)
+                //국가
+            }
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛얼굴(1인)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+    if vab_unit&gt;1
+    {
+        for(i=0; i!=vab_unit; i+=1)
+        {
+            if instance_number(vab_unit_id[i])
+            {
+                if !sk_mouse_check(other.x+195+(i*35), other.y+255, other.x+225+(i*35), other.y+285){draw_sprite_ext(global.unit_id_spr[vab_unit_id[i].unit_id, 0], 0, other.x+210+(i*35), other.y+270, 30/sprite_get_width(global.unit_id_spr[vab_unit_id[i].unit_id, 0]), 30/sprite_get_height(global.unit_id_spr[vab_unit_id[i].unit_id, 0]), 0, -1, 0.5)}
+                else{draw_sprite_ext(global.unit_id_spr[vab_unit_id[i].unit_id, 0], 0, other.x+210+(i*35), other.y+270, 30/sprite_get_width(global.unit_id_spr[vab_unit_id[i].unit_id, 0]), 30/sprite_get_height(global.unit_id_spr[vab_unit_id[i].unit_id, 0]), 0, -1, 1)}
+                draw_rectangle(other.x+195+(i*35), other.y+255, other.x+225+(i*35), other.y+285, 1)
+                draw_set_color(c_red)
+                gauge_bar(vab_unit_id[i].hp, vab_unit_id[i].max_hp, other.x+195+(i*35), other.y+287, other.x+225+(i*35), other.y+290, 0)
+                draw_set_color(c_black)
+                gauge_bar_back(other.x+195+(i*35), other.y+287, other.x+225+(i*35), other.y+290, 0)
+            }
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">유닛얼굴(다수)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">draw_sprite(spr_moni_spr, -1, x+415, y+238)
+draw_text(x+431, y+233, global.player_moni[global.player_control])
+//moni
+
+draw_set_color(c_white)
+draw_text(view_xview+view_wview-45, view_yview+10, "FPS : "+string(fps))
+//fps
+
+if global.player_com_ai
+{
+    draw_text(view_xview+5, view_yview+10, "AI : "+string(global.player_com_ai_sting[global.player_com_ai-1]))
+    /*
+    draw_text(view_xview+5, view_yview+30, "Make Worker : "+string(floor(sys_temp_ai.alarm[0]/room_speed)))
+    draw_text(view_xview+5, view_yview+50, "Make Unit : "+string(floor(sys_temp_ai.alarm[1]/room_speed)))
+    draw_text(view_xview+5, view_yview+70, "Make Bil : "+string(floor(sys_temp_ai.alarm[2]/room_speed)))
+    draw_text(view_xview+5, view_yview+90, "Attack : "+string(floor(sys_temp_ai.alarm[3]/room_speed)))
+    */
+}
+//ai
+
+draw_set_color(c_black)
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">돈, FPS, AI 드로우</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+    if vab_unit=1
+    {
+        if instance_number(vab_unit_id[0])
+        {
+            if global.player_control=vab_unit_id[0].player
+            {
+                var k;
+                k=other.y+152
+                for(i=0; i!=vab_unit_id[0].skil_number; i+=1)
+                {
+                    for(j=0; j!=3; j+=1)
+                    {
+                        if i+j&gt;=vab_unit_id[0].skil_number{break}
+                        if !sk_mouse_check(other.x+531+(j*37), k-15, other.x+563+(j*37), k+15){draw_sprite_ext(global.unit_id_spr[vab_unit_id[0].skil_id[i+j], 0], 0, other.x+547+(j*37), k, 30/sprite_get_width(global.unit_id_spr[vab_unit_id[0].skil_id[i+j], 0]), 30/sprite_get_height(global.unit_id_spr[vab_unit_id[0].skil_id[i+j], 0]), 0, -1, 0.8)}
+                        else{draw_sprite_ext(global.unit_id_spr[vab_unit_id[0].skil_id[i+j], 0], 0, other.x+547+(j*37), k, 30/sprite_get_width(global.unit_id_spr[vab_unit_id[0].skil_id[i+j], 0]), 30/sprite_get_height(global.unit_id_spr[vab_unit_id[0].skil_id[i+j], 0]), 0, -1, 1)}
+                    }
+                    i+=j-1
+                    if i&gt;=vab_unit_id[0].skil_number{break}
+                    k+=35
+                }
+            }
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스킬얼굴드로우</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+    var oks;
+    oks=0
+    if vab_unit=1
+    {
+        if instance_number(vab_unit_id[0])
+        {
+            if global.player_control=vab_unit_id[0].player
+            {
+                var k;
+                k=other.y+152
+                for(i=0; i!=vab_unit_id[0].skil_number; i+=1)
+                {
+                    for(j=0; j!=3; j+=1)
+                    {
+                        if i+j&gt;=vab_unit_id[0].skil_number{break}
+                        if sk_mouse_check(other.x+531+(j*37), k-15, other.x+563+(j*37), k+15)
+                        {
+                            draw_sprite_ext(spr_int_expl_p, -1, other.x+570, other.y+112, 1, 1, 0, -1, 0.6)
+                            draw_sprite_ext(spr_moni_spr, -1, other.x+480, other.y+110, 1, 1, 0, -1, 0.8)
+                            if global.units_moni[vab_unit_id[0].skil_id[i+j]]&gt;global.player_moni[global.player_control]
+                            {
+                                draw_set_color(c_red)
+                                draw_text(other.x+496, other.y+105, global.units_moni[vab_unit_id[0].skil_id[i+j]])
+                            }
+                            else
+                            {
+                                draw_set_color(c_aqua)
+                                draw_text(other.x+496, other.y+105, global.units_moni[vab_unit_id[0].skil_id[i+j]])
+                            }
+                            draw_set_color(c_black)
+                            oks=1
+                            break
+                        }
+                    }
+                    if oks=1{break}
+                    i+=j-1
+                    if i&gt;=vab_unit_id[0].skil_number{break}
+                    k+=35
+                }
+            }
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">스킬돈드로우</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+    if vab_unit=1
+    {
+        if instance_number(vab_unit_id[0])
+        {
+            if vab_unit_id[0].unit_cre_number&gt;0 and global.player_control=vab_unit_id[0].player
+            {
+                if !sk_mouse_check(other.x+235, other.y+255, other.x+265, other.y+285){draw_sprite_ext(global.unit_id_spr[vab_unit_id[0].unit_cre_id[0], 0], 0, other.x+250, other.y+270, 30/sprite_get_width(global.unit_id_spr[vab_unit_id[0].unit_cre_id[0], 0]), 30/sprite_get_height(global.unit_id_spr[vab_unit_id[0].unit_cre_id[0], 0]), 0, -1, 0.5)}
+                else{draw_sprite_ext(global.unit_id_spr[vab_unit_id[0].unit_cre_id[0], 0], 0, other.x+250, other.y+270, 30/sprite_get_width(global.unit_id_spr[vab_unit_id[0].unit_cre_id[0], 0]), 30/sprite_get_height(global.unit_id_spr[vab_unit_id[0].unit_cre_id[0], 0]), 0, -1, 1)}
+                draw_rectangle(other.x+235, other.y+255, other.x+265, other.y+285, 1)
+                draw_set_color(c_red)
+                gauge_bar(global.moni_alarm[vab_unit_id[0].unit_cre_id[0]]-vab_unit_id[0].unit_cre_time, global.moni_alarm[vab_unit_id[0].unit_cre_id[0]], other.x+270, other.y+260, other.x+310, other.y+265, 0)
+                draw_set_color(c_black)
+                gauge_bar_back(other.x+270, other.y+260, other.x+310, other.y+265, 0)
+            }
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">생산 얼굴 드로우(생산중)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(sys_mouse)
+{
+    if vab_unit=1
+    {
+        if instance_number(vab_unit_id[0])
+        {
+            if vab_unit_id[0].unit_cre_number&gt;1 and global.player_control=vab_unit_id[0].player
+            {
+                for(i=1; i!=vab_unit_id[0].unit_cre_number; i+=1)
+                {
+                    if !sk_mouse_check(other.x+300+(i*35), other.y+265, other.x+330+(i*35), other.y+295){draw_sprite_ext(global.unit_id_spr[vab_unit_id[0].unit_cre_id[i], 0], 0, other.x+315+(i*35), other.y+280, 30/sprite_get_width(global.unit_id_spr[vab_unit_id[0].unit_cre_id[i], 0]), 30/sprite_get_height(global.unit_id_spr[vab_unit_id[0].unit_cre_id[i], 0]), 0, -1, 0.5)}
+                    else{draw_sprite_ext(global.unit_id_spr[vab_unit_id[0].unit_cre_id[i], 0], 0, other.x+315+(i*35), other.y+280, 30/sprite_get_width(global.unit_id_spr[vab_unit_id[0].unit_cre_id[i], 0]), 30/sprite_get_height(global.unit_id_spr[vab_unit_id[0].unit_cre_id[i], 0]), 0, -1, 1)}
+                }
+            }
+        }
+    }
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">생산 얼굴 드로우(대기중)</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if alarm[0]&gt;0
+{
+    draw_set_alpha(alarm[0]/(room_speed*2))
+    draw_set_color(c_white)
+    sex_set_font(1, fa_middle, fa_middle)
+    sex_draw_text((bbox_right+bbox_left)/2, bbox_bottom-100, info_text)
+    sex_set_font(1, fa_left, fa_middle)
+    draw_set_color(c_black)
+    draw_set_alpha(1)
+} 
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">INFO Text</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

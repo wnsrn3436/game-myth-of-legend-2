@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="obj_main_bgm" type="RESOURCE"/>
+  <resource name="obj_game_bgm" type="RESOURCE"/>
+  <resource name="obj_make" type="RESOURCE"/>
+  <resource name="obj_join" type="RESOURCE"/>
+  <resource name="obj_sing" type="RESOURCE"/>
+  <resource name="obj_rm" type="RESOURCE"/>
+  <resource name="sys_on_room" type="RESOURCE"/>
+  <resource name="obj_start" type="RESOURCE"/>
+  <resource name="obj_team_1" type="RESOURCE"/>
+  <resource name="obj_team_2" type="RESOURCE"/>
+  <resource name="obj_wow_1" type="RESOURCE"/>
+  <resource name="obj_wow_2" type="RESOURCE"/>
+  <resource name="obj_map" type="RESOURCE"/>
+</resources>

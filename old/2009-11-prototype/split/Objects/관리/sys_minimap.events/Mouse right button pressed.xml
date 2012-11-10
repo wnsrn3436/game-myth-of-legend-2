@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="5">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">with(obj_unit)
+{
+if click=1 and global.player_control=player_id and distinction!=3
+{
+sc_move(0)
+move_x = max(0, (mouse_x - other.x_loc)/other.xscale)
+move_y = max(0, (mouse_y - other.y_loc)/other.yscale)
+}
+if click=1 and global.player_control=player_id
+{
+if assa2=1
+{
+assa_x=max(0,(mouse_x - other.x_loc)/other.xscale)
+assa_y=max(0, (mouse_y - other.y_loc)/other.yscale)
+massge_expo(14,'')
+}
+}
+//집결지
+}
+//유닛 이동</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

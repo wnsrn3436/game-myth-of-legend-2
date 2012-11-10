@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="STEP" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if 0-90&gt;xx{xx=0-90}
+if 640-20&lt;xx{xx=640-20}
+
+if 0-90&gt;yy{yy=0-90}
+if 480-20&lt;yy{yy=480-20}
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

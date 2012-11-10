@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sys_var" type="RESOURCE"/>
+  <resource name="sys_on_sys" type="RESOURCE"/>
+  <resource name="sys_minimap" type="RESOURCE"/>
+  <resource name="sys_inter" type="RESOURCE"/>
+  <resource name="sys_key" type="RESOURCE"/>
+  <resource name="sys_mouse" type="RESOURCE"/>
+  <resource name="sys_hp_draw" type="RESOURCE"/>
+  <resource name="sys_fog" type="RESOURCE"/>
+  <resource name="obj_unit" type="RESOURCE"/>
+  <resource name="obj_bullet" type="RESOURCE"/>
+  <resource name="obj_moni" type="RESOURCE"/>
+  <resource name="sys_cir_draw" type="RESOURCE"/>
+  <resource name="obj_spoint0" type="RESOURCE"/>
+  <resource name="obj_spoint1" type="RESOURCE"/>
+  <resource name="obj_spoint2" type="RESOURCE"/>
+  <resource name="obj_spoint3" type="RESOURCE"/>
+  <resource name="obj_spoint4" type="RESOURCE"/>
+  <resource name="obj_spoint5" type="RESOURCE"/>
+  <resource name="obj_spoint6" type="RESOURCE"/>
+  <resource name="obj_spoint7" type="RESOURCE"/>
+  <resource name="obj_etc" type="RESOURCE"/>
+  <resource name="obj_bil" type="RESOURCE"/>
+  <resource name="온라인관련" type="GROUP"/>
+  <resource name="제작진" type="GROUP"/>
+</resources>

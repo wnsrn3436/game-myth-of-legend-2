@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="MOUSE" id="54">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">instance_create(mouse_x,mouse_y,obj_click)
+//이동표시 오브젝 생성
+
+if global.attack!=0
+{
+global.attack=0; action_set_cursor(spr_mouse,0)
+}
+//어택다운 취소 실행</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

@@ -1,0 +1,13 @@
+This folder holds the other images of the game
+
+
+pic_*.dlrc   =  contains other images
+(after decrypting, a zip extension file that is really a gif comes out)
+
+
+
+
+
+*
+---contents---
+*
